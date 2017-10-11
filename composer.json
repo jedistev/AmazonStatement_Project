@@ -1,0 +1,13 @@
+{
+    "name": "vendor/amazon-statement",
+    "description": "Description of project Amazon-Statement.",
+    "authors": [
+        {
+            "name": "Steven Smith",
+            "email": "steven.smith@ishka.ie"
+        }
+    ],
+    "require": {
+            "php-console/php-console": "^3.1"
+    }
+}
