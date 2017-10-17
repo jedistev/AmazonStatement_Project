@@ -88,7 +88,6 @@ $alltotalFBAperUnits = mysqli_query($conn, $sqlTotalFBAperUnits);
 $sqlTotoalGoodwill ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'Goodwill'";
 $allTotalGoodwill = mysqli_query($conn, $sqlTotoalGoodwill);
 
-
 //Total Refund Commission
 $sqlTotalAmountRefundCommission ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'RefundCommission'";
 $allTotalAmountRefundCommission = mysqli_query($conn, $sqlTotalAmountRefundCommission);
@@ -97,21 +96,13 @@ $allTotalAmountRefundCommission = mysqli_query($conn, $sqlTotalAmountRefundCommi
 $sqlTotalCostAdvert ="SELECT amount_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements where amount_type='Cost of Advertising'";
 $alltotalCostAdvert = mysqli_query($conn, $sqlTotalCostAdvert);
 
+//Total Cost of Principle
+$sqlTotalCostPrincipal ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'Principal'";
+$alltotalCostPrincipal = mysqli_query($conn, $sqlTotalCostPrincipal);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Total Cost of Shipping
+$sqlTotalCostShipping ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'Shipping'";
+$alltotalCostShipping = mysqli_query($conn, $sqlTotalCostShipping);
 
 //for upload CSV
 include('upload-functions.php');
@@ -247,6 +238,7 @@ include('upload-functions.php');
                         <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
                             <div class="caption">
                                 <div class="caption-content">
+                                    <p>Range of Settlement Total</p>
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
@@ -882,7 +874,45 @@ include('upload-functions.php');
                                 </tbody>  
                             </table>
 
-                            
+                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                                <thead>  
+                                    <tr style="font-weight: bold;"> 
+                                        <th>Total of Principe</th>
+                                    </tr>  
+                                </thead>  
+                                <tbody> 
+                                    <?php
+                                    // total all together
+                                    while ($row = mysqli_fetch_array($alltotalCostPrincipal)) {
+                                        ?>  
+                                        <tr class="table-smaller-text"> 
+                                            <td><?php echo $row["amount_sum"]; ?></td> 
+                                        </tr>  
+                                        <?php
+                                    };
+                                    ?>
+                                </tbody>  
+                            </table>
+
+                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                                <thead>  
+                                    <tr style="font-weight: bold;"> 
+                                        <th>Total of Shipping</th>
+                                    </tr>  
+                                </thead>  
+                                <tbody> 
+                                    <?php
+                                    // total all together
+                                    while ($row = mysqli_fetch_array($alltotalCostShipping)) {
+                                        ?>  
+                                        <tr class="table-smaller-text"> 
+                                            <td><?php echo $row["amount_sum"]; ?></td> 
+                                        </tr>  
+                                        <?php
+                                    };
+                                    ?>
+                                </tbody>  
+                            </table>
                             </p>
                             
 
@@ -908,37 +938,12 @@ include('upload-functions.php');
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>Show all table </h2>
+                            <h2>Settlement Total</h2>
                             <hr class="star-primary">
                             <img class="img-fluid img-centered" src="img/portfolio/submarine.png" alt="">
                             <p>
-                                Show all tables in SQL Database
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold;">  <h4>Total List of Breakdown</h4>  
-                                <th>Settlement ID </th>
-                                <th>Amount Description</th>
-                                <th>Amount type</th>
-                                <th>Amount</th>
-                                </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allPrincipal)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["Settlement_ID"]; ?></td> 
-                                            <td><?php echo $row["amount_description"]; ?></td> 
-                                            <td><?php echo $row["amount_type"]; ?></td> 
-                                            <td><?php echo $row["amount"]; ?></td> 
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                </tbody>  
-                            </table>  
+                                Show all Settlement in Database<br>
+                               <a href="<?php echo 'each_settlement.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
 
                             </p>
 
