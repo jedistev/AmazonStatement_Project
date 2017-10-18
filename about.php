@@ -8,7 +8,7 @@
                 <p>Amazon Statement database project. part of the CRUD, displayed, Edit, View,on Amazon Statement Flatfile</p>
             </div>
             <div class="col-lg-4 mr-auto">
-                <p>this project is build for Ishka and Monhike only, this is an strict internal only</p>
+                <p>this project is build for display an Amazon All Statement Report.</p>
             </div>
         </div>
     </div>
