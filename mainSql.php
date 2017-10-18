@@ -11,6 +11,10 @@ if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
 }
+
+//all table 
+$sql = "SELECT * FROM settlements";
+
 //sku model list   
 $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlements');
 
@@ -108,5 +112,12 @@ $alltotalCostShipping = mysqli_query($conn, $sqlTotalCostShipping);
 //Total Cost of Storage Fee
 $sqlTotalCostStorage ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'Storage fee'";
 $allTotalCostStorage = mysqli_query($conn, $sqlTotalCostStorage);
+
+//dropdown Settlement
+$sqlDropDownSettlementID = "SELECT  settlement_id FROM `settlements` where total_amount";
+$DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
+
+//all table 
+$sql = "SELECT * FROM settlements";
 
 ?>
