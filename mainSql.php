@@ -66,11 +66,11 @@ $sqlStatmentfund ="SELECT settlement_id ,  transaction_type, currency, sum(COALE
 $eachStatmentRefund = mysqli_query($conn, $sqlStatmentfund);
 
 //Warehouse Damage Total 
-$sqlWarehouseDamageTotal ="SELECT transaction_type, amount_description, SUM(amount) AS`amount_sum` FROM settlements WHERE amount_description = 'WAREHOUSE_DAMAGE'";
+$sqlWarehouseDamageTotal ="SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'WAREHOUSE_DAMAGE'";
 $allWarehouseDamageTotal = mysqli_query($conn, $sqlWarehouseDamageTotal);
 
 //Total Reversal Reimbursement
-$sqlTotalReversalReimbursement ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
+$sqlTotalReversalReimbursement ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`Reversal_amount_sum` FROM settlements WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
 $allTotalReversalReimbursement = mysqli_query($conn, $sqlTotalReversalReimbursement);
 
 //Total Refund Commission 
@@ -120,6 +120,22 @@ $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
 //SKU model sold
 $sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold From settlements Where amount_description ='Principal' Group by sku ORDER BY sku_sold DESC";
 $allSkuModelSold =mysqli_query($conn, $sqlSkuModelSold);
+
+//RemovalComplete total
+$sqlTotalRemovalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'RemovalComplete'";
+$allTotalRemovalComplete = mysqli_query($conn, $sqlTotalRemovalComplete);
+
+//Finally Settlement Balance
+$sqlTotalamountSettlement ="select settlement_start_date,settlement_end_date, total_amount from settlements WHERE `total_amount`";
+$SettlementTotalAmount = mysqli_query($conn, $sqlTotalamountSettlement);
+
+//totalbalance
+$sqlTotalMatch= "Select total_amount, Sum(amount) AS match_amount_sum from settlements";
+$totalMatchResult = mysqli_query($conn, $sqlTotalMatch);
+
+//finallmatchbalance
+$sqlbalancematch ="Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlements";
+$allbalanceTotal = mysqli_query($conn, $sqlbalancematch);
 
 
 ?>

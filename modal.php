@@ -380,7 +380,7 @@
                                     while ($row = mysqli_fetch_array($allTotalReversalReimbursement)) {
                                         ?>  
                                         <tr class="table-smaller-text"> 
-                                            <td><?php echo $row["amount_sum"]; ?></td> 
+                                            <td><?php echo $row["Reversal_amount_sum"]; ?></td> 
                                         </tr>  
                                         <?php
                                     };
@@ -594,7 +594,6 @@
                         <div class="modal-body">
                             <h2>Settlement Total</h2>
                             <hr class="star-primary">
-                            <img class="img-fluid img-centered" src="img/portfolio/submarine.png" alt="">
                             <p>
                                 Show all Settlement in Database<br>
                                <a href="<?php echo 'each_settlement.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
