@@ -60,51 +60,51 @@ include ('mainSql.php');
                       // total all together
                     while ($row = mysqli_fetch_array($allamountresult)) {
                         ?>  
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Order</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Chargeback Refund</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Refund</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Service fee (advertising)</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Payable to Amazon</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Disposal Complete</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Storage Fee</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Successful Charge</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Storage Renewal Billing</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr> 
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Reversal Reimbursement</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Missing From Inbound</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
-                        <tr style="font-size: 11px font-weight: bold;">    
+                        <tr  Class="table-header-total">    
                             <th>Warehouse Damage</th>
                             <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                         </tr>
