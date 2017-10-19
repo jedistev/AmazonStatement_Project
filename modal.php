@@ -760,3 +760,112 @@
         </div>
     </div>
 </div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>Sku Model Sold</h2>
+                            <hr class="star-primary">
+                            <p>
+                               <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                                <thead>  
+                                    <tr style="font-size: 11px; font-weight: bold;">  <h4>total Sku sold</h4>  
+                                <th>Sku</th>
+                                <th>Sku Sold</th>
+                                </tr>  
+                                </thead>  
+                                <tbody> 
+                                    <?php
+                                    // total all together
+                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
+                                        ?>  
+                                        <tr class="table-smaller-text">  
+
+                                            <td><?php echo $row["sku"]; ?></td>
+                                            <td><?php echo $row["sku_sold"]; ?></td>
+                                        </tr>  
+                                        <?php
+                                    };
+                                    ?>
+                                </tbody>  
+                            </table>  
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal11" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>total Settlement Breakdown</h2>
+                            <hr class="star-primary">
+                           <p> Show all Settlement in Database<br>
+                               <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Total settlement Breakdown</a><br>
+
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>stuff goes there</h2>
+                            <hr class="star-primary">
+                            <p>
+                                insert stuff there
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
