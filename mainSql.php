@@ -117,7 +117,9 @@ $allTotalCostStorage = mysqli_query($conn, $sqlTotalCostStorage);
 $sqlDropDownSettlementID = "SELECT  settlement_id FROM `settlements` where total_amount";
 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
 
-//all table 
-$sql = "SELECT * FROM settlements";
+//SKU model sold
+$sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold From settlements Where amount_description ='Principal' Group by sku ORDER BY sku_sold DESC";
+$allSkuModelSold =mysqli_query($conn, $sqlSkuModelSold);
+
 
 ?>

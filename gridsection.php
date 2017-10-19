@@ -34,7 +34,7 @@
                                     <i class="fa fa-search-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" src="img/portfolio/circus.png" alt="">
+                            <img class="img-fluid" src="img/portfolio/sku.png" alt="">
                         </a>
                     </div>
                     <div class="col-sm-4 portfolio-item">
@@ -101,6 +101,40 @@
                                 </div>
                             </div>
                             <img class="img-fluid" src="img/portfolio/amazon.png" alt="">
+
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a class="portfolio-link" href="#portfolioModal10" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <p>SKU Model Sold </p>
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="img/portfolio/cake.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a class="portfolio-link" href="#portfolioModal11" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <p>Total Settlement Breakdown</p>
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="img/portfolio/guide.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-sm-4 portfolio-item">
+                        <a class="portfolio-link" href="#portfolioModal12" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <p>stuff goes there</p>
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" src="img/portfolio/circus.png" alt="">
 
                         </a>
                     </div>
