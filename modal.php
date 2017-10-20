@@ -777,9 +777,11 @@
                             <p>
                                <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold;">  <h4>total Sku sold</h4>  
+                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  total Sku sold 
                                 <th>Sku</th>
                                 <th>Sku Sold</th>
+                                <th>current</th>
+                                <th>Sku Sold total</th>
                                 </tr>  
                                 </thead>  
                                 <tbody> 
@@ -791,6 +793,8 @@
 
                                             <td><?php echo $row["sku"]; ?></td>
                                             <td><?php echo $row["sku_sold"]; ?></td>
+                                            <td>£ GBP</td>
+                                            <td><?php echo $row["sku_sold_each"]; ?></td>
                                         </tr>  
                                         <?php
                                     };
