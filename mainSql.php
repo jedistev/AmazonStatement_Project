@@ -118,12 +118,16 @@ $sqlDropDownSettlementID = "SELECT  settlement_id FROM `settlements` where total
 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
 
 //SKU model sold
-$sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold From settlements Where amount_description ='Principal' Group by sku ORDER BY sku_sold DESC";
+$sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold, Sum(`amount`) as sku_sold_each From settlements Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
 $allSkuModelSold =mysqli_query($conn, $sqlSkuModelSold);
 
 //RemovalComplete total
 $sqlTotalRemovalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'RemovalComplete'";
 $allTotalRemovalComplete = mysqli_query($conn, $sqlTotalRemovalComplete);
+
+//DisposalComplete Total
+$sqlTotalDisposalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'DisposalComplete'";
+$allTotalDisposalComplete = mysqli_query($conn, $sqlTotalDisposalComplete);
 
 //Finally Settlement Balance
 $sqlTotalamountSettlement ="select settlement_start_date,settlement_end_date, total_amount from settlements WHERE `total_amount`";
@@ -137,5 +141,11 @@ $totalMatchResult = mysqli_query($conn, $sqlTotalMatch);
 $sqlbalancematch ="Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlements";
 $allbalanceTotal = mysqli_query($conn, $sqlbalancematch);
 
+//subscription fee
+$sqlSubscriptionFee ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'Subscription Fee'";
+$allSubscriptionFee = mysqli_query($conn, $sqlSubscriptionFee);
 
+//Storage Renewal Billing total
+$sqlStorageRenewalBilling ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'StorageRenewalBilling'";
+$allStorageRenewalBilling = mysqli_query($conn, $sqlStorageRenewalBilling);
 ?>

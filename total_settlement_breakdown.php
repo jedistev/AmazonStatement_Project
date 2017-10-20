@@ -70,14 +70,15 @@ include ('mainSql.php');
                         ?> 
                     </tr> 
                     <tr  Class="table-header-total">    
-                        <th>Chargeback Refund</th>
+                        <!-- not sure if will be used or not --> 
+                        <!--<th>Chargeback Refund</th>-->
                         <?php
-                        // total Chargeback
-                        while ($row = mysqli_fetch_array($allShippingChargeback)) {
-                            ?>  
-                            <td  class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td> 
+                        // total shipping Chargeback
+                       // while ($row = mysqli_fetch_array($allShippingChargeback)) {
+                        //    ?>  
+                         <!--  <td  class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td> -->
                             <?php
-                        };
+                       // };
                         ?>  
                     </tr> 
                     <tr  Class="table-header-total">    
@@ -108,7 +109,14 @@ include ('mainSql.php');
                     </tr>
                     <tr  Class="table-header-total">    
                         <th>Disposal Complete</th>
-                        <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
+                        <?php
+                        // total Removal Complete
+                        while ($row = mysqli_fetch_array($allTotalDisposalComplete)) {
+                            ?>  
+                            <td  class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td> 
+                            <?php
+                        };
+                        ?>  
                     </tr>
                     <tr  Class="table-header-total">    
                         <th>Removal Complete</th>
@@ -121,6 +129,18 @@ include ('mainSql.php');
                         };
                         ?> 
                     </tr>
+                     <tr  Class="table-header-total">    
+                        <th>Subscription Fee</th>
+                        <?php
+                        // total Subscription fee
+                        while ($row = mysqli_fetch_array($allSubscriptionFee)) {
+                            ?>  
+                            <td  class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td> 
+                            <?php
+                        };
+                        ?> 
+                    </tr>
+                    
                     <tr  Class="table-header-total">    
                         <th>Storage Fee</th>
                         <?php
@@ -133,7 +153,7 @@ include ('mainSql.php');
                         };
                         ?> 
                     </tr>
-                    <tr  Class="table-header-total">    
+                    <!--<tr  Class="table-header-total">    
                         <th>Successful Charge</th>
                         <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                     </tr> 
@@ -141,7 +161,7 @@ include ('mainSql.php');
                         <th>Storage Renewal Billing</th>
                         <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td> 
                     </tr> 
-                    <tr  Class="table-header-total">    
+                    <tr  Class="table-header-total">  -->  
                         <th>Reversal Reimbursement</th>
                         <?php
                         // total all together
@@ -152,17 +172,18 @@ include ('mainSql.php');
                         };
                         ?>
                     </tr>
-                    <tr  Class="table-header-total">    
+                    <!-- Not Sure but can be use later stage
+                        <tr  Class="table-header-total">    
                         <th>Missing From Inbound</th>
-
-                    </tr>
+                        <td class="table-smaller-text">0.00</td> 
+                    </tr>-->
                     <tr  Class="table-header-total">  
                         <th>Warehouse Damage</th>
                         <?php
                         // total all together
                         while ($row = mysqli_fetch_array($allWarehouseDamageTotal)) {
                             ?>  
-                            <td class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td>  
+                            <td class="table-smaller-text"><?php echo $row["amount_sum"]; ?></td> 
                             <?php
                         };
                         ?>
