@@ -125,21 +125,66 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/guide.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/gb.png" alt="">
                 </a>
             </div>
+
             <div class="col-sm-4 portfolio-item">
-                <a class="portfolio-link" href="#portfolioModal12" data-toggle="modal">
+                <a class="portfolio-link" href="#portfolioModal13" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>stuff goes there</p>
+                            <p>H-root Germany total</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/circus.png" alt="">
-
+                    <img class="img-fluid" src="img/portfolio/ger.png" alt="">
                 </a>
             </div>
+            <div class="col-sm-4 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModal14" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>H-root France total</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/fra.png" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModal15" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>H-root Italy total</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/italy.png" alt="">
+                </a>
+            </div>
+            <div class="col-sm-4 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModal16" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>H-root Spain total</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/esp.png" alt="">
+                </a>
+            </div>
+                        <div class="col-sm-4 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModal17" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>H-root All Europe total<br> Coming soon</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/eu.png" alt="">
+                </a>
+            </div>
+            
         </div>
     </div>
 </div>

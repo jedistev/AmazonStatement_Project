@@ -826,9 +826,9 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>total Settlement Breakdown</h2>
+                            <h2>UK total Settlement Breakdown</h2>
                             <hr class="star-primary">
-                           <p> Show all Settlement in Database<br>
+                           <p> UK total Settlement in Database<br>
                                <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Total settlement Breakdown</a><br>
 
                             </p>
@@ -859,7 +859,123 @@
                             <h2>stuff goes there</h2>
                             <hr class="star-primary">
                             <p>
-                                insert stuff there
+                                 <a href="<?php echo 'dropdown.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal13" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root Germany </h2>
+                            <hr class="star-primary">
+                            <p>
+                                 <a href="<?php echo 'total_settlement_breakdown-de.php'; ?>" class="btn btn-lg btn-default">Germany settle Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal14" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root France </h2>
+                            <hr class="star-primary">
+                            <p>
+                                 <a href="<?php echo 'total_settlement_breakdown-fr.php'; ?>" class="btn btn-lg btn-default">France Settlement Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal15" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root Italy </h2>
+                            <hr class="star-primary">
+                            <p>
+                                 <a href="<?php echo 'total_settlement_breakdown-it.php'; ?>" class="btn btn-lg btn-default">Italy Settlement Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal16" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root Spain</h2>
+                            <hr class="star-primary">
+                            <p>
+                                 <a href="<?php echo 'total_settlement_breakdown-esp.php'; ?>" class="btn btn-lg btn-default">Spain Settlement Section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">

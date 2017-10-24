@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('mainSql.php');
+include ('mainSql-fr.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +35,10 @@ include ('mainSql.php');
         <?php include 'nav.php'; ?>
         <?php include 'header.php'; ?>
         <!--Each Settlement goes there -->
-
+        
         <div class="container">
             <br>
+            <label>Total Breakdown for France H-root</label>
             <br>
             <!-- <form class="form-horizontal">
                   <div class="form-group">

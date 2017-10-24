@@ -114,7 +114,7 @@ $sqlTotalCostStorage ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS
 $allTotalCostStorage = mysqli_query($conn, $sqlTotalCostStorage);
 
 //dropdown Settlement
-$sqlDropDownSettlementID = "SELECT  settlement_id FROM `settlements` where total_amount";
+$sqlDropDownSettlementID = "SELECT * FROM `settlements` where total_amount";
 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
 
 //SKU model sold
@@ -148,4 +148,22 @@ $allSubscriptionFee = mysqli_query($conn, $sqlSubscriptionFee);
 //Storage Renewal Billing total
 $sqlStorageRenewalBilling ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE amount_description = 'StorageRenewalBilling'";
 $allStorageRenewalBilling = mysqli_query($conn, $sqlStorageRenewalBilling);
+
+//rburiesnet list 
+$sqlSkuReversal ="SELECT amount_description, sku FROM settlements WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
+$allskuReversal = mysqli_query($conn, $sqlSkuReversal);
+
+//Lightning Deal Fee Amazon
+$sqlLightningDealFee ="SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlements WHERE transaction_type = 'Lightning Deal Fee'";
+$allLightningDealFee = mysqli_query($conn, $sqlLightningDealFee);
+
+//Getting setltlement name sent by Post method
+$sql_dropdownlist = "select settlement_id, settlement_start_date, settlement_end_date, deposit_date, currency, total_amount from settlements where settlement_start_date and settlement_id = '" .$allsettlementreport ."'"; 
+$alldropdownlist = mysqli_query( $conn, $sql_dropdownlist);
+ 
+if(! $alldropdownlist )
+{
+  die('Could not retrieve data: ' . mysql_error());
+}
+ 
 ?>
