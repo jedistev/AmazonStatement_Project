@@ -16,6 +16,8 @@ include ('mainSql.php');
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/freelancer.min.css" rel="stylesheet">
+        <link href="css/ishka.css" rel="stylesheet">
 
         <!-- Custom fonts for this template -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -23,8 +25,8 @@ include ('mainSql.php');
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
-        <link href="css/freelancer.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/ishka.css" />
+        
+       
 
     </head>
 
@@ -34,9 +36,11 @@ include ('mainSql.php');
         <!--Each Settlement goes there -->
 
         <div class="container">
+
             <br>
             <br>
             <?php
+
             //load_data_select.php  
             function fill_settlement($conn) {
                 $output = '';
@@ -47,42 +51,27 @@ include ('mainSql.php');
                 }
                 return $output;
             }
-            function fill_product($connect) {
-                $output = '';
-                $sql = "SELECT * FROM `settlements` where total_amount";
-                $result = mysqli_query($connect, $sql);
-                while ($row = mysqli_fetch_array($result)) {
-                    $output .= '<div class="col-md-3">';
-                    $output .= '<div style="border:1px solid #ccc; padding:20px; margin-bottom:20px;">' . $row["total_amount"] . '';
 
-                    $output .= '</div>';
-                    $output .= '</div>';
-                }
-                return $output;
-            }
             ?>  
-
             <div class="container">  
                 <label class="col-sm-3 control-label">Settlement ID</label>
-                 <div class="col-sm-3">
-                <select class="form-control" name="Settlement" id="Settlement">  
+                <div class="col-sm-9">
+               
+                <select id="selproduct">
                     <option value="">Show All Product</option>  
                     <?php echo fill_settlement($conn); ?>  
                 </select> 
-                 </div>
-                <br /><br />  
-                <div class="row" id="show_product">  
-                    <?php echo fill_product($conn); ?>  
-                </div>  
-
+                <button class="btn btn-primary left-space-button" id="getSettlementbutton">Settlement details</button>  
+            </div>
+            <div id="presentprod"></div> 
+                <br><br>  
             </div>  
-
         </div>
         <?php include 'footer.php'; ?>
         <?php include 'script.php'; ?>
         <script>
             $(document).ready(function () {
-                $('#settlement').change(function () {
+                $('#fill_settlement').change(function () {
                     var settlement_id = $(this).val();
                     $.ajax({
                         url: "searchdata.php",
@@ -94,7 +83,16 @@ include ('mainSql.php');
                     });
                 });
             });
-        </script>  
+            $(document).ready(function () {
+                $("#getSettlementbutton").click(function () {
+                    var prodname = $('#selproduct :selected').text();
+                    $.get("getsingleprod.php", {SettlementID: prodname}, function (getresult) {
+                        $("#presentprod").html(getresult);
+                    });
+                });
+            });
+
+        </script>
 
     </body>
 </html>

@@ -6,6 +6,7 @@ include ('mainSql.php');
 include('upload-functions.php');
 ?>
 
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -29,6 +30,7 @@ include('upload-functions.php');
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/ishka.css" rel="stylesheet">
 
 </head>
 

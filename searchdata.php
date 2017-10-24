@@ -64,7 +64,7 @@ if (isset($_POST["settlement_id"])) {
     }
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_array($result)) {
-        $output .= '<div class="col-md-3"><div style="border:1px solid #ccc; padding:20px; margin-bottom:20px;">' . $row["total_amount"] . '</div></div>';
+        $output .= '<div class="col-md-3"><div style="border:1px solid #ccc; padding:20px; margin-bottom:20px;">' . $row["Sku"] . '</div></div>';
         $output .= '<div class="col-md-3"><div style="border:1px solid #ccc; padding:20px; margin-bottom:20px;">' . $row["settlement_id"] . '</div></div>';
     }
     echo $output;
