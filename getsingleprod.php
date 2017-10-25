@@ -1,6 +1,6 @@
 <?php
 $allsettlementreport = $_GET['SettlementID'];
-include ('mainSql.php');
+include ('sql/mainSql.php');
 
 //Displaying fetched records to HTML table 
 // Using mysql_fetch_array() to get the next row until end of table rows

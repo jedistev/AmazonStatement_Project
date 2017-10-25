@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('mainSql-fr.php');
+include ('sql/mainSql-fr.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +32,8 @@ include ('mainSql-fr.php');
     </head>
 
     <body id="page-top">
-        <?php include 'nav.php'; ?>
-        <?php include 'header.php'; ?>
+        <?php include 'nav/nav.php'; ?>
+        <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
         
         <div class="container">
@@ -246,8 +246,8 @@ include ('mainSql-fr.php');
                 </thead>
             </table>
         </div>
-        <?php include 'footer.php'; ?>
-<?php include 'script.php'; ?>
+        <?php include 'nav/footer.php'; ?>
+<?php include 'nav/script.php'; ?>
 
 
     </body>
