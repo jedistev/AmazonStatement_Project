@@ -1,7 +1,7 @@
 <?php
 $dbname = 'amazon';
 
-if (!mysql_connect('localhost', 'root', '')) {
+if (!mysqli_connect('localhost', 'root', '')) {
     echo 'Could not connect to mysql';
     exit;
 }
@@ -19,5 +19,5 @@ while ($row = mysql_fetch_row($result)) {
     echo "Table: {$row[0]}\n";
 }
 
-mysql_free_result($result);
+mysqli_free_result($result);
 ?>
