@@ -1,6 +1,6 @@
 <?php
 $conn = mysqli_connect('localhost', 'root', '', 'amazon', '3306');
-print ("<h4>database is connected</h4>");
+print ("database  connected");
 if (!$conn) {
     die('Could not connect to MySQL: ' . mysqli_connect_error());
 }
