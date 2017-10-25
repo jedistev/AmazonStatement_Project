@@ -7,7 +7,7 @@
             
             </div>
             <div class="footer-col col-md-4">
-              <h3>Ishka Website</h3>
+              <p>Ishka Website</p>
             </div>
             <div class="footer-col col-md-4">
             </div>

@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('mainSql.php');
+include ('sql/mainSql.php');
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +31,8 @@ include ('mainSql.php');
     </head>
 
     <body id="page-top">
-        <?php include 'nav.php'; ?>
-        <?php include 'header.php'; ?>
+        <?php include 'nav/nav.php'; ?>
+        <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
 
         <div class="container">
@@ -67,14 +67,14 @@ include ('mainSql.php');
                 <br><br>  
             </div>  
         </div>
-        <?php include 'footer.php'; ?>
-        <?php include 'script.php'; ?>
+        <?php include 'nav/footer.php'; ?>
+        <?php include 'nav/script.php'; ?>
         <script>
             $(document).ready(function () {
                 $('#fill_settlement').change(function () {
                     var settlement_id = $(this).val();
                     $.ajax({
-                        url: "searchdata.php",
+                        url: "config/searchdata.php",
                         method: "POST",
                         data: {settlement_id: settlement_id},
                         success: function (data) {

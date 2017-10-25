@@ -56,8 +56,8 @@ $rs_result = mysqli_query($conn, $sql);
   </head>
 
  <body id="page-top">
-<?php include 'nav.php';?>
-<?php include 'header.php';?>
+<?php include 'nav/nav.php';?>
+<?php include 'nav/header.php';?>
         <div class="">
             <div class="table-responsive"> </div>
                         <div style="padding-top:20px;">
@@ -141,8 +141,8 @@ $rs_result = mysqli_query($conn, $sql);
                                 });
                 </script>
         </div>
-<?php include 'footer.php';?>
-<?php include 'script.php';?>
+<?php include 'nav/footer.php';?>
+<?php include 'nav/script.php';?>
 
   </body>
 

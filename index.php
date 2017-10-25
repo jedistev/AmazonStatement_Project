@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('mainSql.php');
+include ('sql/mainSql.php');
 
 //for upload CSV
 include('upload-functions.php');
@@ -36,13 +36,13 @@ include('upload-functions.php');
 
 <body id="page-top">
 
-    <?php include 'home-nav.php';?>
-    <?php include 'home-header.php';?>
-    <?php include 'gridsection.php';?>
-    <?php include 'about.php';?>
-    <?php include 'home-footer.php';?>
-    <?php include 'modal.php';?>
-    <?php include 'script.php';?>
+    <?php include 'nav/home-nav.php';?>
+    <?php include 'nav/home-header.php';?>
+    <?php include 'nav/gridsection.php';?>
+    <?php include 'nav/about.php';?>
+    <?php include 'nav/home-footer.php';?>
+    <?php include 'nav/modal.php';?>
+    <?php include 'nav/script.php';?>
     <script>
         $(document).ready(function() {
 
@@ -50,7 +50,7 @@ include('upload-functions.php');
 
             function load_data(query) {
                 $.ajax({
-                    url: "searchdata.php",
+                    url: "config/searchdata.php",
                     method: "POST",
                     data: {
                         query: query

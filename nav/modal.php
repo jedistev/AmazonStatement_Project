@@ -988,3 +988,32 @@
         </div>
     </div>
 </div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal17" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root Europe Total</h2>
+                            <hr class="star-primary">
+                            <p>
+                                 <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total Settlement Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

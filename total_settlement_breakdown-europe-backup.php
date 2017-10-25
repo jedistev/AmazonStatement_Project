@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql-de.php');
+include ('sql/mainSql.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,27 +35,39 @@ include ('sql/mainSql-de.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        
+
         <div class="container">
             <br>
-            <label>Total Breakdown for German H-root</label>
-            <br>
-            <!-- <form class="form-horizontal">
-                  <div class="form-group">
-                      <label class="col-sm-3 control-label">Settlement ID</label>
-                      <div class="col-sm-3">
-                        <select class="form-control">
+            <label>Total Breakdown for Europe H-root</label>
+            <br><br>
             <?php
-            //while ($rows = mysqli_fetch_array($DropDownSettlementID)) {
-            //echo "<option value=" . $rows['settlement_id'] . ">" . $rows['settlement_id'] . "</option>";
-            //}
-            ?>
-                          </select>
-                      </div>
-                  </div>
-             </form> -->
-            <br>
+                        echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
+                        echo '<tr>';
+                        echo '<th>marketplace_name</th>';
+                        echo '<th>settlement_id</th>';
+                        echo '<th>settlement_start_date</th>';
+                        echo '<th>settlement_end_date</th>';
+                        echo '<th>currency</th>';
+                        echo '<th>total_amount</th>';
 
+                        
+                        echo '</tr>';
+                        while (($rowEuropenDisplay = mysqli_fetch_array( $europeDisplayList, MYSQLI_ASSOC)) != NULL) {
+                            echo '<tr>';
+                            echo '<td>' . $rowEuropenDisplay['marketplace_name'] . '</td>';
+                            echo '<td>' . $rowEuropenDisplay['settlement_id'] . '</td>';
+                            echo '<td>' . $rowEuropenDisplay['settlement_start_date'] . '</td>';
+                            echo '<td>' . $rowEuropenDisplay['settlement_end_date'] . '</td>';
+                            echo '<td>' . $rowEuropenDisplay['currency'] . '</td>';
+                            echo '<td>' . $rowEuropenDisplay['total_amount'] . '</td>';
+                            echo '</tr>';
+                        }
+                        mysqli_free_result( $europeDisplayList);
+                        echo '</table>';
+            ?>
+            
+            
+            <Br><br><br>
             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >
                 <thead>
 
@@ -190,8 +202,8 @@ include ('sql/mainSql-de.php');
                         };
                         ?>
                     </tr>
-                    
-                     <tr  Class="table-header-total">
+
+                    <tr  Class="table-header-total">
                         <th>Lighting Deal Fee</th>
                         <?php
                         // total all together
@@ -207,7 +219,7 @@ include ('sql/mainSql-de.php');
                 </tbody>
             </table>
 
-            
+
             <p>Total of Settle cost and match</p>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -247,7 +259,7 @@ include ('sql/mainSql-de.php');
             </table>
         </div>
         <?php include 'nav/footer.php'; ?>
-<?php include 'nav/script.php'; ?>
+        <?php include 'nav/script.php'; ?>
 
 
     </body>

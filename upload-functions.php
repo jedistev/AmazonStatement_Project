@@ -1,6 +1,6 @@
 <?php
 
-include('connection.php');
+include('config/connection.php');
 $con = getdb();
 
 //Imported the CSV to upload 

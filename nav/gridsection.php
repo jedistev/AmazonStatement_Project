@@ -4,18 +4,18 @@
         <h2 class="text-center">Database</h2>
         <hr class="star-primary">
         <div class="row">
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal1" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
+                            <p>Settlement Cost & date</p>
                             <i class="fa fa-search-plus fa-3x"></i>
-                            <p>Total Settlement Cost and date</p>
                         </div>
                     </div>
                     <img class="img-fluid" src="img/portfolio/cabin.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal2" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -26,7 +26,7 @@
                     <img class="img-fluid" src="img/portfolio/cake.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -38,7 +38,7 @@
                 </a>
             </div>
 
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal10" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -50,7 +50,7 @@
                 </a>
             </div>
 
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal5" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -61,7 +61,7 @@
                     <img class="img-fluid" src="img/portfolio/safe.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal6" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -72,7 +72,7 @@
                     <img class="img-fluid" src="img/portfolio/submarine.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal7" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -83,7 +83,7 @@
                     <img class="img-fluid" src="img/portfolio/search.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal8" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -94,7 +94,7 @@
                     <img class="img-fluid" src="img/portfolio/refund.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal9" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -106,7 +106,7 @@
 
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -117,7 +117,7 @@
                     <img class="img-fluid" src="img/portfolio/upload.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal11" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -129,7 +129,7 @@
                 </a>
             </div>
 
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal13" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -140,7 +140,7 @@
                     <img class="img-fluid" src="img/portfolio/ger.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal14" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -151,7 +151,7 @@
                     <img class="img-fluid" src="img/portfolio/fra.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal15" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -162,7 +162,7 @@
                     <img class="img-fluid" src="img/portfolio/italy.png" alt="">
                 </a>
             </div>
-            <div class="col-sm-4 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal16" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -173,11 +173,11 @@
                     <img class="img-fluid" src="img/portfolio/esp.png" alt="">
                 </a>
             </div>
-                        <div class="col-sm-4 portfolio-item">
+                        <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal17" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>H-root All Europe total<br> Coming soon</p>
+                            <p>H-root All Europe total</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
