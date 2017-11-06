@@ -61,6 +61,16 @@ include ('sql/mainSql.php');
                 echo '</tr>';
             }
             mysqli_free_result($europeDisplayList);
+            while (($rowGBPDisplay1 = mysqli_fetch_array($totalGBinEUdisplayedlist, MYSQLI_ASSOC)) != NULL) {
+                echo '<tr>';
+                echo '<td>' . $rowGBPDisplay1['marketplace_name'] . '</td>';
+                echo '<td>' . $rowGBPDisplay1['settlement_id'] . '</td>';
+                echo '<td>' . $rowGBPDisplay1['settlement_start_date'] . '</td>';
+                echo '<td>' . $rowGBPDisplay1['settlement_end_date'] . '</td>';
+                echo '<td>' . $rowGBPDisplay1['total_amount'] . '</td>';
+                echo '</tr>';
+            }
+            mysqli_free_result($totalGBinEUdisplayedlist);
             echo '</table>';
             ?>
             <Br><br>
@@ -85,7 +95,7 @@ include ('sql/mainSql.php');
             <br><br>
             <label>Total Breakdown for Europe H-root (in GBP)</label>
             <br><br>
-            <?php
+ <?php
             echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
             echo '<tr>';
             echo '<th>Marketplace name</th>';
@@ -114,7 +124,7 @@ include ('sql/mainSql.php');
         </div>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
-      
+
 
     </body>
 </html>

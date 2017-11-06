@@ -64,6 +64,8 @@ include ('sql/mainSql.php');
                 <button class="btn btn-primary left-space-button" id="getSettlementbutton">Settlement details</button>  
             </div>
             <div id="presentprod"></div> 
+            
+           
                 <br><br>  
             </div>  
         </div>
