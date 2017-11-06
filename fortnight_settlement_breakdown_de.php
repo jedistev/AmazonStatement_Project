@@ -20,7 +20,7 @@ include ('sql/mainSql-de.php');
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom styles for this template -->
         <link href="css/freelancer.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/ishka.css" />
+        <link rel="stylesheet" href="css/freelancer.css" />
 
         <!-- Custom fonts for this template -->
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

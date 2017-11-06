@@ -448,3 +448,29 @@ footer {
 .btn:active,
 .btn:focus {
   outline: none; }
+
+
+.table-smaller-text{
+  font-size: 10px;
+  
+}
+
+.table-header-total{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+left-space-button{
+    margin-left: 20px;
+}
+
+.table-smaller-text-bolder{
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}

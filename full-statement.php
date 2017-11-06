@@ -45,7 +45,7 @@ $rs_result = mysqli_query($conn, $sql);
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/simplePagination.css" />
-    <link rel="stylesheet" href="css/ishka.css" />
+    <link rel="stylesheet" href="css/freelancer.css" />
 
     
    
