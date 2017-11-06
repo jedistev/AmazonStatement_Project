@@ -105,10 +105,7 @@ include ('sql/mainSql-es.php');
                         };
                         ?>
                     </tr>
-                    <tr  Class="table-header-total">
-                        <th>Payable to Amazon</th>
-                        <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td>
-                    </tr>
+                    
                     <tr  Class="table-header-total">
                         <th>Disposal Complete</th>
                         <?php

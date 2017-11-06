@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql-fr.php');
+include ('sql/mainSql-uk-euro.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +35,9 @@ include ('sql/mainSql-fr.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        
+
         <div class="container">
             <br>
-            <label>Total Breakdown for France H-root</label>
             <br>
             <!-- <form class="form-horizontal">
                   <div class="form-group">
@@ -205,7 +204,7 @@ include ('sql/mainSql-fr.php');
             </table>
 
             
-            <p>Total of Settle cost and match</p>
+            <p class="text-primary">Total of Settle cost and match</p>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr class="table-header-total">
@@ -223,9 +222,9 @@ include ('sql/mainSql-fr.php');
                         <th>Total from Amazon Settlement</th>
                         <?php
                         // total all together
-                        while ($row = mysqli_fetch_array($SettlementTotalAmount)) {
+                        while ($row = mysqli_fetch_array($settlementTotalAmount)) {
                             ?>
-                            <td class="table-smaller-text"><?php echo $row["total_amount"]; ?></td>
+                            <td class="table-smaller-text"><?php echo $row["total_amount_all_together"]; ?></td>
                             <?php
                         };
                         ?>
@@ -242,6 +241,7 @@ include ('sql/mainSql-fr.php');
                     </tr>
                 </thead>
             </table>
+            
         </div>
         <?php include 'nav/footer.php'; ?>
 <?php include 'nav/script.php'; ?>

@@ -329,7 +329,7 @@
                                     ?>
                                 </tbody>  
                             </table>
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -387,7 +387,7 @@
                                     ?>
                                 </tbody>  
                             </table> 
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -427,7 +427,7 @@
                                     ?>
                                 </tbody>  
                             </table> 
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -467,7 +467,7 @@
                                     ?>
                                 </tbody>  
                             </table>
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -487,7 +487,7 @@
                                     ?>
                                 </tbody>  
                             </table>
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -508,7 +508,7 @@
                                 </tbody>  
                             </table>
 
-                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
                                         <th>Total of Principe</th>
@@ -528,7 +528,7 @@
                                 </tbody>  
                             </table>
 
-                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
                                         <th>Total of Shipping</th>
@@ -547,7 +547,7 @@
                                     ?>
                                 </tbody>  
                             </table>
-                            
+
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-weight: bold;"> 
@@ -568,7 +568,7 @@
                                 </tbody>  
                             </table>
                             </p>
-                            
+
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -596,7 +596,7 @@
                             <hr class="star-primary">
                             <p>
                                 Show all Settlement in Database<br>
-                               <a href="<?php echo 'each_settlement.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
+                                <a href="<?php echo 'each_settlement.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
 
                             </p>
 
@@ -682,8 +682,8 @@
                                     ?>
                                 </tbody>  
                             </table>     
-                                
-                            
+
+
                             <h4> breakdown Statement on each fornight </h4>
                             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
@@ -711,8 +711,8 @@
                                     ?>
                                 </tbody>  
                             </table>  
-                                
-                                
+
+
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -775,14 +775,14 @@
                             <h2>Sku Model Sold</h2>
                             <hr class="star-primary">
                             <p>
-                               <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
+                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                                 <thead>  
                                     <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  total Sku sold 
-                                <th>Sku</th>
-                                <th>Sku Sold</th>
-                                <th>current</th>
-                                <th>Sku Sold total</th>
-                                </tr>  
+                                        <th>Sku</th>
+                                        <th>Sku Sold</th>
+                                        <th>current</th>
+                                        <th>Sku Sold total</th>
+                                    </tr>  
                                 </thead>  
                                 <tbody> 
                                     <?php
@@ -826,15 +826,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>UK total Settlement Breakdown</h2>
+                            <h2>H-ROOT UK</h2>
                             <hr class="star-primary">
-                           <p> UK total Settlement in Database<br>
-                               <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Total settlement Breakdown</a><br>
-                               
-                               <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
-                               
-                               
-
+                                <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default"> UK Total settlement Section</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -863,7 +858,7 @@
                             <h2>stuff goes there</h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'dropdown.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
+                                <a href="<?php echo 'dropdown.php'; ?>" class="btn btn-lg btn-default">Settlement Section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -892,7 +887,8 @@
                             <h2>H-Root Germany </h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'total_settlement_breakdown-de.php'; ?>" class="btn btn-lg btn-default">Germany settle Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-de.php'; ?>" class="btn btn-lg btn-default">Germany Total settlement Section</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown_de.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -921,7 +917,8 @@
                             <h2>H-Root France </h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'total_settlement_breakdown-fr.php'; ?>" class="btn btn-lg btn-default">France Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-fr.php'; ?>" class="btn btn-lg btn-default">France Settlement Section</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown_fr.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -950,7 +947,8 @@
                             <h2>H-Root Italy </h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'total_settlement_breakdown-it.php'; ?>" class="btn btn-lg btn-default">Italy Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-it.php'; ?>" class="btn btn-lg btn-default">Italy Settlement Section</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown_it.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -979,7 +977,8 @@
                             <h2>H-Root Spain</h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'total_settlement_breakdown-esp.php'; ?>" class="btn btn-lg btn-default">Spain Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-esp.php'; ?>" class="btn btn-lg btn-default">Spain Settlement Section</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown_es.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -992,6 +991,7 @@
         </div>
     </div>
 </div>
+
 
 <div class="portfolio-modal modal fade" id="portfolioModal17" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -1008,7 +1008,37 @@
                             <h2>H-Root Europe Total</h2>
                             <hr class="star-primary">
                             <p>
-                                 <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total Settlement Section</a><br>
+                            </p>
+
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="portfolioModal18" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-Root Spain</h2>
+                            <hr class="star-primary">
+                            <p>
+                                <a href="<?php echo 'total_settlement_breakdown-uk-euro.php'; ?>" class="btn btn-lg btn-default">UK Settlement Section in Euro</a><br>
+                                <a href="<?php echo 'fortnight_settlement_breakdown_uk_euro.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">

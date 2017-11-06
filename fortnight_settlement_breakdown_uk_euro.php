@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql.php');
+include ('sql/mainSql-uk-euro.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@ include ('sql/mainSql.php');
         <div class="container">
             <br>
             <br>
-            <h4>Fortnight Statement Details </h4>
+            <h4>Fortnight Statement Details UK in Euro</h4>
             <br>
 
 

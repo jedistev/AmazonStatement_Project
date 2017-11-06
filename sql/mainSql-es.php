@@ -166,4 +166,170 @@ if(! $alldropdownlist )
   die('Could not retrieve data: ' . mysql_error());
 }
  
+ 
+//break down in each group settlement
+$sqlGroupSettlementidOrder = "SELECT DISTINCT settlement_id, transaction_type , sum(amount) AS 'Each_group_Amount' FROM settlementses WHERE transaction_type = 'order'  Group By settlement_id";
+$Allgroupsettlementidorder = mysqli_query($conn, $sqlGroupSettlementidOrder);
+
+$sqlGroupRefund = "SELECT DISTINCT settlement_id, transaction_type , sum(amount) AS 'Each_group_Amount' FROM settlementses WHERE transaction_type = 'refund'  Group By settlement_id";
+$allgrouprefund = mysqli_query($conn, $sqlGroupRefund);
+
+//Settlement Date list
+$sqldatelist = "SELECT * FROM `settlementses` WHERE `total_amount";
+$allStartandenddate = mysqli_query($conn, $sqldatelist);
+
+//Group service fee breakdwown
+$sqlgroupservicefee = "SELECT DISTINCT settlement_id, transaction_type , SUM(COALESCE(amount, 0.00)) AS 'Each_group_Amount' FROM settlementses WHERE transaction_type = 'ServiceFee'  Group By settlement_id";
+$allservicefeegroup = mysqli_query($conn, $sqlgroupservicefee);
+
+//group service lighting fee 
+$sqlLightningDealFeeGroup = "SELECT DISTINCT settlement_id, transaction_type , SUM(COALESCE(amount, 0.00)) AS 'Each_group_Amount' FROM settlementses WHERE transaction_type = 'Lightning Deal Fee'  Group By settlement_id";
+$allLightningDealFeeGroup = mysqli_query($conn, $sqlLightningDealFeeGroup);
+
+//Group Removal item Complete
+$sqlremoveitemgroup = "SELECT DISTINCT settlement_id, amount_description, SUM(COALESCE(amount, 0.00)) AS`Each_group_Amount` FROM settlementses WHERE amount_description = 'RemovalComplete' Group By settlement_id";
+$allremoveitemgroup = mysqli_query($conn, $sqlremoveitemgroup);
+
+//Group Scubscrption Complete
+$sqlSubscriptionFeegroup = "SELECT DISTINCT settlement_id, amount_description, SUM(COALESCE(amount, 0.00)) AS`Each_group_Amount` FROM settlementses WHERE amount_description = 'Subscription Fee' Group By settlement_id";
+$allSubscriptionFeegroup = mysqli_query($conn, $sqlSubscriptionFeegroup);
+
+//group settlement
+$sqlgroupsettlmentID = "SELECT DISTINCT settlement_id FROM settlementses Group By settlement_id";
+$allGroupsettlementgroupID = mysqli_query($conn, $sqlgroupsettlmentID);
+
+//froup storage fee
+$sqlgroupstoragefee = "SELECT DISTINCT settlement_id, amount_description, SUM(COALESCE(amount, 0.00)) AS`Each_group_Amount` FROM settlementses WHERE amount_description = 'Storage fee' Group By settlement_id";
+$allgroupstoragefee = mysqli_query($conn, $sqlgroupstoragefee);
+
+//Group Reversal Reimbursement
+$sqlgroupreversalreimbursement = "SELECT DISTINCT settlement_id, amount_description, SUM(amount) AS`Each_group_Amount` FROM settlementses WHERE amount_description = 'REVERSAL_REIMBURSEMENT' Group By settlement_id";
+$allgroupreversalreimbursement = mysqli_query($conn, $sqlgroupreversalreimbursement);
+
+//Warehouse damage
+$sqlgroupwarehousedamage = "SELECT DISTINCT settlement_id, amount_description, SUM(amount) AS`Each_group_Amount` FROM settlementses WHERE amount_description = 'WAREHOUSE_DAMAGE' Group By settlement_id";
+$allgroupwarehousedamage = mysqli_query($conn, $sqlgroupwarehousedamage);
+
+//grouptotalamount
+$sqltotalamountgroup = "SELECT  settlement_id, settlement_start_date,settlement_end_date, total_amount FROM settlementses Group By settlement_id";
+$allgrouptotalamount = mysqli_query($conn, $sqltotalamountgroup);
+
+//grouptotalmatch
+$sqlgrouptotalmatch = "Select total_amount, Sum(amount) AS total_match_amount_sum from settlementses Group By settlement_id";
+$grouptotalmatch = mysqli_query($conn, $sqlgrouptotalmatch);
+
+//groupbalancematch
+$sqlgroupbalancematch = "Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlementses Group By settlement_id";
+$groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
+
+
+
+$sqlGroupEachAmount = "
+SELECT 
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    total_amount,
+    transaction_type,
+    amount_description,
+    SUM(amount) AS `Each_group_Amount`
+FROM
+    settlementses
+WHERE
+    transaction_type = 'order'
+        OR transaction_type = 'refund'
+        OR transaction_type = 'ServiceFee'
+        OR transaction_type = ''
+        OR amount_description = 'REVERSAL_REIMBURSEMENT'
+        OR amount_description = 'RemovalComplete'
+        OR amount_description = 'Storage Fee'
+        OR amount_description = 'LightningDealFee'
+        OR amount_description = 'Subscription Fee'
+        OR amount_description = 'StorageRenewalBilling'
+        OR amount_description = 'WAREHOUSE_DAMAGE'
+        OR amount_description = 'DisposalComplete'
+        OR amount_description = 'StorageRenewalBilling'
+        OR amount_description = 'Missing From Inbound'
+        OR amount_description = 'MULTICHANNEL_ORDER_LOST'
+GROUP BY settlement_id ASC , transaction_type , amount_description
+
+";
+$Groupresult = mysqli_query($conn, $sqlGroupEachAmount);
+$settlementIDresult = mysqli_query($conn, $sqlGroupEachAmount);
+$GroupTotalamount = mysqli_query($conn, $sqlGroupEachAmount);
+$grouptotalorder = mysqli_query($conn, $sqlGroupEachAmount);
+$grouptotalorder1 = mysqli_query($conn, $sqlGroupEachAmount);
+
+
+$sqlBreakdownAmountGroup ="
+SELECT 
+    amount_description,
+    SUM(amount) AS `Each_group_Amount`
+FROM
+    settlementses
+WHERE
+    transaction_type = 'order'
+        OR transaction_type = 'refund'
+        OR transaction_type = 'ServiceFee'
+        OR transaction_type = ''
+        OR amount_description = 'REVERSAL_REIMBURSEMENT'
+        OR amount_description = 'RemovalComplete'
+        OR amount_description = 'Storage Fee'
+        OR amount_description = 'LightningDealFee'
+        OR amount_description = 'Subscription Fee'
+        OR amount_description = 'StorageRenewalBilling'
+        OR amount_description = 'WAREHOUSE_DAMAGE'
+        OR amount_description = 'DisposalComplete'
+        OR amount_description = 'StorageRenewalBilling'
+        OR amount_description = 'Missing From Inbound'
+        OR amount_description = 'MULTICHANNEL_ORDER_LOST'
+GROUP BY settlement_id ASC ,  amount_description ASC
+
+";
+
+
+$sqlbreakdowntransaction_type ="
+SELECT 
+    settlement_id,
+    total_amount,
+    transaction_type,
+    amount_description,
+    SUM(amount) AS `Each_group_Amount`
+FROM
+    settlementses
+WHERE
+    transaction_type = 'order'
+        OR transaction_type = 'Refund'
+        OR transaction_type = 'ServiceFee'
+	OR transaction_type = 'other-transaction'
+       
+        
+GROUP BY settlement_id ASC ,  transaction_type ASC
+";
+
+$sqlbreakdowntransaction_column ="
+SELECT settlement_id, 
+    settlement_start_date,
+    settlement_end_date,
+    total_amount,
+    SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
+    SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',
+    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'Servicefee',
+    SUM(IF(amount_description = 'REVERSAL_REIMBURSEMENT',amount,0)) AS 'REVERSAL_REIMBURSEMENT',
+    SUM(IF(amount_description = 'RemovalComplete',amount,0)) AS 'RemovalComplete',
+    SUM(IF(amount_description = 'Storage Fee',amount,0)) AS 'Storage Fee',
+    SUM(IF(amount_description = 'LightningDealFee',amount,0)) AS 'LightningDealFee',
+    SUM(IF(amount_description = 'Subscription Fee',amount,0)) AS 'Subscription Fee',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'WAREHOUSE_DAMAGE',amount,0)) AS 'WAREHOUSE_DAMAGE',
+    SUM(IF(amount_description = 'DisposalComplete',amount,0)) AS 'DisposalComplete',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'Missing From Inbound',amount,0)) AS 'Missing From Inbound',
+    SUM(IF(amount_description = 'MULTICHANNEL_ORDER_LOST',amount,0)) AS 'MULTICHANNEL_ORDER_LOST'
+
+FROM settlementses
+GROUP BY settlement_id
+
+";
+
 ?>
