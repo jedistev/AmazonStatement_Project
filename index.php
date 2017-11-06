@@ -30,7 +30,7 @@ include('upload-functions.php');
 
     <!-- Custom styles for this template -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/ishka.css" rel="stylesheet">
+    <link href="css/freelancer.css" rel="stylesheet">
 
 </head>
 

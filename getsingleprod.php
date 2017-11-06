@@ -29,23 +29,40 @@ while ($row = mysqli_fetch_array($alldropdownlist)) {
     echo $row['settlement_end_date'];
     echo "</td></tr>";
 
-    echo "<tr> ";
-    echo "<th>Depoist Date</th> ";
-    echo "<td class='table-smaller-text'>";
-    echo $row['deposit_date'];
-    echo "</td></tr>";
 
-    echo "<tr> ";
-    echo "<th>Currency</th> ";
-    echo "<td class='table-smaller-text'>";
-    echo $row['currency'];
-    echo "</td></tr>";
 
     echo "<tr> ";
     echo "<th>Total Amount</th> ";
     echo "<td class='table-smaller-text'>";
     echo $row['total_amount'];
     echo "</td></tr>";
+    
+    
+     echo "<tr> ";
+    echo "<th>Order</th> ";
+    echo "<td class='table-smaller-text'>";
+    echo $row['Order'];
+    echo "</td></tr>";
+    
+    echo "<tr> ";
+    echo "<th>Refund</th> ";
+    echo "<td class='table-smaller-text'>";
+    echo $row['Refund'];
+    echo "</td></tr>";
+    
+    echo "<tr> ";
+    echo "<th>Service Fee</th> ";
+    echo "<td class='table-smaller-text'>";
+    echo $row['Servicefee'];
+    echo "</td></tr>";
+    
+    echo "<tr> ";
+    echo "<th>Other transaction</th> ";
+    echo "<td class='table-smaller-text'>";
+    echo $row['other-transaction'];
+    echo "</td></tr>";
+    
+    
     echo "</tr></thead>";
     echo "</table>";
 }
