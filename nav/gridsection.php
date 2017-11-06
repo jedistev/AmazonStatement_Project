@@ -106,7 +106,7 @@
 
                 </a>
             </div>
-            <div class="col-sm-3 portfolio-item">
+<!--            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal4" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -116,16 +116,28 @@
                     </div>
                     <img class="img-fluid" src="img/portfolio/upload.png" alt="">
                 </a>
-            </div>
+            </div>-->
             <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal11" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>Total Settlement Breakdown</p>
+                            <p>H-root UK Total</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
                     <img class="img-fluid" src="img/portfolio/gb.png" alt="">
+                </a>
+            </div>
+            
+            <div class="col-sm-3 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModal18" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>H-root UK Total Euro</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/gb-euro.png" alt="">
                 </a>
             </div>
 
@@ -173,7 +185,7 @@
                     <img class="img-fluid" src="img/portfolio/esp.png" alt="">
                 </a>
             </div>
-                        <div class="col-sm-3 portfolio-item">
+            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal17" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -184,6 +196,7 @@
                     <img class="img-fluid" src="img/portfolio/eu.png" alt="">
                 </a>
             </div>
+                        
             
         </div>
     </div>

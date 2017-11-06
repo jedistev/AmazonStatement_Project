@@ -104,10 +104,7 @@ include ('sql/mainSql.php');
                         };
                         ?>
                     </tr>
-                    <tr  Class="table-header-total">
-                        <th>Payable to Amazon</th>
-                        <td class="table-smaller-text"><?php echo $row["total_amount_sum"]; ?></td>
-                    </tr>
+                    
                     <tr  Class="table-header-total">
                         <th>Disposal Complete</th>
                         <?php
@@ -207,7 +204,7 @@ include ('sql/mainSql.php');
             </table>
 
             
-            <p>Total of Settle cost and match</p>
+            <p class="text-primary">Total of Settle cost and match</p>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr class="table-header-total">
