@@ -830,6 +830,10 @@
                             <hr class="star-primary">
                            <p> UK total Settlement in Database<br>
                                <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Total settlement Breakdown</a><br>
+                               
+                               <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                               
+                               
 
                             </p>
 

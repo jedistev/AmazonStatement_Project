@@ -21,3 +21,14 @@ and open the template in the editor.
 left-space-button{
     margin-left: 20px;
 }
+
+.table-smaller-text-bolder{
+  font-size: 12px;
+  font-weight: 900;
+}
+
+
+.testimonial-group > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}

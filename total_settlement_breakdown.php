@@ -225,9 +225,9 @@ include ('sql/mainSql.php');
                         <th>Total from Amazon Settlement</th>
                         <?php
                         // total all together
-                        while ($row = mysqli_fetch_array($SettlementTotalAmount)) {
+                        while ($row = mysqli_fetch_array($settlementTotalAmount)) {
                             ?>
-                            <td class="table-smaller-text"><?php echo $row["total_amount"]; ?></td>
+                            <td class="table-smaller-text"><?php echo $row["total_amount_all_together"]; ?></td>
                             <?php
                         };
                         ?>
@@ -244,6 +244,7 @@ include ('sql/mainSql.php');
                     </tr>
                 </thead>
             </table>
+            
         </div>
         <?php include 'nav/footer.php'; ?>
 <?php include 'nav/script.php'; ?>
