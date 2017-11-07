@@ -39,7 +39,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/ger.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/Ger.png" alt="">
                 </a>
             </div>
             <!--Germany Section Area END -->

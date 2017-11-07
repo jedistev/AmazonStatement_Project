@@ -244,12 +244,12 @@ $groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
 
 
 //Getting setltlement name sent by Post method
-$sql_dropdownlist = "select * from settlementsukeuro where settlement_start_date and settlement_id = '" . $allsettlementreport . "'";
-$alldropdownlist = mysqli_query($conn, $sql_dropdownlist);
-
-if (!$alldropdownlist) {
-    die('Could not retrieve data: ' . mysql_error());
-}
+//$sql_dropdownlist = "select * from settlementsukeuro where settlement_start_date and settlement_id = '" . $allsettlementreport . "'";
+//$alldropdownlist = mysqli_query($conn, $sql_dropdownlist);
+//
+//if (!$alldropdownlist) {
+//    die('Could not retrieve data: ' . mysql_error());
+//}
 
 
 $sqlGroupEachAmount = "

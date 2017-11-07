@@ -244,22 +244,22 @@ $groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
 
 
 //Getting setltlement name sent by Post method
-$sql_dropdownlist = "select 
-    settlement_id,
-    settlement_start_date,
-    settlement_end_date,
-    total_amount,
-    SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
-    SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',
-    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'Servicefee',
-    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'other-transaction' 
-    from settlements 
-    where settlement_id = '" . $allsettlementreport . "'";
-$alldropdownlist = mysqli_query($conn, $sql_dropdownlist);
-
-if (!$alldropdownlist) {
-    die('Could not retrieve data: ' . mysql_error());
-}
+//$sql_dropdownlist = "select 
+//    settlement_id,
+//    settlement_start_date,
+//    settlement_end_date,
+//    total_amount,
+//    SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
+//    SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',
+//    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'Servicefee',
+//    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'other-transaction' 
+//    from settlements 
+//    where settlement_id = '" . $allsettlementreport . "'";
+//$alldropdownlist = mysqli_query($conn, $sql_dropdownlist);
+//
+//if (!$alldropdownlist) {
+//    die('Could not retrieve data: ' . mysql_error());
+//}
 
 
 $sqlGroupEachAmount = "

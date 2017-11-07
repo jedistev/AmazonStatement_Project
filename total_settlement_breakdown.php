@@ -28,7 +28,6 @@ include ('sql/mainSql.php');
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
 
-
     </head>
 
     <body id="page-top">
@@ -104,7 +103,7 @@ include ('sql/mainSql.php');
                         };
                         ?>
                     </tr>
-                    
+
                     <tr  Class="table-header-total">
                         <th>Disposal Complete</th>
                         <?php
@@ -186,8 +185,8 @@ include ('sql/mainSql.php');
                         };
                         ?>
                     </tr>
-                    
-                     <tr  Class="table-header-total">
+
+                    <tr  Class="table-header-total">
                         <th>Lighting Deal Fee</th>
                         <?php
                         // total all together
@@ -203,7 +202,7 @@ include ('sql/mainSql.php');
                 </tbody>
             </table>
 
-            
+
             <p class="text-primary">Total of Settle cost and match</p>
             <table class="table table-bordered table-striped">
                 <thead>
@@ -241,11 +240,21 @@ include ('sql/mainSql.php');
                     </tr>
                 </thead>
             </table>
-            
+
+            <br>
+
         </div>
         <?php include 'nav/footer.php'; ?>
-<?php include 'nav/script.php'; ?>
-
-
+        <?php include 'nav/script.php'; ?>
+        <script>
+            function Export()
+            {
+                var conf = confirm("Export users to CSV?");
+                if (conf == true)
+                {
+                    window.open("export/total_settlement_uk_breakdown_export_csv.php", '_blank');
+                }
+            }
+        </script>
     </body>
 </html>
