@@ -25,43 +25,7 @@
         </div>
     </div>
 </div>
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2>SKU List Database</h2>
-                            <hr class="star-primary">
 
-                            <?php
-                            echo '<table class="table table-bordered table-striped table-hover table-condensed table-responsive">';
-                            echo '<tr>';
-                            echo '</tr>';
-                            while (($row = mysqli_fetch_array($skuResult, MYSQLI_ASSOC)) != NULL) {
-                                echo '<tr>';
-                                echo '<td>' . $row['sku'] . '</td>';
-                                echo '</tr>';
-                            }
-                            mysqli_free_result($skuResult);
-                            echo '</table>';
-                            ?>
-                            <button class="btn btn-success" type="button" data-dismiss="modal">
-                                <i class="fa fa-times"></i>
-                                Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -539,7 +503,6 @@
         </div>
     </div>
 </div>
-
 <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -575,141 +538,6 @@
         </div>
     </div>
 </div>
-
-<div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2>Refund Breakdown</h2>
-                            <hr class="star-primary">
-
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-weight: bold;"> 
-                                        <th>Total Refund Fee</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allrefundFee)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">
-                                            <td><?php echo $row["amount_sum"]; ?></td> 
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                </tbody>  
-                            </table>     
-
-
-                            <h4> breakdown Statement on each fornight </h4>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold;">  <h4>Total List of Breakdown</h4>  
-                                <th>Settlement ID </th>
-                                <th>Transaction Type</th>
-                                <th>Currency</th>
-                                <th>Amount</th>
-                                </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($eachStatmentRefund)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["settlement_id"]; ?></td>
-                                            <td><?php echo $row["transaction_type"]; ?></td>
-                                            <td><?php echo $row["currency"]; ?></td>
-                                            <td><?php echo $row["Amount_Refund"]; ?></td> 
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                </tbody>  
-                            </table>  
-
-
-                            </p>
-
-                            <button class="btn btn-success" type="button" data-dismiss="modal">
-                                <i class="fa fa-times"></i>
-                                Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <h2>Sku Model Sold</h2>
-                            <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  total Sku sold 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>£ GBP</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                </tbody>  
-                            </table>  
-                            </p>
-
-                            <button class="btn btn-success" type="button" data-dismiss="modal">
-                                <i class="fa fa-times"></i>
-                                Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="portfolio-modal modal fade" id="portfolioModal12" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -740,3 +568,4 @@
 </div>
 
 <?php include 'nav/modal-country.php';?>
+<?php include 'nav/modal-sku.php';?>
