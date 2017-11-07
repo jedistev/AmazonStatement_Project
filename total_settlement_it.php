@@ -86,11 +86,23 @@ include ('sql/mainSql-it.php');
                         };
                         ?>
                     </tbody>  
-                </table>  
+                </table> 
+                <br>
+                <div class="form-group">
+                    <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
+                </div>
         </div>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
-
-
+        <script>
+            function Export()
+            {
+                var conf = confirm("Export users to CSV?");
+                if (conf == true)
+                {
+                    window.open("export/total_settlement_it_export_csv.php", '_blank');
+                }
+            }
+        </script>
     </body>
 </html>
