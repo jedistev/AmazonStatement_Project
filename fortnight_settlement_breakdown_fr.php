@@ -124,7 +124,7 @@ include ('sql/mainSql-fr.php');
                 </tr>
 
                 <tr  Class="table-header-total">
-                    <th>Service Fee</th>
+                    <th>Service Fee (advertising)</th>
                     <?php
                     // total Order
                     $resultTranscationServicefee = mysqli_query($conn, $sqlbreakdowntransaction_column);

@@ -158,14 +158,9 @@ $sqlLightningDealFee ="SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`a
 $allLightningDealFee = mysqli_query($conn, $sqlLightningDealFee);
 
 //Getting setltlement name sent by Post method
-$sql_dropdownlist = "select settlement_id, settlement_start_date, settlement_end_date, deposit_date, currency, total_amount from settlementsde where settlement_start_date and settlement_id = '" .$allsettlementreport ."'"; 
-$alldropdownlist = mysqli_query( $conn, $sql_dropdownlist);
- 
-if(! $alldropdownlist )
-{
-  die('Could not retrieve data: ' . mysql_error());
-}
- 
+//$sql_dropdownlist = "select settlement_id, settlement_start_date, settlement_end_date, deposit_date, currency, total_amount from settlementsde where settlement_start_date and settlement_id = '" .$allsettlementreport ."'"; 
+//$alldropdownlist = mysqli_query( $conn, $sql_dropdownlist);
+  
 //break down in each group settlement
 $sqlGroupSettlementidOrder = "SELECT DISTINCT settlement_id, transaction_type , sum(amount) AS 'Each_group_Amount' FROM settlementsde WHERE transaction_type = 'order'  Group By settlement_id";
 $Allgroupsettlementidorder = mysqli_query($conn, $sqlGroupSettlementidOrder);
