@@ -52,6 +52,7 @@
                                 <a href="<?php echo 'total_settlement_uk.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default"> UK Total settlement Section</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                <a href="<?php echo 'each_settlement-uk.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">

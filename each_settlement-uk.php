@@ -43,13 +43,13 @@ include ('sql/mainSql.php');
 
             //load_data_select.php  
             function fill_settlement($conn) {
-                $output = '';
+                $outputData = '';
                 $sqlDropDownSettlementID = "SELECT  * FROM `settlements` where total_amount";
                 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
                 while ($row = mysqli_fetch_array($DropDownSettlementID)) {
-                    $output .= '<option value="' . $row["settlement_id"] . '">' . $row["settlement_id"] . '</option>';
+                    $outputData .= '<option value="' . $row["settlement_id"] . '">' . $row["settlement_id"] . '</option>';
                 }
-                return $output;
+                return $outputData;
             }
 
             ?>  
@@ -58,12 +58,14 @@ include ('sql/mainSql.php');
                 <div class="col-sm-9">
                
                 <select id="selproduct">
-                    <option value="">Show All Product</option>  
+                    <option value="">Settlement ID </option>  
                     <?php echo fill_settlement($conn); ?>  
                 </select> 
                 <button class="btn btn-primary left-space-button" id="getSettlementbutton">Settlement details</button>  
             </div>
-            <div id="presentprod"></div> 
+                <br>
+                <div id="presentprod">
+                </div> 
             
            
             <br><br>
