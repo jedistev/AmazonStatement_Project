@@ -79,9 +79,25 @@
                                         <?php
                                     };
                                     ?>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <button onclick="Exportskuuk()" class="btn btn-success">Export to CSV File</button>
+                                </div>
                                 </tbody>  
                             </table>  
                             </p>
+
+                            <script>
+                                function Exportskuuk()
+                                {
+                                    var conf = confirm("Export users to CSV?");
+                                    if (conf == true)
+                                    {
+                                        window.open("export/sku_GB_sold.php", '_blank');
+                                    }
+                                }
+                            </script>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -121,7 +137,7 @@
                                 </thead>  
                                 <tbody> 
                                     <?php
-                                     include ('sql/mainSql-de.php');
+                                    include ('sql/mainSql-de.php');
                                     // total all together
                                     while ($row = mysqli_fetch_array($allSkuModelSold)) {
                                         ?>  
@@ -135,9 +151,25 @@
                                         <?php
                                     };
                                     ?>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <button onclick="Exportskude()" class="btn btn-success">Export to CSV File</button>
+                                </div>
                                 </tbody>  
                             </table>  
                             </p>
+
+                            <script>
+                                function Exportskude()
+                                {
+                                    var conf = confirm("Export users to CSV?");
+                                    if (conf == true)
+                                    {
+                                        window.open("export/sku_Germany_sold.php", '_blank');
+                                    }
+                                }
+                            </script>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -178,7 +210,7 @@
                                 </thead>  
                                 <tbody> 
                                     <?php
-                                     include ('sql/mainSql-it.php');
+                                    include ('sql/mainSql-it.php');
                                     // total all together
                                     while ($row = mysqli_fetch_array($allSkuModelSold)) {
                                         ?>  
@@ -192,9 +224,25 @@
                                         <?php
                                     };
                                     ?>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <button onclick="Exportskuitaly()" class="btn btn-success">Export to CSV File</button>
+                                </div>
                                 </tbody>  
                             </table>  
                             </p>
+
+                            <script>
+                                function Exportskuitaly()
+                                {
+                                    var conf = confirm("Export users to CSV?");
+                                    if (conf == true)
+                                    {
+                                        window.open("export/sku_Italy_sold.php", '_blank');
+                                    }
+                                }
+                            </script>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -234,7 +282,7 @@
                                 </thead>  
                                 <tbody> 
                                     <?php
-                                     include ('sql/mainSql-es.php');
+                                    include ('sql/mainSql-es.php');
                                     // total all together
                                     while ($row = mysqli_fetch_array($allSkuModelSold)) {
                                         ?>  
@@ -248,9 +296,25 @@
                                         <?php
                                     };
                                     ?>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <button onclick="Exportskuspain()" class="btn btn-success">Export to CSV File</button>
+                                </div>
                                 </tbody>  
                             </table>  
                             </p>
+
+                            <script>
+                                function Exportskuspain()
+                                {
+                                    var conf = confirm("Export users to CSV?");
+                                    if (conf == true)
+                                    {
+                                        window.open("export/sku_Spain_sold.php", '_blank');
+                                    }
+                                }
+                            </script>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -290,7 +354,7 @@
                                 </thead>  
                                 <tbody> 
                                     <?php
-                                     include ('sql/mainSql-fr.php');
+                                    include ('sql/mainSql-fr.php');
                                     // total all together
                                     while ($row = mysqli_fetch_array($allSkuModelSold)) {
                                         ?>  
@@ -304,9 +368,25 @@
                                         <?php
                                     };
                                     ?>
+                                <br>
+                                <br>
+                                <div class="form-group">
+                                    <button onclick="Exportskufrance()" class="btn btn-success">Export to CSV File</button>
+                                </div>
                                 </tbody>  
                             </table>  
                             </p>
+
+                            <script>
+                                function Exportskufrance()
+                                {
+                                    var conf = confirm("Export users to CSV?");
+                                    if (conf == true)
+                                    {
+                                        window.open("export/sku_France_sold.php", '_blank');
+                                    }
+                                }
+                            </script>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>

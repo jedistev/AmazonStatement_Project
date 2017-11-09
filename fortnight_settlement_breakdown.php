@@ -333,18 +333,22 @@ include ('sql/mainSql.php');
                 <tbody>
                 </tbody>
             </table>    
-
-
-
-
-
-
-
-
+            <br>
+            <div class="form-group">
+                <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
+            </div>
         </div>
-
-
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
+        <script>
+            function Export()
+            {
+                var conf = confirm("Export users to CSV?");
+                if (conf == true)
+                {
+                    window.open("export/fortnight_settlement_uk_export_csv.php", '_blank');
+                }
+            }
+        </script>
     </body>
 </html>
