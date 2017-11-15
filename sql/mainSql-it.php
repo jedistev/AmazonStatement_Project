@@ -129,9 +129,10 @@ $allTotalRemovalComplete = mysqli_query($conn, $sqlTotalRemovalComplete);
 $sqlTotalDisposalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsit WHERE amount_description = 'DisposalComplete'";
 $allTotalDisposalComplete = mysqli_query($conn, $sqlTotalDisposalComplete);
 
+
 //Finally Settlement Balance
-$sqlTotalamountSettlement ="select settlement_start_date,settlement_end_date, total_amount from settlementsit WHERE `total_amount`";
-$SettlementTotalAmount = mysqli_query($conn, $sqlTotalamountSettlement);
+$sqlTotalamountSettlement = "SELECT SUM(total_amount) AS 'total_amount_all_together' from settlementsit ";
+$settlementTotalAmount = mysqli_query($conn, $sqlTotalamountSettlement);
 
 //totalbalance
 $sqlTotalMatch= "Select total_amount, Sum(amount) AS match_amount_sum from settlementsit";

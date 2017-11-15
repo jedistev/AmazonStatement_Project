@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql.php');
+include ('sql/mainSql-fr.php');
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,6 @@ include ('sql/mainSql.php');
         <!-- Bootstrap core CSS -->
         <?php include 'nav/css.php'; ?>
     </head>
-
     <body id="page-top">
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
@@ -49,7 +48,7 @@ include ('sql/mainSql.php');
                 //load_data_select.php  
                 function fill_settlement($conn) {
                     $outputData = '';
-                    $sqlDropDownSettlementID = "SELECT  *  FROM `settlements` GROUP BY settlement_id ORDER BY settlement_start_date ASC;";
+                    $sqlDropDownSettlementID = "SELECT  *  FROM `settlementsfr` GROUP BY settlement_id ORDER BY settlement_start_date ASC;";
                     $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
                     while ($row = mysqli_fetch_array($DropDownSettlementID)) {
                         $outputData .= '<option value="' . $row["settlement_id"] . '">' . $row["settlement_id"] . '</option>';
@@ -73,9 +72,9 @@ include ('sql/mainSql.php');
 
 
                     <br><br>
-                    <div class="form-group">
-                        <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
-                    </div>
+                    <!--                    <div class="form-group">
+                                            <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
+                                        </div>-->
                 </div>  
         </div>
         <?php include 'nav/footer.php'; ?>
@@ -86,7 +85,7 @@ include ('sql/mainSql.php');
             $(document).ready(function () {
                 $("#getSettlementbutton").click(function () {
                     var prodname = $('#selproduct :selected').text();
-                    $.get("getlist/getsingleprod.php", {SettlementID: prodname}, function (getresult) {
+                    $.get("getlist/getsingleprod_fr.php", {SettlementID: prodname}, function (getresult) {
                         $("#presentprod").html(getresult);
                     });
                 });
