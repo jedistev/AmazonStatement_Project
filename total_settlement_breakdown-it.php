@@ -13,22 +13,8 @@ include ('sql/mainSql-it.php');
         <meta name="author" content="">
 
         <title>Amazon Statement Project</title>
-
-
-
         <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="css/freelancer.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/freelancer.css" />
-
-        <!-- Custom fonts for this template -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-
-
+        <?php include 'nav/css.php';?>
     </head>
 
     <body id="page-top">
@@ -56,7 +42,7 @@ include ('sql/mainSql-it.php');
              </form> -->
             <br>
 
-            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >
+                        <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >
                 <thead>
 
                     <tr  Class="table-header-total">
@@ -105,7 +91,7 @@ include ('sql/mainSql-it.php');
                         };
                         ?>
                     </tr>
-                   
+
                     <tr  Class="table-header-total">
                         <th>Disposal Complete</th>
                         <?php
@@ -187,8 +173,8 @@ include ('sql/mainSql-it.php');
                         };
                         ?>
                     </tr>
-                    
-                     <tr  Class="table-header-total">
+
+                    <tr  Class="table-header-total">
                         <th>Lighting Deal Fee</th>
                         <?php
                         // total all together
@@ -204,8 +190,8 @@ include ('sql/mainSql-it.php');
                 </tbody>
             </table>
 
-            
-            <p>Total of Settle cost and match</p>
+
+            <p class="text-primary">Total of Settle cost and match</p>
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr class="table-header-total">
@@ -223,9 +209,9 @@ include ('sql/mainSql-it.php');
                         <th>Total from Amazon Settlement</th>
                         <?php
                         // total all together
-                        while ($row = mysqli_fetch_array($SettlementTotalAmount)) {
+                        while ($row = mysqli_fetch_array($settlementTotalAmount)) {
                             ?>
-                            <td class="table-smaller-text"><?php echo $row["total_amount"]; ?></td>
+                            <td class="table-smaller-text"><?php echo $row["total_amount_all_together"]; ?></td>
                             <?php
                         };
                         ?>
@@ -242,6 +228,8 @@ include ('sql/mainSql-it.php');
                     </tr>
                 </thead>
             </table>
+
+            
         </div>
         <?php include 'nav/footer.php'; ?>
 <?php include 'nav/script.php'; ?>

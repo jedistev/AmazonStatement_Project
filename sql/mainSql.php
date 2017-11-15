@@ -19,7 +19,7 @@ $sql = "SELECT * FROM settlements";
 $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlements');
 
 //total Cost and Settlement Date list
-$totalResult = mysqli_query($conn, 'SELECT * FROM `settlements` WHERE `total_amount`');
+$totalResult = mysqli_query($conn, 'SELECT * FROM `settlements` WHERE `total_amount` order by settlement_start_date DESC');
 
 
 //show all the Cost on each table 
@@ -165,7 +165,9 @@ $sqlallEuropetotalDisplayed = "SELECT marketplace_name, settlement_id, settlemen
     UNION
         SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsfr WHERE total_amount
     UNION
-        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsUKeuro WHERE total_amount";
+        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsit WHERE total_amount
+    UNION
+       SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsukeuro WHERE total_amount" ;
 $europeDisplayList = mysqli_query($conn, $sqlallEuropetotalDisplayed);
 
 //total all europe cost of total amount
@@ -181,6 +183,21 @@ $sqltotalamountofeurope = "SELECT SUM(total_amount) AS total_europe_price
         SELECT total_amount FROM settlementsUKeuro
     ) t";
 $showeuropeamountcost = mysqli_query($conn, $sqltotalamountofeurope);
+
+
+//total all europe cost of total amount in sum group
+$SqleuropeSumgroup ="SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementses WHERE total_amount
+    UNION
+        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementsde WHERE total_amount
+    UNION
+        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementsfr WHERE total_amount
+    UNION
+        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount'  FROM settlementsit WHERE total_amount";
+$europedisplayGroupAmount = mysqli_query($conn, $SqleuropeSumgroup);
+
+//total of GB cost of total amount in sum group
+ $GroupsumUKtotal = mysqli_query($conn, 'SELECT settlement_id, settlement_start_date, settlement_end_date, sum(total_amount) as total_amount_uk, currency, marketplace_name FROM settlements WHERE total_amount');
+
 
 //total in GBPS current convertion
 $sqltotalGBPdisplayed = "Select marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, total_amount from settlements Where total_amount";
@@ -231,15 +248,40 @@ $sqlgroupwarehousedamage = "SELECT DISTINCT settlement_id, amount_description, S
 $allgroupwarehousedamage = mysqli_query($conn, $sqlgroupwarehousedamage);
 
 //grouptotalamount
-$sqltotalamountgroup = "SELECT  settlement_id, settlement_start_date,settlement_end_date, total_amount FROM settlements Group By settlement_id";
+$sqltotalamountgroup = "
+SELECT 
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    total_amount
+FROM
+    settlements
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $allgrouptotalamount = mysqli_query($conn, $sqltotalamountgroup);
 
 //grouptotalmatch
-$sqlgrouptotalmatch = "Select total_amount, Sum(amount) AS total_match_amount_sum from settlements Group By settlement_id";
+$sqlgrouptotalmatch = "
+SELECT 
+    total_amount,
+    SUM(amount) AS total_match_amount_sum,
+    settlement_start_date
+FROM
+    settlements
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $grouptotalmatch = mysqli_query($conn, $sqlgrouptotalmatch);
 
 //groupbalancematch
-$sqlgroupbalancematch = "Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlements Group By settlement_id";
+$sqlgroupbalancematch = "
+SELECT 
+    total_amount,
+    SUM(amount) AS match_amount_sum,
+    SUM(total_amount - amount) AS total_match
+FROM
+    settlements
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
 
 
@@ -351,6 +393,7 @@ SELECT settlement_id,
 
 FROM settlements
 GROUP BY settlement_id
+ORDER BY settlement_start_date DESC
 
 ";
 

@@ -49,10 +49,10 @@
                         <div class="modal-body">
                             <h2>H-ROOT UK</h2>
                             <hr class="star-primary">
-                                <a href="<?php echo 'total_settlement_uk.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total</a><br>
-                                <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default"> UK Total settlement Section</a><br>
-                                <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
-                                <a href="<?php echo 'each_settlement-uk.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
+                            <a href="<?php echo 'total_settlement_uk.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total</a><br>
+                            <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default"> UK Total settlement Section</a><br>
+                            <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                            <a href="<?php echo 'each_settlement-uk.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -84,6 +84,7 @@
                                 <a href="<?php echo 'total_settlement_ger.php'; ?>" class="btn btn-lg btn-default">Germany settlements Date and Total</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-de.php'; ?>" class="btn btn-lg btn-default">Germany Total settlement Section</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown_de.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                <a href="<?php echo 'each_settlement-de.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -115,6 +116,7 @@
                                 <a href="<?php echo 'total_settlement_fr.php'; ?>" class="btn btn-lg btn-default">France settlements Date and Total</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-fr.php'; ?>" class="btn btn-lg btn-default">France Settlement Section</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown_fr.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                <a href="<?php echo 'each_settlement-fr.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -146,6 +148,7 @@
                                 <a href="<?php echo 'total_settlement_it.php'; ?>" class="btn btn-lg btn-default">Italy settlements Date and Total</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-it.php'; ?>" class="btn btn-lg btn-default">Italy Settlement Section</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown_it.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                 <a href="<?php echo 'each_settlement-it.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -177,6 +180,7 @@
                                 <a href="<?php echo 'total_settlement_es.php'; ?>" class="btn btn-lg btn-default">Spain settlements Date and Total</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-esp.php'; ?>" class="btn btn-lg btn-default">Spain Settlement Section</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown_es.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                <a href="<?php echo 'each_settlement-es.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -204,7 +208,8 @@
                             <h2>H-Root Europe Total</h2>
                             <hr class="star-primary">
                             <p>
-                                <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_europe.php'; ?>" class="btn btn-lg btn-default">Europen total on each country</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total on each Settlement Section</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">
@@ -236,6 +241,7 @@
                                 <a href="<?php echo 'total_settlement_uk_euro.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total in Euro</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-uk-euro.php'; ?>" class="btn btn-lg btn-default">UK Settlement Section in Euro</a><br>
                                 <a href="<?php echo 'fortnight_settlement_breakdown_uk_euro.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
+                                <a href="<?php echo 'each_settlement-uk-euro.php'; ?>" class="btn btn-lg btn-default">Each settlement Breakdown</a><br>
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">

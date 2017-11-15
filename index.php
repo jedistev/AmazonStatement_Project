@@ -5,8 +5,6 @@ include ('sql/mainSql.php');
 //for upload CSV
 include('upload-functions.php');
 ?>
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -18,20 +16,9 @@ include('upload-functions.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Amazon Settlement Project</title>
-
+    <title>Amazon Statement Project</title>
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- Custom styles for this template -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/freelancer.css" rel="stylesheet">
-
+    <?php include 'nav/css.php'; ?>
 </head>
 
 <body id="page-top">

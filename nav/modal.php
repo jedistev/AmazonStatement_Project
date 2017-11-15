@@ -569,3 +569,4 @@
 
 <?php include 'nav/modal-country.php';?>
 <?php include 'nav/modal-sku.php';?>
+<?php include 'nav/modal-chart.php';?>
