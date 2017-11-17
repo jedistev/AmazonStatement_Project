@@ -1,16 +1,7 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "amazon";
+include ('config/config.php');
 
-$conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
 
 //all table 
 $sql = "SELECT * FROM settlements";
@@ -20,7 +11,6 @@ $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlements');
 
 //total Cost and Settlement Date list
 $totalResult = mysqli_query($conn, 'SELECT * FROM `settlements` WHERE `total_amount` order by settlement_start_date DESC');
-
 
 //show all the Cost on each table 
 $sqlCostAmount = "SELECT `currency`,SUM(COALESCE(total_amount, 0.00)) AS`total_amount_sum` FROM `settlements` WHERE `total_amount`";
@@ -167,7 +157,7 @@ $sqlallEuropetotalDisplayed = "SELECT marketplace_name, settlement_id, settlemen
     UNION
         SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsit WHERE total_amount
     UNION
-       SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsukeuro WHERE total_amount" ;
+       SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency,total_amount FROM settlementsukeuro WHERE total_amount";
 $europeDisplayList = mysqli_query($conn, $sqlallEuropetotalDisplayed);
 
 //total all europe cost of total amount
@@ -186,17 +176,66 @@ $showeuropeamountcost = mysqli_query($conn, $sqltotalamountofeurope);
 
 
 //total all europe cost of total amount in sum group
-$SqleuropeSumgroup ="SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementses WHERE total_amount
-    UNION
-        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementsde WHERE total_amount
-    UNION
-        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount' FROM settlementsfr WHERE total_amount
-    UNION
-        SELECT marketplace_name, settlement_id, settlement_start_date, settlement_end_date, currency, sum(total_amount) as 'Europe_total_Amount'  FROM settlementsit WHERE total_amount";
+$SqleuropeSumgroup = "
+SELECT 
+    marketplace_name,
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    currency,
+    SUM(total_amount) AS 'Europe_total_Amount'
+FROM
+    settlementses
+WHERE
+    total_amount 
+UNION SELECT 
+    marketplace_name,
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    currency,
+    SUM(total_amount) AS 'Europe_total_Amount'
+FROM
+    settlementsde
+WHERE
+    total_amount 
+UNION SELECT 
+    marketplace_name,
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    currency,
+    SUM(total_amount) AS 'Europe_total_Amount'
+FROM
+    settlementsfr
+WHERE
+    total_amount 
+UNION SELECT 
+    marketplace_name,
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    currency,
+    SUM(total_amount) AS 'Europe_total_Amount'
+FROM
+    settlementsit
+WHERE
+    total_amount 
+UNION SELECT 
+    marketplace_name,
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    currency,
+    SUM(total_amount) AS 'Europe_total_Amount'
+FROM
+    settlementsukeuro
+WHERE
+    total_amount";
 $europedisplayGroupAmount = mysqli_query($conn, $SqleuropeSumgroup);
 
 //total of GB cost of total amount in sum group
- $GroupsumUKtotal = mysqli_query($conn, 'SELECT settlement_id, settlement_start_date, settlement_end_date, sum(total_amount) as total_amount_uk, currency, marketplace_name FROM settlements WHERE total_amount');
+$GroupsumUKtotal = mysqli_query($conn, 'SELECT settlement_id, settlement_start_date, settlement_end_date, sum(total_amount) as total_amount_uk, currency, marketplace_name FROM settlements WHERE total_amount');
 
 
 //total in GBPS current convertion
@@ -286,8 +325,6 @@ $groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
 
 
 
-
-
 $sqlGroupEachAmount = "
 SELECT 
     settlement_id,
@@ -325,7 +362,7 @@ $grouptotalorder = mysqli_query($conn, $sqlGroupEachAmount);
 $grouptotalorder1 = mysqli_query($conn, $sqlGroupEachAmount);
 
 
-$sqlBreakdownAmountGroup ="
+$sqlBreakdownAmountGroup = "
 SELECT 
     amount_description,
     SUM(amount) AS `Each_group_Amount`
@@ -352,7 +389,7 @@ GROUP BY settlement_id ASC ,  amount_description ASC
 ";
 
 
-$sqlbreakdowntransaction_type ="
+$sqlbreakdowntransaction_type = "
 SELECT 
     settlement_id,
     total_amount,
@@ -371,7 +408,7 @@ WHERE
 GROUP BY settlement_id ASC ,  transaction_type ASC
 ";
 
-$sqlbreakdowntransaction_column ="
+$sqlbreakdowntransaction_column = "
 SELECT settlement_id, 
     settlement_start_date,
     settlement_end_date,
@@ -394,9 +431,27 @@ SELECT settlement_id,
 FROM settlements
 GROUP BY settlement_id
 ORDER BY settlement_start_date DESC
-
 ";
 
+
+//total amount settlement breakdown
+$sqlTotalSettlementBreakdown = "
+SELECT settlement_id, 
+    SUM(total_amount) As 'total_amount',
+    SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
+    SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',
+    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'Servicefee',
+    SUM(IF(amount_description = 'REVERSAL_REIMBURSEMENT',amount,0)) AS 'REVERSAL_REIMBURSEMENT',
+    SUM(IF(amount_description = 'RemovalComplete',amount,0)) AS 'RemovalComplete',
+    SUM(IF(amount_description = 'Storage Fee',amount,0)) AS 'Storage Fee',
+    SUM(IF(amount_description = 'LightningDealFee',amount,0)) AS 'LightningDealFee',
+    SUM(IF(amount_description = 'Subscription Fee',amount,0)) AS 'Subscription Fee',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'WAREHOUSE_DAMAGE',amount,0)) AS 'WAREHOUSE_DAMAGE',
+    SUM(IF(amount_description = 'DisposalComplete',amount,0)) AS 'DisposalComplete',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'Missing From Inbound',amount,0)) AS 'Missing From Inbound',
+    SUM(IF(amount_description = 'MULTICHANNEL_ORDER_LOST',amount,0)) AS 'MULTICHANNEL_ORDER_LOST'
+
+FROM settlements";
 ?>
-
-

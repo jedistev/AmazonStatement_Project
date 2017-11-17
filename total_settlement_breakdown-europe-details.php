@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql-uk-euro.php');
+include ('sql/europebreakdownsql.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@ include ('sql/mainSql-uk-euro.php');
 
         <div class="container">
             <br>
-            <label>Total Breakdown for Uk Euro H-root</label>
+            <label>Total Breakdown for Europe H-root</label>
             <br>
             <!-- <form class="form-horizontal">
                   <div class="form-group">
@@ -44,11 +44,49 @@ include ('sql/mainSql-uk-euro.php');
 
             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >
                 <thead>
+                    <tr>
+                        <th>Details Breakdown</th>
+                        <th>UK</th>
+                        <th>Germany</th>
+                        <th>France</th>
+                        <th>Italy</th>
+                        <th>Spain</th>
+                    </tr>
+                </thead>
+
+                <thead>
                     <tr  Class="table-header-total">
                         <th>Total Amount</th>
                         <?php
                         // total Order
-                        $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                        $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
+                        while (($rowResult = mysqli_fetch_array($resultTranscationTotalAmount, MYSQLI_ASSOC)) != NULL) {
+                            ?>
+                            <td  class="table-smaller-text-bolder"><?php echo $rowResult["marketplace_name"]; ?></td>
+                            <?php
+                        }
+                        mysqli_free_result($resultTranscationTotalAmount);
+                        ?>
+
+                    </tr>
+                    <tr  Class="table-header-total">
+                        <th>currency</th>
+                        <?php
+                        // total Order
+                        $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
+                        while (($rowResult = mysqli_fetch_array($resultTranscationTotalAmount, MYSQLI_ASSOC)) != NULL) {
+                            ?>
+                            <td  class="table-smaller-text-bolder"><?php echo $rowResult["currency"]; ?></td>
+                            <?php
+                        }
+                        mysqli_free_result($resultTranscationTotalAmount);
+                        ?>
+                    </tr>
+                    <tr  Class="table-header-total">
+                        <th>Total Amount</th>
+                        <?php
+                        // total Order
+                        $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                         while (($rowResult = mysqli_fetch_array($resultTranscationTotalAmount, MYSQLI_ASSOC)) != NULL) {
                             ?>
                             <td  class="table-smaller-text-bolder"><?php echo $rowResult["total_amount"]; ?></td>
@@ -66,7 +104,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Order</th>
                     <?php
                     // total Order
-                    $resultTranscationOrder = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationOrder = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationOrder, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Order"]; ?></td>
@@ -80,7 +118,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Refund</th>
                     <?php
                     // total Order
-                    $resultTranscationRefund = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationRefund = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationRefund, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Refund"]; ?></td>
@@ -94,7 +132,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Service Fee (advertising)</th>
                     <?php
                     // total Order
-                    $resultTranscationServicefee = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationServicefee = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationServicefee, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Servicefee"]; ?></td>
@@ -108,7 +146,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Reversal Reimbursement</th>
                     <?php
                     // total Order
-                    $resultTranscationREVERSAL_REIMBURSEMENT = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationREVERSAL_REIMBURSEMENT = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationREVERSAL_REIMBURSEMENT, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["REVERSAL_REIMBURSEMENT"]; ?></td>
@@ -122,7 +160,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Removal Complete</th>
                     <?php
                     // total Order
-                    $resultTranscationRemovalComplete = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationRemovalComplete = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationRemovalComplete, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["RemovalComplete"]; ?></td>
@@ -136,7 +174,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Storage Fee</th>
                     <?php
                     // total Order
-                    $resultTranscationStorageFee = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationStorageFee = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationStorageFee, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Storage Fee"]; ?></td>
@@ -150,7 +188,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Lightning Deal Fee</th>
                     <?php
                     // total Order
-                    $resultTranscationLightningDealFee = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationLightningDealFee = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationLightningDealFee, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["LightningDealFee"]; ?></td>
@@ -163,7 +201,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Subscription Fee</th>
                     <?php
                     // total Order
-                    $resultTranscationSubscriptionFee = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationSubscriptionFee = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationSubscriptionFee, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Subscription Fee"]; ?></td>
@@ -176,7 +214,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Storage Renewal Billing</th>
                     <?php
                     // total Order
-                    $resultTranscationStorageRenewalBilling = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationStorageRenewalBilling = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationStorageRenewalBilling, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["StorageRenewalBilling"]; ?></td>
@@ -190,7 +228,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Warehouse Damage</th>
                     <?php
                     // total Order
-                    $resultTranscationWAREHOUSE_DAMAGE = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationWAREHOUSE_DAMAGE = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationWAREHOUSE_DAMAGE, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["WAREHOUSE_DAMAGE"]; ?></td>
@@ -204,7 +242,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Disposal Complete</th>
                     <?php
                     // total Order
-                    $resultTranscationDisposalComplete = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationDisposalComplete = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationDisposalComplete, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["DisposalComplete"]; ?></td>
@@ -218,7 +256,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Storage Renewal Billing</th>
                     <?php
                     // total Order
-                    $resultTranscationStorageRenewalBilling = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationStorageRenewalBilling = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationStorageRenewalBilling, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["StorageRenewalBilling"]; ?></td>
@@ -232,7 +270,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Missing From Inbound</th>
                     <?php
                     // total Order
-                    $resultTranscationMissingFromInbound = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationMissingFromInbound = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationMissingFromInbound, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["Missing From Inbound"]; ?></td>
@@ -246,7 +284,7 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Multichannel Order Lost</th>
                     <?php
                     // total Order
-                    $resultTranscationMULTICHANNEL_ORDER_LOST = mysqli_query($conn, $sqlTotalSettlementBreakdown);
+                    $resultTranscationMULTICHANNEL_ORDER_LOST = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
                     while (($rowResult = mysqli_fetch_array($resultTranscationMULTICHANNEL_ORDER_LOST, MYSQLI_ASSOC)) != NULL) {
                         ?>
                         <td  class="table-smaller-text-bolder"><?php echo $rowResult["MULTICHANNEL_ORDER_LOST"]; ?></td>
@@ -257,7 +295,7 @@ include ('sql/mainSql-uk-euro.php');
                 </tr>
 
                 <tr>
-                    <th class="text-primary">Total of Settlement cost and match Balance</th><br>
+                    <th class="text-primary">Balance on Each Europe</th><br>
                 </tr>
                 <tr>
                 </tr>
@@ -265,28 +303,32 @@ include ('sql/mainSql-uk-euro.php');
                     <th>Total</th>
                     <?php
                     // total all together
-                    while ($row = mysqli_fetch_array($totalMatchResult)) {
+                    while ($row = mysqli_fetch_array($totalMatchResultEurope)) {
                         ?>
                         <td class="table-smaller-text"><?php echo $row["match_amount_sum"]; ?></td>
                         <?php
                     };
                     ?>
                 </tr>
-                <tr class="table-header-total">
-                    <th>Total from Amazon Settlement</th>
+                <tr  Class="table-header-total">
+                    <th>Total Amount</th>
                     <?php
-                    // total all together
-                    while ($row = mysqli_fetch_array($settlementTotalAmount)) {
+                    // total Order
+                    $resultTranscationTotalAmountBottom = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
+                    while (($rowResult = mysqli_fetch_array($resultTranscationTotalAmountBottom, MYSQLI_ASSOC)) != NULL) {
                         ?>
-                        <td class="table-smaller-text"><?php echo $row["total_amount_all_together"]; ?></td>
+                        <td  class="table-smaller-text"><?php echo $rowResult["total_amount"]; ?></td>
                         <?php
-                    };
+                    }
+                    mysqli_free_result($resultTranscationTotalAmountBottom);
                     ?>
+                </tr>
+
                 <tr class="table-header-total">
                     <th>Difference</th>
                     <?php
                     // total all together
-                    while ($row = mysqli_fetch_array($allbalanceTotal)) {
+                    while ($row = mysqli_fetch_array($allbalanceTotalEurope)) {
                         ?>
                         <td class="table-smaller-text"><?php echo $row["total_match"]; ?></td>
                         <?php

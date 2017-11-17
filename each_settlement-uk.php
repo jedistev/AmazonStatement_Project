@@ -15,6 +15,9 @@ include ('sql/mainSql.php');
         <title>Amazon Statement Project</title>
         <!-- Bootstrap core CSS -->
         <?php include 'nav/css.php'; ?>
+        
+
+        
     </head>
 
     <body id="page-top">
@@ -40,11 +43,13 @@ include ('sql/mainSql.php');
                     echo '</tr>';
                 }
                 mysqli_free_result($totalResult);
+             
                 echo '</table>';
                 ?>
                 <br>
                 <br>
                 <?php
+                
 
                 //load_data_select.php  
                 function fill_settlement($conn) {
@@ -78,6 +83,9 @@ include ('sql/mainSql.php');
                     </div>
                 </div>  
         </div>
+        
+        
+        
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <script>
