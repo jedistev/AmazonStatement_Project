@@ -210,6 +210,8 @@
                             <p>
                                 <a href="<?php echo 'total_settlement_europe.php'; ?>" class="btn btn-lg btn-default">Europen total on each country</a><br>
                                 <a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>" class="btn btn-lg btn-default">Europe Total on each Settlement Section</a><br>
+                                <a href="<?php echo 'total_settlement_breakdown-europe-details.php'; ?>" class="btn btn-lg btn-default">Each Marketplace on each Settlement breakdown</a><br>
+                                
                             </p>
 
                             <button class="btn btn-success" type="button" data-dismiss="modal">

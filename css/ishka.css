@@ -9,8 +9,8 @@ and open the template in the editor.
 */
 
 .table-smaller-text{
-  font-size: 10px;
-  
+    font-size: 10px;
+
 }
 
 .table-header-total{
@@ -23,14 +23,14 @@ left-space-button{
 }
 
 .table-smaller-text-bolder{
-  font-size: 12px;
-  font-weight: 900;
+    font-size: 12px;
+    font-weight: 900;
 }
 
 
 .testimonial-group > .row {
-  overflow-x: auto;
-  white-space: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .each-settlement-button-margin-left{
@@ -53,4 +53,12 @@ div.scrollmenu a {
 
 div.scrollmenu a:hover {
     background-color: #fff;
+}
+
+div.table-container-scrollbar {
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-top: -20px;
+    background-color: pink;
 }

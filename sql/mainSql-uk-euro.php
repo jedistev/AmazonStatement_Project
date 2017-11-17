@@ -1,16 +1,6 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "amazon";
-
-$conn = mysqli_connect($servername, $username, $password, $dbname) or die("Connection failed: " . mysqli_connect_error());
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
-}
+include ('config/config.php');
 
 //all table 
 $sql = "SELECT * FROM settlementsukeuro";
@@ -231,25 +221,42 @@ $sqlgroupwarehousedamage = "SELECT DISTINCT settlement_id, amount_description, S
 $allgroupwarehousedamage = mysqli_query($conn, $sqlgroupwarehousedamage);
 
 //grouptotalamount
-$sqltotalamountgroup = "SELECT  settlement_id, settlement_start_date,settlement_end_date, total_amount FROM settlementsukeuro Group By settlement_id";
+$sqltotalamountgroup = "
+SELECT 
+    settlement_id,
+    settlement_start_date,
+    settlement_end_date,
+    total_amount
+FROM
+    settlementsukeuro
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $allgrouptotalamount = mysqli_query($conn, $sqltotalamountgroup);
 
 //grouptotalmatch
-$sqlgrouptotalmatch = "Select total_amount, Sum(amount) AS total_match_amount_sum from settlementsukeuro Group By settlement_id";
+$sqlgrouptotalmatch = "
+SELECT 
+    total_amount,
+    SUM(amount) AS total_match_amount_sum,
+    settlement_start_date
+FROM
+    settlementsukeuro
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $grouptotalmatch = mysqli_query($conn, $sqlgrouptotalmatch);
 
 //groupbalancematch
-$sqlgroupbalancematch = "Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlementsukeuro Group By settlement_id";
+$sqlgroupbalancematch = "
+SELECT 
+    total_amount,
+    SUM(amount) AS match_amount_sum,
+    SUM(total_amount - amount) AS total_match
+FROM
+    settlementsukeuro
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $groupbalancematch = mysqli_query($conn, $sqlgroupbalancematch);
 
-
-//Getting setltlement name sent by Post method
-//$sql_dropdownlist = "select * from settlementsukeuro where settlement_start_date and settlement_id = '" . $allsettlementreport . "'";
-//$alldropdownlist = mysqli_query($conn, $sql_dropdownlist);
-//
-//if (!$alldropdownlist) {
-//    die('Could not retrieve data: ' . mysql_error());
-//}
 
 
 $sqlGroupEachAmount = "
@@ -316,7 +323,7 @@ GROUP BY settlement_id ASC ,  amount_description ASC
 ";
 
 
-$sqlbreakdowntransaction_type ="
+$sqlbreakdowntransaction_type = "
 SELECT 
     settlement_id,
     total_amount,
@@ -335,7 +342,7 @@ WHERE
 GROUP BY settlement_id ASC ,  transaction_type ASC
 ";
 
-$sqlbreakdowntransaction_column ="
+$sqlbreakdowntransaction_column = "
 SELECT settlement_id, 
     settlement_start_date,
     settlement_end_date,
@@ -357,9 +364,28 @@ SELECT settlement_id,
 
 FROM settlementsukeuro
 GROUP BY settlement_id
-
+ORDER BY settlement_start_date DESC
 ";
 
+
+//total amount settlement breakdown
+$sqlTotalSettlementBreakdown = "
+SELECT settlement_id, 
+    SUM(total_amount) As 'total_amount',
+    SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
+    SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',
+    SUM(IF(transaction_type = 'ServiceFee',amount,0)) AS 'Servicefee',
+    SUM(IF(amount_description = 'REVERSAL_REIMBURSEMENT',amount,0)) AS 'REVERSAL_REIMBURSEMENT',
+    SUM(IF(amount_description = 'RemovalComplete',amount,0)) AS 'RemovalComplete',
+    SUM(IF(amount_description = 'Storage Fee',amount,0)) AS 'Storage Fee',
+    SUM(IF(amount_description = 'LightningDealFee',amount,0)) AS 'LightningDealFee',
+    SUM(IF(amount_description = 'Subscription Fee',amount,0)) AS 'Subscription Fee',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'WAREHOUSE_DAMAGE',amount,0)) AS 'WAREHOUSE_DAMAGE',
+    SUM(IF(amount_description = 'DisposalComplete',amount,0)) AS 'DisposalComplete',
+    SUM(IF(amount_description = 'StorageRenewalBilling',amount,0)) AS 'StorageRenewalBilling',
+    SUM(IF(amount_description = 'Missing From Inbound',amount,0)) AS 'Missing From Inbound',
+    SUM(IF(amount_description = 'MULTICHANNEL_ORDER_LOST',amount,0)) AS 'MULTICHANNEL_ORDER_LOST'
+
+FROM settlementsukeuro";
 ?>
-
-

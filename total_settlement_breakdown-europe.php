@@ -30,6 +30,7 @@ include ('sql/mainSql.php');
             echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
             echo '<tr>';
             echo '<th>Marketplace name</th>';
+            echo '<th>Date</th>';
             echo '<th>Settlement id</th>';
             echo '<th>Total amount</th>';
 
@@ -38,6 +39,7 @@ include ('sql/mainSql.php');
             while (($rowGBPDisplay = mysqli_fetch_array($europeDisplayList, MYSQLI_ASSOC)) != NULL) {
                 echo '<tr>';
                 echo '<td>' . $rowGBPDisplay['marketplace_name'] . '</td>';
+                echo '<td>' . $rowGBPDisplay['settlement_start_date'] . ' - ' . $rowGBPDisplay['settlement_end_date'] . '</td>';
                 echo '<td>' . $rowGBPDisplay['settlement_id'] . '</td>';
                 echo '<td>' . $rowGBPDisplay['total_amount'] . '</td>';
                 echo '</tr>';
@@ -71,9 +73,8 @@ include ('sql/mainSql.php');
             echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
             echo '<tr>';
             echo '<th>Marketplace name</th>';
+            echo '<th>Date</th>';
             echo '<th>Settlement id</th>';
-            echo '<th>Settlement start_date</th>';
-            echo '<th>Settlement end_date</th>';
             echo '<th>Total amount</th>';
 
 
@@ -81,9 +82,8 @@ include ('sql/mainSql.php');
             while (($rowGBPDisplay = mysqli_fetch_array($totalGBPdisplayedlist, MYSQLI_ASSOC)) != NULL) {
                 echo '<tr>';
                 echo '<td>' . $rowGBPDisplay['marketplace_name'] . '</td>';
+                echo '<td>' . $rowGBPDisplay['settlement_start_date'] . ' - ' . $rowGBPDisplay['settlement_end_date'] . '</td>';
                 echo '<td>' . $rowGBPDisplay['settlement_id'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_start_date'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_end_date'] . '</td>';
                 echo '<td>' . $rowGBPDisplay['total_amount'] . '</td>';
                 echo '</tr>';
             }

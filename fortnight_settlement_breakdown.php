@@ -310,8 +310,6 @@ include ('sql/mainSql.php');
                         };
                         ?>
                     </tr>
-
-
                     </thead>
                     <tbody>
                     </tbody>
