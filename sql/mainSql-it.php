@@ -9,7 +9,17 @@ $sql = "SELECT * FROM settlementsit";
 $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlementsit');
 
 //total Cost and Settlement Date list
-$totalResult = mysqli_query($conn, 'SELECT * FROM `settlementsit` WHERE `total_amount` order by settlement_start_date DESC');
+$totalResult = mysqli_query($conn, '
+Select 
+   settlement_id, 
+   settlement_start_date as formatdate,
+   date_format(settlement_start_date, "%d/%m/%Y") as settlement_start_date, 
+   date_format(settlement_end_date, "%d/%m/%Y") as settlement_end_date,
+   currency,
+   total_amount
+from settlementsit
+Where total_amount
+order by formatdate DESC');
 
 //show all the Cost on each table 
 $sqlCostAmount = "SELECT `currency`,SUM(COALESCE(total_amount, 0.00)) AS`total_amount_sum` FROM `settlementsit` WHERE `total_amount`";

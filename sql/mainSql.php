@@ -2,7 +2,6 @@
 
 include ('config/config.php');
 
-
 //all table 
 $sql = "SELECT * FROM settlements";
 
@@ -10,14 +9,24 @@ $sql = "SELECT * FROM settlements";
 $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlements');
 
 //total Cost and Settlement Date list
-$totalResult = mysqli_query($conn, 'SELECT * FROM `settlements` WHERE `total_amount` order by settlement_start_date DESC');
+$totalResult = mysqli_query($conn, '
+Select 
+   settlement_id, 
+   settlement_start_date as formatdate,
+   date_format(settlement_start_date, "%d/%m/%Y") as settlement_start_date, 
+   date_format(settlement_end_date, "%d/%m/%Y") as settlement_end_date,
+   currency,
+   total_amount
+from settlements
+Where total_amount
+order by formatdate DESC');
 
 //show all the Cost on each table 
 $sqlCostAmount = "SELECT `currency`,SUM(COALESCE(total_amount, 0.00)) AS`total_amount_sum` FROM `settlements` WHERE `total_amount`";
 $allamountresult = mysqli_query($conn, $sqlCostAmount);
 
 //Principle on Promotion 
-$sqlPromotion = "SELECT  Settlement_ID,amount_description,amount_type,amount FROM amazon.settlements Where amount_type='Promotion' and amount_description='Principal'";
+$sqlPromotion = "SELECT  Settlement_ID,amount_description,amount_type,amount FROM amazon.settlements Where amount_type='Promotion' and amount_$sqlPromotiondescription='Principal'";
 $allPrincipal = mysqli_query($conn, $sqlPromotion);
 
 //total on Promoted cost
@@ -408,10 +417,10 @@ WHERE
 GROUP BY settlement_id ASC ,  transaction_type ASC
 ";
 
-$sqlbreakdowntransaction_column = "
+$sqlbreakdowntransaction_column ="
 SELECT settlement_id, 
-    settlement_start_date,
-    settlement_end_date,
+    date_format(settlement_start_date, '%d/%m/%Y') as settlement_start_date, 
+    date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,
     total_amount,
     SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
     SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',

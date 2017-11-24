@@ -4,30 +4,9 @@ include ('sql/mainSql.php');
 ?> 
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Amazon Statement Project</title>
-
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/freelancer.min.css" rel="stylesheet">
-        <link href="css/freelancer.css" rel="stylesheet">
-
-        <!-- Custom fonts for this template -->
-        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
-        <!-- Custom styles for this template -->
-        
-       
-
+        <?php include 'nav/meta.php'; ?>
+        <?php include 'nav/css.php'; ?>
     </head>
 
     <body id="page-top">
@@ -36,7 +15,6 @@ include ('sql/mainSql.php');
         <!--Each Settlement goes there -->
 
         <div class="container">
-
             <br>
             <br>
             <?php
@@ -47,27 +25,26 @@ include ('sql/mainSql.php');
                 $sqlDropDownSettlementID = "SELECT  * FROM `settlements` where total_amount";
                 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
                 while ($row = mysqli_fetch_array($DropDownSettlementID)) {
-                    $output .= '<option value="' . $row["settlement_id"] . '">' . $row["settlement_id"] . '</option>';
+                    $outputData .= '<option value="' . $row["settlement_id"] . ' ' . $row["settlement_start_date"] . ' ' . $row["settlement_end_date"] . '">' . $row["settlement_id"] . '&nbsp &nbsp' . $row["settlement_start_date"] . '&nbsp-&nbsp' . $row["settlement_end_date"] . '</option>';
                 }
                 return $output;
             }
-
             ?>  
             <div class="container">  
-                <label class="col-sm-3 control-label">Settlement ID</label>
+                <label class="col-sm-3 control-label">Settlement ID &amp; Date</label>
                 <div class="col-sm-9">
-               
-                <select id="selproduct">
-                    <option value="">Show All Product</option>  
-                    <?php echo fill_settlement($conn); ?>  
-                </select> 
-                <button class="btn btn-primary left-space-button" id="getSettlementbutton">Settlement details</button>  
-            </div>
-            <div id="presentprod"></div> 
-            
-           
-            <br><br>
-            <div class="form-group">
+
+                    <select id="selproduct">
+                        <option value=""> Settlement ID &amp; Date</option>  
+                        <?php echo fill_settlement($conn); ?>  
+                    </select> 
+                    <button class="btn btn-primary left-space-button" id="getSettlementbutton">Settlement details</button>  
+                </div>
+                <div id="presentprod"></div> 
+
+
+                <br><br>
+                <div class="form-group">
                     <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
                 </div>
             </div>  
@@ -75,7 +52,7 @@ include ('sql/mainSql.php');
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <script>
-                     
+
             //dropdown list
             $(document).ready(function () {
                 $("#getSettlementbutton").click(function () {
@@ -86,7 +63,7 @@ include ('sql/mainSql.php');
                 });
             });
 
-        
+
             function Export()
             {
                 var conf = confirm("Export users to CSV?");

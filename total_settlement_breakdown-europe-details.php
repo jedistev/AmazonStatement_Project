@@ -4,16 +4,8 @@ include ('sql/europebreakdownsql.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>Amazon Statement Project</title>
-        <!-- Bootstrap core CSS -->
+        <?php include 'nav/meta.php'; ?>
         <?php include 'nav/css.php'; ?>
     </head>
 
@@ -45,7 +37,7 @@ include ('sql/europebreakdownsql.php');
             <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >
                 <thead>
                     <tr>
-                        <th>Details Breakdown</th>
+                        <th class="text-primary">Details Breakdown</th>
                         <th>UK</th>
                         <th>Germany</th>
                         <th>France</th>
@@ -56,7 +48,7 @@ include ('sql/europebreakdownsql.php');
 
                 <thead>
                     <tr  Class="table-header-total">
-                        <th>Total Amount</th>
+                        <th>Marketplace</th>
                         <?php
                         // total Order
                         $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);
@@ -70,7 +62,7 @@ include ('sql/europebreakdownsql.php');
 
                     </tr>
                     <tr  Class="table-header-total">
-                        <th>currency</th>
+                        <th>Currency</th>
                         <?php
                         // total Order
                         $resultTranscationTotalAmount = mysqli_query($conn, $sqlTotalSettlementBreakdownEurope);

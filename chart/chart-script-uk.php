@@ -1,6 +1,5 @@
 <?php
 // Database Connection
-include ('sql/mainSql.php');
 $queryPie = "SELECT  
     CONCAT(settlement_start_date,' - ', settlement_end_date) As Date,
     total_amount

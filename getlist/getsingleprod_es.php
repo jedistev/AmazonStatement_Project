@@ -1,11 +1,13 @@
 <?php
 
 $allsettlementreport = $_GET['SettlementID'];
-include ('../sql/mainSql-es.php');
+include ('../sql/europeeachsettlementsql.php');
 
 //Getting setltlement name sent by Post method
 $sql_dropdownlist = "select 
     settlement_start_date,
+    date_format(settlement_start_date, '%d/%m/%Y') as settlement_start_date, 
+    date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,
     CONCAT(settlement_start_date,' - ', settlement_end_date) As Date,
     settlement_id,
     total_amount,
@@ -51,10 +53,12 @@ while ($row = mysqli_fetch_array($alldropdownlist)) {
     echo $row['settlement_id'];
     echo "</td></tr>";
 
-    echo "<tr> ";
+   echo "<tr> ";
     echo "<th>Date</th> ";
     echo "<td class='table-smaller-text'>";
-    echo $row['Date'];
+    echo $row['settlement_start_date']; 
+    echo " &minus; "; 
+    echo $row['settlement_end_date'];
     echo "</td></tr>";
 
     echo "<tr> ";
