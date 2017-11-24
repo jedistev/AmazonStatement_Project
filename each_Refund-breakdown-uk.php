@@ -1,6 +1,7 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql-uk-euro.php');
+include ('sql/mainSql.php');
+
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,13 +17,14 @@ include ('sql/mainSql-uk-euro.php');
 
         <div class="container">
             <br>
+            <h3>Refund Breakdown Details</h3>
             <br>
             <?php
 
             //load_data_select.php  
             function fill_settlement($conn) {
                 $outputData = '';
-                $sqlDropDownSettlementID = "SELECT  *  FROM `settlementsukeuro` GROUP BY settlement_id ORDER BY settlement_start_date ASC;";
+                $sqlDropDownSettlementID = "SELECT  *  FROM `settlements` GROUP BY settlement_id DESC ORDER BY settlement_start_date ASC;";
                 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
                 while ($row = mysqli_fetch_array($DropDownSettlementID)) {
                     $outputData .= '<option value="' . $row["settlement_id"] . ' ' . $row["settlement_start_date"] . ' ' . $row["settlement_end_date"] . '">' . $row["settlement_id"] . '&nbsp &nbsp' . $row["settlement_start_date"] . '&nbsp-&nbsp' . $row["settlement_end_date"] . '</option>';
@@ -31,12 +33,12 @@ include ('sql/mainSql-uk-euro.php');
             }
             ?>  
             <div class="container">  
-                <label class="col-sm-3 control-label"> Settlement ID &amp; Date</label>
+                <label class="col-sm-3 control-label">Settlement ID &amp; Date</label>
                 <div class="col-sm-9">
 
                     <select id="selproduct">
                         <option value=""> Settlement ID &amp; Date</option>  
-                        <?php echo fill_settlement($conn); ?>  
+<?php echo fill_settlement($conn); ?>  
                     </select> 
                     <button class="btn btn-primary left-space-button each-settlement-button-margin-left" id="getSettlementbutton">Settlement details</button>  
                 </div>
@@ -46,12 +48,15 @@ include ('sql/mainSql-uk-euro.php');
 
 
                 <br><br>
-                <!--                    <div class="form-group">
-                                        <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
-                                    </div>-->
+                <div class="form-group">
+                    <button onclick="Export()" class="btn btn-success">Export to CSV File</button>
+                </div>
             </div>  
         </div>
-        <?php include 'nav/footer.php'; ?>
+
+
+
+<?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <script>
 
@@ -59,7 +64,7 @@ include ('sql/mainSql-uk-euro.php');
             $(document).ready(function () {
                 $("#getSettlementbutton").click(function () {
                     var prodname = $('#selproduct :selected').text();
-                    $.get("getlist/getsingleprod_uk-euro.php", {SettlementID: prodname}, function (getresult) {
+                    $.get("getlist/getsingleprod.php", {SettlementID: prodname}, function (getresult) {
                         $("#presentprod").html(getresult);
                     });
                 });

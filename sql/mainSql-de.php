@@ -9,7 +9,17 @@ $sql = "SELECT * FROM settlementsde";
 $skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlementsde');
 
 //total Cost and Settlement Date list
-$totalResult = mysqli_query($conn, 'SELECT * FROM `settlementsde` WHERE `total_amount` order by settlement_start_date DESC');
+$totalResult = mysqli_query($conn, '
+Select 
+    settlement_id, 
+    settlement_start_date as formatdate,
+    date_format(settlement_start_date, "%d/%m/%Y") as settlement_start_date, 
+    date_format(settlement_end_date, "%d/%m/%Y") as settlement_end_date,
+    currency,
+    total_amount
+from settlementsde
+Where total_amount
+order by formatdate DESC');
 
 //show all the Cost on each table 
 $sqlCostAmount = "SELECT `currency`,SUM(COALESCE(total_amount, 0.00)) AS`total_amount_sum` FROM `settlementsde` WHERE `total_amount`";
@@ -208,8 +218,15 @@ ORDER BY settlement_start_date DESC";
 $allgrouptotalamount = mysqli_query($conn, $sqltotalamountgroup);
 
 //grouptotalmatch
-$sqlgrouptotalmatch = "Select total_amount, Sum(amount) AS total_match_amount_sum from settlementsde Group By settlement_id ORDER BY settlement_start_date DESC
-";
+$sqlgrouptotalmatch = "
+SELECT 
+    total_amount,
+    SUM(amount) AS total_match_amount_sum,
+    settlement_start_date
+FROM
+    settlementsde
+GROUP BY settlement_id
+ORDER BY settlement_start_date DESC";
 $grouptotalmatch = mysqli_query($conn, $sqlgrouptotalmatch);
 
 //groupbalancematch
@@ -304,8 +321,8 @@ GROUP BY settlement_id ASC ,  transaction_type ASC
 
 $sqlbreakdowntransaction_column ="
 SELECT settlement_id, 
-    settlement_start_date,
-    settlement_end_date,
+    date_format(settlement_start_date, '%d/%m/%Y') as settlement_start_date, 
+    date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,
     total_amount,
     SUM(IF(transaction_type = 'order',amount,0)) AS 'Order',
     SUM(IF(transaction_type = 'refund',amount,0)) AS 'Refund',

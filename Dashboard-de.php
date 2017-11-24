@@ -1,6 +1,6 @@
 <?php
 //sql files for calucated
-include ('sql/mainSql.php');
+include ('sql/mainSql-de.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +13,11 @@ include ('sql/mainSql.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <h1>UK dashboard</h1>
-        <div id="piechartTotalamountuk" style="width: max; height: 400px; background-color: pink;"></div>
+        <h1>Germany dashboard</h1>
+        <div id="piechartTotalamountde" style="width: max; height: 400px; background-color: pink;"></div>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <!-- Chart/Loader.js Google -->
-        <?php include 'chart/chart-script-uk.php'; ?>
+        <?php include 'chart/chart-script-de.php'; ?>
     </body>
 </html>
