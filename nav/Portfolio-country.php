@@ -1,6 +1,6 @@
 <section id="portfolio">
     <div class="container">
-        <p class="text-center">Country</p>
+        <p class="text-center">Marketplace</p>
         <div class="row">
             <!--UK Section Area Begin --> 
             <div class="col-sm-3 portfolio-item">
