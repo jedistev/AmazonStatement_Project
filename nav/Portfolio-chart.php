@@ -12,7 +12,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/cake.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/gb.png" alt="">
                 </a>
             </div>
 
@@ -25,7 +25,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/sku-sold-de.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/Ger.png" alt="">
                 </a>
             </div>
 
@@ -38,7 +38,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/sku-sold-it.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/italy.png" alt="">
                 </a>
             </div>
 
@@ -51,7 +51,7 @@
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/sku-sold-es.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/esp.png" alt="">
                 </a>
             </div>
 
@@ -60,11 +60,11 @@
                 <a class="portfolio-link" href="#portfolioModaldashboardFrance" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold France</p>
+                            <p>France Dashboard</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="img/portfolio/sku-sold-fr.png" alt="">
+                    <img class="img-fluid" src="img/portfolio/fra.png" alt="">
                 </a>
             </div>
         </div>
