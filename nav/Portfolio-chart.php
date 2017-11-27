@@ -3,7 +3,7 @@
     <div class="container">
         <p class="text-center">Chart</p>
         <div class="row">
-            <!-- SKU model-->
+            <!-- Uk Dashboard-->
             <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModalDashboarduk" data-toggle="modal">
                     <div class="caption">
@@ -13,6 +13,19 @@
                         </div>
                     </div>
                     <img class="img-fluid" src="img/portfolio/gb.png" alt="">
+                </a>
+            </div>
+            
+            <!-- Uk Dashboard Euro-->
+            <div class="col-sm-3 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModalDashboardukEuro" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <P>UK Dashboard (EURO)</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/gb-euro.png" alt="">
                 </a>
             </div>
 
