@@ -80,6 +80,18 @@
                     <img class="img-fluid" src="img/portfolio/fra.png" alt="">
                 </a>
             </div>
+                        <!-- France dashboards-->
+            <div class="col-sm-3 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModalDashboardukEurope" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>Europe total Dashboard</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/eu.png" alt="">
+                </a>
+            </div>
         </div>
     </div>
 </div>

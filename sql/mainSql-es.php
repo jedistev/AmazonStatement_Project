@@ -6,7 +6,15 @@ include ('config/config.php');
 $sql = "SELECT * FROM settlementses";
 
 //sku model list   
-$skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlementses');
+$skuResult = mysqli_query($conn, "
+SELECT 
+    DISTINCT sku 
+FROM settlementses
+WHERE(
+    sku NOT LIKE '%loc%' 
+    AND sku NOT LIKE 'isc%' 
+    AND sku NOT LIKE 'trek%')
+");
 
 //total Cost and Settlement Date list
 $totalResult = mysqli_query($conn, '

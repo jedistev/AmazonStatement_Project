@@ -14,11 +14,11 @@ include ('sql/mainSql.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <?php include './views/Dashboard/Dashboard_display_uk.php'; ?>
+        <?php include './views/Dashboard/Dashboard_display_Europe.php'; ?>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <!-- Chart/Loader.js Google -->
-        <?php include 'chart/uk/chart-script-uk.php'; ?>
+        <?php include 'chart/europe/chart-script-europe.php'; ?>
         
     </body>
 </html>
