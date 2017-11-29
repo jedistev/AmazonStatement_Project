@@ -1,24 +1,19 @@
 <?php
-
-//sql files for calucated
 include ('sql/mainSql.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <?php include 'nav/meta.php'; ?>
         <?php include 'nav/css.php'; ?>
     </head>
-
     <body id="page-top">
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <?php include './views/Dashboard/Dashboard_display_uk.php'; ?>
+        <?php include './views/sku/uk/sku_list_uk.php'; ?>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
-        <!-- Chart/Loader.js Google -->
-        <?php include 'chart/uk/chart-script-uk.php'; ?>
-        
     </body>
 </html>

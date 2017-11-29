@@ -6,7 +6,15 @@ include ('config/config.php');
 $sql = "SELECT * FROM settlementsde";
 
 //sku model list   
-$skuResult = mysqli_query($conn, 'SELECT DISTINCT sku FROM settlementsde');
+$skuResult = mysqli_query($conn, "
+SELECT 
+    DISTINCT sku 
+FROM settlementsde
+WHERE(
+    sku NOT LIKE '%loc%' 
+    AND sku NOT LIKE 'isc%' 
+    AND sku NOT LIKE 'trek%')
+");
 
 //total Cost and Settlement Date list
 $totalResult = mysqli_query($conn, '
@@ -58,75 +66,75 @@ $sqlTotalOrder = " SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amoun
 $AllTotalFee = mysqli_query($conn, $sqlTotalOrder);
 
 //another Transation
-$sqlTransationOther ="SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE transaction_type = 'other-transaction'";
+$sqlTransationOther = "SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE transaction_type = 'other-transaction'";
 $AllOtherTransation = mysqli_query($conn, $sqlTransationOther);
 
 //Each Statement ID with Refund total fee need more work on it.
-$sqlStatmentfund ="SELECT settlement_id ,  transaction_type, currency, sum(COALESCE(amount, 0.00)) AS`Amount_Refund` FROM Settlementsde GROUP BY Settlement_id AND transaction_type = 'Refund'";
+$sqlStatmentfund = "SELECT settlement_id ,  transaction_type, currency, sum(COALESCE(amount, 0.00)) AS`Amount_Refund` FROM Settlementsde GROUP BY Settlement_id AND transaction_type = 'Refund'";
 $eachStatmentRefund = mysqli_query($conn, $sqlStatmentfund);
 
 //Warehouse Damage Total 
-$sqlWarehouseDamageTotal ="SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'WAREHOUSE_DAMAGE'";
+$sqlWarehouseDamageTotal = "SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'WAREHOUSE_DAMAGE'";
 $allWarehouseDamageTotal = mysqli_query($conn, $sqlWarehouseDamageTotal);
 
 //Total Reversal Reimbursement
-$sqlTotalReversalReimbursement ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`Reversal_amount_sum` FROM settlementsde WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
+$sqlTotalReversalReimbursement = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`Reversal_amount_sum` FROM settlementsde WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
 $allTotalReversalReimbursement = mysqli_query($conn, $sqlTotalReversalReimbursement);
 
 //Total Refund Commission 
-$sqlTotalRefundCommission ="SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Commission' and transaction_type='refund'";
+$sqlTotalRefundCommission = "SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Commission' and transaction_type='refund'";
 $allTotalRefundCommission = mysqli_query($conn, $sqlTotalRefundCommission);
 
 //Total Order Commission 
-$sqlTotalOrderCommission ="SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Commission' and transaction_type='order'";
+$sqlTotalOrderCommission = "SELECT transaction_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Commission' and transaction_type='order'";
 $allTotalOrderCommission = mysqli_query($conn, $sqlTotalOrderCommission);
 
 //Total FBA Transportation Fee
-$sqlTotalFBAfee ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'FBA transportation fee'";
+$sqlTotalFBAfee = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'FBA transportation fee'";
 $allTotalFBAfee = mysqli_query($conn, $sqlTotalFBAfee);
 
 //total FBA PER Units Fulfillment Fee
-$sqlTotalFBAperUnits ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'FBAPerUnitFulfillmentFee'";
+$sqlTotalFBAperUnits = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'FBAPerUnitFulfillmentFee'";
 $alltotalFBAperUnits = mysqli_query($conn, $sqlTotalFBAperUnits);
 
 //Total goodwill
-$sqlTotoalGoodwill ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Goodwill'";
+$sqlTotoalGoodwill = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Goodwill'";
 $allTotalGoodwill = mysqli_query($conn, $sqlTotoalGoodwill);
 
 //Total Refund Commission
-$sqlTotalAmountRefundCommission ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'RefundCommission'";
+$sqlTotalAmountRefundCommission = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'RefundCommission'";
 $allTotalAmountRefundCommission = mysqli_query($conn, $sqlTotalAmountRefundCommission);
 
 //Total Cost of Adversting
-$sqlTotalCostAdvert ="SELECT amount_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde where amount_type='Cost of Advertising'";
+$sqlTotalCostAdvert = "SELECT amount_type, amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde where amount_type='Cost of Advertising'";
 $alltotalCostAdvert = mysqli_query($conn, $sqlTotalCostAdvert);
 
 //Total Cost of Principle
-$sqlTotalCostPrincipal ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Principal'";
+$sqlTotalCostPrincipal = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Principal'";
 $alltotalCostPrincipal = mysqli_query($conn, $sqlTotalCostPrincipal);
 
 //Total Cost of Shipping
-$sqlTotalCostShipping ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Shipping'";
+$sqlTotalCostShipping = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Shipping'";
 $alltotalCostShipping = mysqli_query($conn, $sqlTotalCostShipping);
 
 //Total Cost of Storage Fee
-$sqlTotalCostStorage ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Storage fee'";
+$sqlTotalCostStorage = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Storage fee'";
 $allTotalCostStorage = mysqli_query($conn, $sqlTotalCostStorage);
 
 //dropdown Settlement
 $sqlDropDownSettlementID = "SELECT * FROM `settlementsde` where total_amount";
-$DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
+$DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
 
 //SKU model sold
-$sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold, Sum(`amount`) as sku_sold_each From settlementsde Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
-$allSkuModelSold =mysqli_query($conn, $sqlSkuModelSold);
+$sqlSkuModelSold = "Select sku, COUNT(sku) as sku_sold, Sum(`amount`) as sku_sold_each From settlementsde Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
+$allSkuModelSold = mysqli_query($conn, $sqlSkuModelSold);
 
 //RemovalComplete total
-$sqlTotalRemovalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'RemovalComplete'";
+$sqlTotalRemovalComplete = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'RemovalComplete'";
 $allTotalRemovalComplete = mysqli_query($conn, $sqlTotalRemovalComplete);
 
 //DisposalComplete Total
-$sqlTotalDisposalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'DisposalComplete'";
+$sqlTotalDisposalComplete = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'DisposalComplete'";
 $allTotalDisposalComplete = mysqli_query($conn, $sqlTotalDisposalComplete);
 
 //Finally Settlement Balance
@@ -134,33 +142,32 @@ $sqlTotalamountSettlement = "SELECT SUM(total_amount) AS 'total_amount_all_toget
 $settlementTotalAmount = mysqli_query($conn, $sqlTotalamountSettlement);
 
 //totalbalance
-$sqlTotalMatch= "Select total_amount, Sum(amount) AS match_amount_sum from settlementsde";
+$sqlTotalMatch = "Select total_amount, Sum(amount) AS match_amount_sum from settlementsde";
 $totalMatchResult = mysqli_query($conn, $sqlTotalMatch);
 
 //finallmatchbalance
-$sqlbalancematch ="Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlementsde";
+$sqlbalancematch = "Select total_amount, Sum(amount) AS match_amount_sum, Sum(total_amount - amount) AS total_match from settlementsde";
 $allbalanceTotal = mysqli_query($conn, $sqlbalancematch);
 
 //subscription fee
-$sqlSubscriptionFee ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Subscription Fee'";
+$sqlSubscriptionFee = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'Subscription Fee'";
 $allSubscriptionFee = mysqli_query($conn, $sqlSubscriptionFee);
 
 //Storage Renewal Billing total
-$sqlStorageRenewalBilling ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'StorageRenewalBilling'";
+$sqlStorageRenewalBilling = "SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE amount_description = 'StorageRenewalBilling'";
 $allStorageRenewalBilling = mysqli_query($conn, $sqlStorageRenewalBilling);
 
 //rburiesnet list 
-$sqlSkuReversal ="SELECT amount_description, sku FROM settlementsde WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
+$sqlSkuReversal = "SELECT amount_description, sku FROM settlementsde WHERE amount_description = 'REVERSAL_REIMBURSEMENT'";
 $allskuReversal = mysqli_query($conn, $sqlSkuReversal);
 
 //Lightning Deal Fee Amazon
-$sqlLightningDealFee ="SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE transaction_type = 'Lightning Deal Fee'";
+$sqlLightningDealFee = "SELECT transaction_type, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementsde WHERE transaction_type = 'Lightning Deal Fee'";
 $allLightningDealFee = mysqli_query($conn, $sqlLightningDealFee);
 
 //Getting setltlement name sent by Post method
 //$sql_dropdownlist = "select settlement_id, settlement_start_date, settlement_end_date, deposit_date, currency, total_amount from settlementsde where settlement_start_date and settlement_id = '" .$allsettlementreport ."'"; 
 //$alldropdownlist = mysqli_query( $conn, $sql_dropdownlist);
-  
 //break down in each group settlement
 $sqlGroupSettlementidOrder = "SELECT DISTINCT settlement_id, transaction_type , sum(amount) AS 'Each_group_Amount' FROM settlementsde WHERE transaction_type = 'order'  Group By settlement_id";
 $Allgroupsettlementidorder = mysqli_query($conn, $sqlGroupSettlementidOrder);
@@ -273,7 +280,7 @@ $grouptotalorder = mysqli_query($conn, $sqlGroupEachAmount);
 $grouptotalorder1 = mysqli_query($conn, $sqlGroupEachAmount);
 
 
-$sqlBreakdownAmountGroup ="
+$sqlBreakdownAmountGroup = "
 SELECT 
     amount_description,
     SUM(amount) AS `Each_group_Amount`
@@ -300,7 +307,7 @@ GROUP BY settlement_id ASC ,  amount_description ASC
 ";
 
 
-$sqlbreakdowntransaction_type ="
+$sqlbreakdowntransaction_type = "
 SELECT 
     settlement_id,
     total_amount,
@@ -319,7 +326,7 @@ WHERE
 GROUP BY settlement_id ASC ,  transaction_type ASC
 ";
 
-$sqlbreakdowntransaction_column ="
+$sqlbreakdowntransaction_column = "
 SELECT settlement_id, 
     date_format(settlement_start_date, '%d/%m/%Y') as settlement_start_date, 
     date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,

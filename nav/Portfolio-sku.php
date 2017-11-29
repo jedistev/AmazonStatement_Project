@@ -8,22 +8,36 @@
                 <a class="portfolio-link" href="#portfolioModal3" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <P>SKU model</p>
+                            <p>SKU model</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
                     <img class="img-fluid" src="img/portfolio/sku.png" alt="">
                 </a>
             </div>
+            <!-- SKU model UK-->
             <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModal10" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold UK </p>
+                            <p>SKU UK </p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
                     <img class="img-fluid" src="img/portfolio/sku-sold-uk.png" alt="">
+                </a>
+            </div>
+
+            <!-- SKU model UK euro-->
+            <div class="col-sm-3 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModalukeurosku" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>SKU UK (EURO)</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/sku-sold-euro-uk.png" alt="">
                 </a>
             </div>
 
@@ -32,7 +46,7 @@
                 <a class="portfolio-link" href="#portfolioModalSkuGermany" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold Germany</p>
+                            <p>SKU Germany</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
@@ -45,7 +59,7 @@
                 <a class="portfolio-link" href="#portfolioModalSkuItaly" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold Italy </p>
+                            <p>SKU Italy </p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
@@ -58,7 +72,7 @@
                 <a class="portfolio-link" href="#portfolioModalSkuSpain" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold Spain</p>
+                            <p>SKU Spain</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
@@ -71,7 +85,7 @@
                 <a class="portfolio-link" href="#portfolioModalSkuFrance" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
-                            <p>SKU Model Sold France</p>
+                            <p>SKU  France</p>
                             <i class="fa fa-search-plus fa-3x"></i>
                         </div>
                     </div>
@@ -80,6 +94,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </section>

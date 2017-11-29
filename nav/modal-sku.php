@@ -13,21 +13,16 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU List Database</h2>
+                            <h2>H-ROOT SKU List Europe </h2>
                             <hr class="star-primary">
+                            <a href="<?php echo 'sku_list_uk.php'; ?>" class="btn btn-lg btn-default">UK's SKU list</a><br>
+                            <a href="<?php echo 'sku_list_de.php'; ?>" class="btn btn-lg btn-default">Germany's SKU list</a><br>
+                            <a href="<?php echo 'sku_list_fr.php'; ?>" class="btn btn-lg btn-default">France's SKU list</a><br>
+                            <a href="<?php echo 'sku_list_it.php'; ?>" class="btn btn-lg btn-default">Italy's SKU list</a><br>
+                            <a href="<?php echo 'sku_list_es.php'; ?>" class="btn btn-lg btn-default">Spain's SKU list</a><br>
 
-                            <?php
-                            echo '<table class="table table-bordered table-striped table-hover table-condensed table-responsive">';
-                            echo '<tr>';
-                            echo '</tr>';
-                            while (($row = mysqli_fetch_array($skuResult, MYSQLI_ASSOC)) != NULL) {
-                                echo '<tr>';
-                                echo '<td>' . $row['sku'] . '</td>';
-                                echo '</tr>';
-                            }
-                            mysqli_free_result($skuResult);
-                            echo '</table>';
-                            ?>
+                            </p>
+
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -52,53 +47,38 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU Sold in UK </h2>
+                            <h2>H-ROOT SKU List Europe </h2>
                             <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.co.uk 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>£ GBP</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                <br>
-                                <br>
-                                <div class="form-group">
-                                    <button onclick="Exportskuuk()" class="btn btn-success">Export to CSV File</button>
-                                </div>
-                                </tbody>  
-                            </table>  
+                            <a href="<?php echo 'sku_sold_uk.php'; ?>" class="btn btn-lg btn-default">UK's SKU Sold</a><br>
                             </p>
+                            <button class="btn btn-success" type="button" data-dismiss="modal">
+                                <i class="fa fa-times"></i>
+                                Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                            <script>
-                                function Exportskuuk()
-                                {
-                                    var conf = confirm("Export users to CSV?");
-                                    if (conf == true)
-                                    {
-                                        window.open("export/sku_GB_sold.php", '_blank');
-                                    }
-                                }
-                            </script>
-
+<!-- SKU Sold in Amazon UK Euro-->
+<div class="portfolio-modal modal fade" id="portfolioModalukeurosku" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <h2>H-ROOT SKU List Europe </h2>
+                            <hr class="star-primary">
+                            <a href="<?php echo 'sku_sold_uk_euro.php'; ?>" class="btn btn-lg btn-default">UK's SKU Sold(euro)</a><br>
+                            </p>
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -123,54 +103,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU Sold in Germany </h2>
+                            <h2>H-ROOT SKU List Germany </h2>
                             <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.de 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    include ('sql/mainSql-de.php');
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>Euro</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                <br>
-                                <br>
-                                <div class="form-group">
-                                    <button onclick="Exportskude()" class="btn btn-success">Export to CSV File</button>
-                                </div>
-                                </tbody>  
-                            </table>  
+                            <a href="<?php echo 'sku_sold_de.php'; ?>" class="btn btn-lg btn-default">Germany's SKU Sold</a><br>
                             </p>
-
-                            <script>
-                                function Exportskude()
-                                {
-                                    var conf = confirm("Export users to CSV?");
-                                    if (conf == true)
-                                    {
-                                        window.open("export/sku_Germany_sold.php", '_blank');
-                                    }
-                                }
-                            </script>
-
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -196,54 +132,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU Sold in Italy</h2>
+                            <h2>H-ROOT SKU List Italy </h2>
                             <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.it 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    include ('sql/mainSql-it.php');
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>Euro</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                <br>
-                                <br>
-                                <div class="form-group">
-                                    <button onclick="Exportskuitaly()" class="btn btn-success">Export to CSV File</button>
-                                </div>
-                                </tbody>  
-                            </table>  
+                            <a href="<?php echo 'sku_sold_it.php'; ?>" class="btn btn-lg btn-default">Italy's SKU Sold</a><br>
                             </p>
-
-                            <script>
-                                function Exportskuitaly()
-                                {
-                                    var conf = confirm("Export users to CSV?");
-                                    if (conf == true)
-                                    {
-                                        window.open("export/sku_Italy_sold.php", '_blank');
-                                    }
-                                }
-                            </script>
-
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -268,54 +160,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU Sold in Spain</h2>
+                            <h2>H-ROOT SKU List Spain </h2>
                             <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.es 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    include ('sql/mainSql-es.php');
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>Euro</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                <br>
-                                <br>
-                                <div class="form-group">
-                                    <button onclick="Exportskuspain()" class="btn btn-success">Export to CSV File</button>
-                                </div>
-                                </tbody>  
-                            </table>  
+                            <a href="<?php echo 'sku_sold_es.php'; ?>" class="btn btn-lg btn-default">Spain's SKU Sold</a><br>
                             </p>
-
-                            <script>
-                                function Exportskuspain()
-                                {
-                                    var conf = confirm("Export users to CSV?");
-                                    if (conf == true)
-                                    {
-                                        window.open("export/sku_Spain_sold.php", '_blank');
-                                    }
-                                }
-                            </script>
-
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -340,54 +188,10 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <div class="modal-body">
-                            <h2>SKU Sold in France</h2>
+                            <h2>H-ROOT SKU List France </h2>
                             <hr class="star-primary">
-                            <p>
-                            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
-                                <thead>  
-                                    <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.fr 
-                                        <th>Sku</th>
-                                        <th>Sku Sold</th>
-                                        <th>current</th>
-                                        <th>Sku Sold total</th>
-                                    </tr>  
-                                </thead>  
-                                <tbody> 
-                                    <?php
-                                    include ('sql/mainSql-fr.php');
-                                    // total all together
-                                    while ($row = mysqli_fetch_array($allSkuModelSold)) {
-                                        ?>  
-                                        <tr class="table-smaller-text">  
-
-                                            <td><?php echo $row["sku"]; ?></td>
-                                            <td><?php echo $row["sku_sold"]; ?></td>
-                                            <td>Euro</td>
-                                            <td><?php echo $row["sku_sold_each"]; ?></td>
-                                        </tr>  
-                                        <?php
-                                    };
-                                    ?>
-                                <br>
-                                <br>
-                                <div class="form-group">
-                                    <button onclick="Exportskufrance()" class="btn btn-success">Export to CSV File</button>
-                                </div>
-                                </tbody>  
-                            </table>  
+                            <a href="<?php echo 'sku_sold_fr.php'; ?>" class="btn btn-lg btn-default">France's SKU Sold</a><br>
                             </p>
-
-                            <script>
-                                function Exportskufrance()
-                                {
-                                    var conf = confirm("Export users to CSV?");
-                                    if (conf == true)
-                                    {
-                                        window.open("export/sku_France_sold.php", '_blank');
-                                    }
-                                }
-                            </script>
-
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
                                 Close</button>
@@ -395,6 +199,7 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </div>
 </div>
