@@ -7,7 +7,17 @@ include ('../sql/mainSql.php');
 $csv_filename = 'sku_sold_in_UK_' . date('Y-m-d') . '.csv';
 
 // get Users
-$query = "SELECT sku, COUNT(sku) as sku_sold, currency, Sum(`amount`) as sku_sold_each From settlements Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
+$query = "SELECT 
+sku, COUNT(sku) AS sku_sold, SUM(`amount`) AS sku_sold_each
+FROM
+settlements
+WHERE
+(sku NOT LIKE '%loc%'
+    AND sku NOT LIKE 'isc%'
+    AND sku NOT LIKE 'trek%')
+    AND amount_description = 'Principal'
+GROUP BY sku
+ORDER BY `sku_sold` DESC";
 if (!$result = mysqli_query($conn, $query)) {
     exit(mysqli_error($conn));
 }

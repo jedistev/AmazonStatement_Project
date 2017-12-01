@@ -92,6 +92,20 @@
                     <img class="img-fluid" src="img/portfolio/sku-sold-fr.png" alt="">
                 </a>
             </div>
+            
+            <!-- SKU model France-->
+            <div class="col-sm-3 portfolio-item">
+                <a class="portfolio-link" href="#portfolioModalSkuEuro" data-toggle="modal">
+                    <div class="caption">
+                        <div class="caption-content">
+                            <p>SKU  Europe</p>
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img class="img-fluid" src="img/portfolio/sku-euro-flag.png" alt="">
+                </a>
+            </div>
+            
         </div>
     </div>
 </section>

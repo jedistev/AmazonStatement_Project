@@ -126,8 +126,82 @@ $sqlDropDownSettlementID = "SELECT * FROM `settlementses` where total_amount";
 $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);  
 
 //SKU model sold
-$sqlSkuModelSold ="Select sku, COUNT(sku) as sku_sold, Sum(`amount`) as sku_sold_each From settlementses Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
-$allSkuModelSold =mysqli_query($conn, $sqlSkuModelSold);
+$sqlSkuModelSold = "
+SELECT 
+      sku, transaction_type, SUM(amount) AS sku_total
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'FBAPerUnitFulfillmentFee',
+        'VariableClosingFee')
+
+GROUP BY transaction_type , sku
+ORDER BY sku_total DESC";
+$allSkuModelSold = mysqli_query($conn, $sqlSkuModelSold);
+
+$sqlSkuUnitsSold="
+    SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND amount_description = 'Principal'
+        AND transaction_type = 'order'
+GROUP BY sku 
+Order by sku_unit_sold DESC";
+$allskuUnitssold = mysqli_query($conn, $sqlSkuUnitsSold);
+
+
+$sqlskuRefund="
+SELECT 
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'FBAPerUnitFulfillmentFee',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+GROUP BY transaction_type, sku 
+ORDER BY sku_total ASC";
+$allSkuRefund = mysqli_query($conn, $sqlskuRefund);
+
+$sqlskuRefundUNIT="
+SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+   settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal'
+        
+GROUP BY sku 
+Order by sku_unit_sold DESC";
+$allskuRefundUnit = mysqli_query($conn, $sqlskuRefundUNIT);
+
+//$sqlSkuModelSold = "Select sku, COUNT(sku) as sku_sold, Sum(`amount`) as sku_sold_each From settlements Where amount_description ='Principal' Group by sku ORDER BY `sku_sold` DESC";
 
 //RemovalComplete total
 $sqlTotalRemovalComplete ="SELECT amount_description, SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM settlementses WHERE amount_description = 'RemovalComplete'";
