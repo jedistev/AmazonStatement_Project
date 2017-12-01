@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/chart-script-europe.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/Dashboard-europe.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/europebreakdownsql.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/europeeachsettlementsql.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/Dashboard/Dashboard_display_Europe.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/export_sku_uk_sold.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/sku_refund_uk_main_pages.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/mainSql.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/export_sku_uk_refund.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/nav/modal-sku.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/sku_refund_uk.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/sku_sold_uk.php</file>
         </group>
     </open-files>
 </project-private>

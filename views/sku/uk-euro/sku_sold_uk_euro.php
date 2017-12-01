@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-8 mx-auto">
             <div class="modal-body">
-                <h2>SKU Sold in Spain </h2>
+                <h2>SKU Sold in UK Euro </h2>
                 <hr class="star-primary">
                 <p>
                 <div class="form-group">
@@ -11,7 +11,7 @@
                 <br>
                 <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                     <thead>  
-                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.es
+                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  Total of SKU sold in Amazon.co.uk (euro)
                         </tr>  
                     </thead>
                 </table>
