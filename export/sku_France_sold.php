@@ -1,7 +1,7 @@
 <?php
 
 // Database Connection
-include ('../sql/mainSql-fr.php');
+include ('../config/Export_config.php');
 
 // filename for export
 $csv_filename = 'sku_sold_in_France_' . date('Y-m-d') . '.csv';

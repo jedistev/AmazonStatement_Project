@@ -1,4 +1,8 @@
 <?php
+//include auth.php file on all secure pages
+include("auth.php");
+
+//sql database
 include ('sql/mainSql.php');
 ?>
 
@@ -14,15 +18,15 @@ include ('sql/mainSql.php');
         <!--Each Settlement goes there -->
         <?php include './views/sku/uk/sku_sold_uk.php'; ?>
         <script>
-                    function Exportskuuk()
-                    {
-                        var conf = confirm("Export users to CSV?");
-                        if (conf == true)
-                        {
-                            window.open("views/sku/uk/export_sku_uk_sold.php", '_blank');
-                        }
-                    }
-                </script> 
+            function Exportskuuk()
+            {
+                var conf = confirm("Export users to CSV?");
+                if (conf == true)
+                {
+                    window.open("views/sku/uk/export_sku_uk_sold.php", '_blank');
+                }
+            }
+        </script> 
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
     </body>

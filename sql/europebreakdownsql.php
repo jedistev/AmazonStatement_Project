@@ -1,6 +1,5 @@
 <?php
-
-include ('config/config.php');
+require('config/config.php');
 
 //UK EURO Area only
 $sqlTotalSettlementBreakdownEurope = "
@@ -393,3 +392,289 @@ SELECT
 FROM
     settlements ";
 $allbalanceTotaluk = mysqli_query($conn, $sqlbalancematchuk);
+
+
+
+
+//sku total sold
+$sqlSkuModelSold = "
+SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+    settlementsukeuro
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+        
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+    settlementsde
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')  
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+    settlementsfr
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total
+FROM
+	settlementsit
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+GROUP BY transaction_type, sku 
+ORDER BY sku_total DESC";
+$allSkuModelSold = mysqli_query($conn, $sqlSkuModelSold);
+
+$sqlSkuUnitsSold="
+SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsukeuro
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsde
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsfr
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description = 'Principal'
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsit
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'order'
+        AND amount_description = 'Principal'
+GROUP BY sku
+ORDER BY sku_unit_sold DESC";
+$allskuUnitssold = mysqli_query($conn, $sqlSkuUnitsSold);
+
+
+//sku total refund 
+$sqlskuRefund= "
+SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+FROM
+    settlementsukeuro
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+        
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+FROM
+    settlementsde
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')  
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+FROM
+    settlementsfr
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+UNION SELECT  
+    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+FROM
+    settlementsit
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description IN ('Principal' , 'Commission',
+        'RefundCommission',
+        'Goodwill',
+        'Shipping',
+        'ShippingChargeback',
+        'VariableClosingFee')
+
+GROUP BY transaction_type, sku 
+ORDER BY sku_total ASC";
+$allSkuRefund = mysqli_query($conn, $sqlskuRefund);
+
+
+$sqlskuRefundUNIT="
+SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsukeuro
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsde
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementses
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal' 
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsfr
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal'
+UNION SELECT DISTINCT
+    sku, COUNT(sku) AS sku_unit_sold
+FROM
+    settlementsit
+WHERE
+    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+        AND transaction_type = 'Refund'
+        AND amount_description = 'Principal'
+GROUP BY sku";
+$allskuRefundUnit = mysqli_query($conn, $sqlskuRefundUNIT);

@@ -1,7 +1,7 @@
 <?php
 
 // Database Connection
-include ('../sql/mainSql.php');
+include ('../config/Export_config.php');
 
 // filename for export
 $csv_filename = 'each_Settlement_UK_'.date('Y-m-d').'.csv';

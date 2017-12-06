@@ -14,8 +14,14 @@
                         <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="#about">About</a>
                         </li>
+                        <li class="nav-item">
+                           <a class="nav-link js-scroll-trigger" href="logout.php">Logout</a>
+                        </li>
 
                     </ul>
                 </div>
             </div>
         </nav>
+        
+        
+          

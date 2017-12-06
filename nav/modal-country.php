@@ -49,7 +49,7 @@
                         <div class="modal-body">
                             <h2>H-ROOT UK</h2>
                             <hr class="star-primary">
-                            <a href="<?php echo 'total_settlement_uk.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total</a><br>
+                            <a href="<?php echo 'total_settlement_uk_main.php'; ?>" class="btn btn-lg btn-default">UK settlements Date and Total</a><br>
                             <a href="<?php echo 'total_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default"> UK Total settlement Section</a><br>
                             <a href="<?php echo 'fortnight_settlement_breakdown.php'; ?>" class="btn btn-lg btn-default">Fortnight settlement Breakdown each section</a><br>
                             <a href="<?php echo 'each_settlement-uk.php'; ?>" class="btn btn-lg btn-default">Select a date settlement Breakdown</a><br>

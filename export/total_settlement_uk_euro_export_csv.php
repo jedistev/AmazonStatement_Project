@@ -1,7 +1,7 @@
 <?php
 
 // Database Connection
-include ('../sql/mainSql-uk-euro.php');
+include ('../config/Export_config.php');
 
 // filename for export
 $csv_filename = 'Total_Settlement_UK_euro_'.date('Y-m-d').'.csv';
