@@ -1,4 +1,8 @@
 <?php
+//include auth.php file on all secure pages
+require('config/config.php');
+include("auth.php");
+
 //sql files for calucated
 include ('sql/mainSql.php');
 
@@ -17,6 +21,11 @@ include('upload-functions.php');
 
         <?php include 'nav/home-nav.php'; ?>
         <?php include 'nav/home-header.php'; ?>
+        <BR>
+        <div class="form">
+            <p class="text-center">Welcome <?php echo $_SESSION['username']; ?>!</p>
+            <p class="text-center">This is secure area.</p>
+        </div>
         <?php include 'nav/gridsection.php'; ?>
         <?php include 'nav/about.php'; ?>
         <?php include 'nav/home-footer.php'; ?>

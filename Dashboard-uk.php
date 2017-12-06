@@ -1,6 +1,9 @@
 <?php
+//include auth.php file on all secure pages
+include("auth.php");
 
-//sql files for calucated
+//sql database
+
 include ('sql/mainSql.php');
 ?>
 <!DOCTYPE html>
