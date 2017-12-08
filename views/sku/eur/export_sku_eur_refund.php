@@ -4,105 +4,66 @@
 include ('../../../config/Export_config.php');
 
 // filename for export
-$csv_filename = 'sku_refund_in_Europe' . date('Y-m-d') . '.csv';
+$csv_filename = 'sku_refund_in_Europe_' . date('Y-m-d') . '.csv';
 
 // get Users
 $query = "
-SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
-    settlementsukeuro
+    settlements
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
         
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsde
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')  
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementses
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsfr
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total, marketplace_name
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsit
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
-
-GROUP BY transaction_type, sku 
-ORDER BY sku_total ASC" 
-        
-//"SELECT
-//    DISTINCT sku, COUNT(sku) AS sku_unit_sold
-//FROM
-//    settlementses
-//WHERE
-//    (sku NOT LIKE '%loc%'
-//        AND sku NOT LIKE 'isc%'
-//        AND sku NOT LIKE 'trek%')
-//        AND amount_description = 'Principal'
-//GROUP BY sku 
-//Order by sku_unit_sold DESC"
-        ;
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
+GROUP BY sku
+ORDER BY sku_unit_refund DESC";
 
 
 if (!$result = mysqli_query($conn, $query)) {
@@ -120,9 +81,9 @@ header("Content-type: text/x-csv");
 header("Content-Disposition: attachment; filename=" . $csv_filename . "");
 $output = fopen('php://output', 'w');
 fputcsv($output, array(
-    'transaction',
-    'SKU',
-    'SKU_Refund'));
+    'sku',
+    'transaction_type',
+    'sku_unit_refund'));
 
 if (count($users) > 0) {
     foreach ($users as $row) {

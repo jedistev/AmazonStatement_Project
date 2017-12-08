@@ -3,8 +3,7 @@
 include("auth.php");
 
 //sql database
-
-include ('sql/mainSql.php');
+include ('sql/sku-quanity-uk-mysql.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +11,22 @@ include ('sql/mainSql.php');
         <?php include 'nav/meta.php'; ?>
         <?php include 'nav/css.php'; ?>
     </head>
-
     <body id="page-top">
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <?php include './views/Dashboard/Dashboard_display_uk.php'; ?>
+          <?php include './views/skuquantity/uk/sku_quantity_uk_defective.php'; ?>
+<!--        <script>
+            function Exportskuuk()
+            {
+                var conf = confirm("Export users to CSV?");
+                if (conf == true)
+                {
+                    window.open("views/skuquantity/uk/export_sku_quantity_uk.php", '_blank');
+                }
+            }
+        </script> -->
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
-        <!-- Chart/Loader.js Google -->
-        <?php include 'chart/uk/chart-script-uk.php'; ?>
-        
     </body>
 </html>

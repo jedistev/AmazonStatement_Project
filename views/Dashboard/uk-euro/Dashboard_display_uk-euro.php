@@ -1,13 +1,13 @@
 <?php ?>   
 <div class="container-fluid"> 
-    <p class="text-center">UK Dashboards</p>
+    <p class="text-center">UK EURO Dashboards</p>
     <div class="row">
         <div class="col-sm-8">
-            <div id="curve_chart" style="width: 100%;"></div>
+             <div id="piechartTotalamountukeuro" style="width: 100%;  "></div>
             <br>
         </div>
         <div class="col-sm-4">
-                <div id="columnchart_values" style="width:100%"></div>
+                <div></div>
             <br>
         </div>
 
@@ -31,5 +31,3 @@
     </div>
     <hr>
 </div>
-
-

@@ -3,27 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/export_sku_uk_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_fr_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/each_settlement_uk_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/skuquantity/uk/sku_quantity_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/sku_quantity_uk_main_pages.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/skuquantity/uk/export_sku_quantity_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/fortnight_settlement_uk_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_es_export_csv.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/skuquantity/uk/sku_quantity_uk_defective.php</file>
             <file>file:/C:/xampp/htdocs/Amazon-Statement/nav/modal-sku.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_uk_breakdown_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_it_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_uk_euro_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_uk_euro_breakdown_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/sku_France_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/sku_Italy_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/sku_Germany_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/sku_GB_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/total_settlement_de_export_csv.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/Spareexport%20file.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/export/sku_Spain_sold.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/sku/uk/sku_sold_uk.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/sku-quanity-uk-mysql.php</file>
         </group>
     </open-files>
 </project-private>

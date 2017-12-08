@@ -51,8 +51,9 @@
                             <a href="<?php echo 'sku_sold_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Sold</a><br>
 <!--                        <a href="<?php echo 'each_sku_sold_unit_uk_main_page.php'; ?>" class="btn btn-lg btn-default">UK's Each Fornight SKU UNIT Sold</a><br>-->
                             <a href="<?php echo 'sku_refund_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Refund</a><br>
-                              <a href="<?php echo 'sku_quantity_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity</a><br>
-                            
+                            <a href="<?php echo 'sku_quantity_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity in UK Warehouse</a><br>
+                            <a href="<?php echo 'sku_quantity_uk_damaged_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Damaged in UK Warehouse </a><br>
+                            <a href="<?php echo 'sku_quantity_uk_defective_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Defective in UK Warehouse </a><br>
                             </p>
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -227,7 +228,7 @@
                         <div class="modal-body">
                             <h2>H-ROOT SKU List Europe total </h2>
                             <hr class="star-primary">
-                             <a href="<?php echo 'sku_sold_europe_main_pages.php'; ?>" class="btn btn-lg btn-default">Europe's SKU Sold</a><br>
+                            <a href="<?php echo 'sku_sold_europe_main_pages.php'; ?>" class="btn btn-lg btn-default">Europe's SKU Sold</a><br>
                             <a href="<?php echo 'sku_refund_europe_main_pages.php'; ?>" class="btn btn-lg btn-default">Europe's SKU Refund</a><br>
                             </p>
                             <button class="btn btn-success" type="button" data-dismiss="modal">

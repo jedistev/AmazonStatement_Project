@@ -3,7 +3,8 @@
 include("auth.php");
 
 //sql database
-include ('sql/mainSql-de.php');
+
+include ('sql/mainSql.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +17,11 @@ include ('sql/mainSql-de.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <h1>France dashboard</h1>
-        <div id="piechartTotalamountfr" style="width: max; height: 400px; background-color: pink;"></div>
+        <?php include './views/Dashboard/uk/Dashboard_display_uk.php'; ?>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <!-- Chart/Loader.js Google -->
-        <?php include 'chart/chart-script-fr.php'; ?>
+        <?php include 'chart/uk/chart-script-uk.php'; ?>
+        
     </body>
 </html>
