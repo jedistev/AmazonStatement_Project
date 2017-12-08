@@ -16,11 +16,10 @@ include ('sql/mainSql-de.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <h1>Spain dashboard</h1>
-        <div id="piechartTotalamountes" style="width: max; height: 400px; background-color: pink;"></div>
+        <?php include './views/Dashboard/fr/Dashboard_display_fr.php'; ?>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <!-- Chart/Loader.js Google -->
-        <?php include 'chart/chart-script-es.php'; ?>
+        <?php include 'chart/fr/chart-script-fr.php'; ?>
     </body>
 </html>

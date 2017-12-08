@@ -484,17 +484,19 @@ $allSkuModelSold = mysqli_query($conn, $sqlSkuModelSold);
 
 $sqlSkuUnitsSold="
 SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
-    settlementsukeuro
+    settlements
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description = 'Principal' 
+        AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+   
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementsde
 WHERE
@@ -502,9 +504,10 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description = 'Principal' 
+        AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementses
 WHERE
@@ -512,9 +515,10 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description = 'Principal' 
+        AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementsfr
 WHERE
@@ -523,8 +527,9 @@ WHERE
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
         AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementsit
 WHERE
@@ -627,54 +632,59 @@ $allSkuRefund = mysqli_query($conn, $sqlskuRefund);
 
 $sqlskuRefundUNIT="
 SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
-    settlementsukeuro
+    settlements
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description = 'Principal' 
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
+        
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsde
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description = 'Principal' 
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementses
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
-        AND amount_description = 'Principal' 
+        AND transaction_type = 'refund'
+        AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsfr
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
+        AND transaction_type = 'refund'
         AND amount_description = 'Principal'
+
 UNION SELECT DISTINCT
-    sku, COUNT(sku) AS sku_unit_sold
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsit
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-        AND transaction_type = 'Refund'
+        AND transaction_type = 'refund'
         AND amount_description = 'Principal'
-GROUP BY sku";
+GROUP BY sku
+ORDER BY sku_unit_refund DESC";
 $allskuRefundUnit = mysqli_query($conn, $sqlskuRefundUNIT);

@@ -4,28 +4,24 @@
 include ('../../../config/Export_config.php');
 
 // filename for export
-$csv_filename = 'sku_sold_in_Europe' . date('Y-m-d') . '.csv';
+$csv_filename = 'sku_sold_in_Europe_' . date('Y-m-d') . '.csv';
 
 // get Users
 $query = "
-SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total
+SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
-    settlementsukeuro
+    settlements
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
-        
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total
+        AND amount_description = 'Principal'
+
+UNION SELECT DISTINCT
+   
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementsde
 WHERE
@@ -33,15 +29,10 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')  
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementses
 WHERE
@@ -49,15 +40,10 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
     settlementsfr
 WHERE
@@ -65,44 +51,20 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND amount_description = 'Principal'
 
-UNION SELECT  
-    transaction_type, sku, SUM(amount) AS sku_total
+UNION SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_sold
 FROM
-	settlementsit
+    settlementsit
 WHERE
     (sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
-
-GROUP BY transaction_type, sku 
-ORDER BY sku_total DESC" 
-        
-//"SELECT
-//    DISTINCT sku, COUNT(sku) AS sku_unit_sold
-//FROM
-//    settlementses
-//WHERE
-//    (sku NOT LIKE '%loc%'
-//        AND sku NOT LIKE 'isc%'
-//        AND sku NOT LIKE 'trek%')
-//        AND amount_description = 'Principal'
-//GROUP BY sku 
-//Order by sku_unit_sold DESC"
-        ;
+        AND amount_description = 'Principal'
+GROUP BY sku
+ORDER BY sku_unit_sold DESC";
 
 
 if (!$result = mysqli_query($conn, $query)) {
@@ -120,9 +82,9 @@ header("Content-type: text/x-csv");
 header("Content-Disposition: attachment; filename=" . $csv_filename . "");
 $output = fopen('php://output', 'w');
 fputcsv($output, array(
-    'transaction',
-    'SKU',
-    'SKU_sold'));
+    'sku',
+    'transaction_type',
+    'sku_unit_sold'));
 
 if (count($users) > 0) {
     foreach ($users as $row) {

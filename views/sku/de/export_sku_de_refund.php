@@ -4,12 +4,12 @@
 include ('../../../config/Export_config.php');
 
 // filename for export
-$csv_filename = 'sku_refund_in_Germany' . date('Y-m-d') . '.csv';
+$csv_filename = 'sku_refund_in_de_' . date('Y-m-d') . '.csv';
 
 // get Users
 $query = "
-SELECT 
-      transaction_type,sku, SUM(amount) AS sku_total
+SELECT DISTINCT
+    sku, transaction_type, COUNT(sku) AS sku_unit_refund
 FROM
     settlementsde
 WHERE
@@ -17,29 +17,9 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'FBAPerUnitFulfillmentFee',
-        'VariableClosingFee')
-
+        AND amount_description = 'Principal'
 GROUP BY sku
-ORDER BY sku_total ASC" 
-        
-//"SELECT
-//    DISTINCT sku, COUNT(sku) AS sku_unit_sold
-//FROM
-//    settlementsde
-//WHERE
-//    (sku NOT LIKE '%loc%'
-//        AND sku NOT LIKE 'isc%'
-//        AND sku NOT LIKE 'trek%')
-//        AND amount_description = 'Principal'
-//GROUP BY sku 
-//Order by sku_unit_sold DESC"
-        ;
+ORDER BY sku_unit_refund DESC";
 
 
 if (!$result = mysqli_query($conn, $query)) {
@@ -57,9 +37,9 @@ header("Content-type: text/x-csv");
 header("Content-Disposition: attachment; filename=" . $csv_filename . "");
 $output = fopen('php://output', 'w');
 fputcsv($output, array(
-    'transaction',
-    'SKU',
-    'SKU_Refund'));
+    'sku',
+    'transaction_type',
+    'sku_unit_refund'));
 
 if (count($users) > 0) {
     foreach ($users as $row) {

@@ -3,7 +3,7 @@
 include("auth.php");
 
 //sql database
-include ('sql/mainSql.php');
+include ('sql/mainSql-uk-euro.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +16,10 @@ include ('sql/mainSql.php');
         <?php include 'nav/nav.php'; ?>
         <?php include 'nav/header.php'; ?>
         <!--Each Settlement goes there -->
-        <?php include './views/Dashboard/Dashboard_display_Europe.php'; ?>
+        <?php include './views/Dashboard/uk-euro/Dashboard_display_uk-euro.php'; ?>
         <?php include 'nav/footer.php'; ?>
         <?php include 'nav/script.php'; ?>
         <!-- Chart/Loader.js Google -->
-        <?php include 'chart/europe/chart-script-europe.php'; ?>
-        
+        <?php include 'chart/uk-euro/chart-script-uk-euro.php'; ?>
     </body>
 </html>
