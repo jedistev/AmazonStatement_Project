@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12 mx-auto">
             <div class="modal-body">
-                <h2>SKU Quantity in Warehouse UK Defective </h2>
+                <h2>SKU Quantity in Warehouse IT Defective </h2>
                 <hr class="star-primary">
                 <p>
                     <!--                <div class="form-group">
@@ -31,7 +31,7 @@
                         <tbody> 
                             <?php
                             // total all together
-                            while ($row = mysqli_fetch_array($allSkuDefective)) {
+                            while ($row = mysqli_fetch_array($allSkuDefectiveIT)) {
                                 ?>  
                                 <tr class="table-smaller-text">  
                                     <td><?php echo $row["snapshot_date"]; ?></td>

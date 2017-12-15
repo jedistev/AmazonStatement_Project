@@ -48,12 +48,21 @@
                         <div class="modal-body">
                             <h2>H-ROOT SKU List UK </h2>
                             <hr class="star-primary">
-                            <a href="<?php echo 'sku_sold_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Sold</a><br>
-<!--                        <a href="<?php echo 'each_sku_sold_unit_uk_main_page.php'; ?>" class="btn btn-lg btn-default">UK's Each Fornight SKU UNIT Sold</a><br>-->
-                            <a href="<?php echo 'sku_refund_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Refund</a><br>
-                            <a href="<?php echo 'sku_quantity_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity in UK Warehouse</a><br>
+                            <!-- <a href="<?php echo 'sku_sold_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Sold</a><br>
+                            <a href="<?php echo 'sku_refund_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Refund</a><br>-->
+                            <!--<a href="<?php echo 'sku_quantity_uk_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity in UK Warehouse</a><br>
                             <a href="<?php echo 'sku_quantity_uk_damaged_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Damaged in UK Warehouse </a><br>
+                            <a href="<?php echo 'sku_quantity_uk_cust_damaged_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Customer Damaged in UK</a><br>
                             <a href="<?php echo 'sku_quantity_uk_defective_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Defective in UK Warehouse </a><br>
+                            <a href="<?php echo 'sku_each_quantity_breakdown_uk_main_page.php'; ?>" class="btn btn-lg btn-default">UK's Each Fornight SKU Quantity</a><br>
+                            <a href="<?php echo 'sku_quantity_uk_filter_main_page.php'; ?>" class="btn btn-lg btn-default">SKU Quantity Date Filter</a><br>-->
+                            <a href="<?php echo 'sku_quantity_uk_total_order_and_refund_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Total Order and Refund Breakdown</a><br>
+                            <a href="<?php echo 'sku_quantity_uk_total_order_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Order </a><br>
+                            <a href="<?php echo 'sku_quantity_uk_refund_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Reimbursement</a><br>
+                            <a href="<?php echo 'sku_quantity_uk_fortnight_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Fortnight Reimbursement</a><br>
+                            
+                            
+                            
                             </p>
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>
@@ -142,6 +151,11 @@
                             <hr class="star-primary">
                             <a href="<?php echo 'sku_sold_it_main_pages.php'; ?>" class="btn btn-lg btn-default">Italy's SKU Sold</a><br>
                             <a href="<?php echo 'sku_refund_it_main_pages.php'; ?>" class="btn btn-lg btn-default">Italy's SKU Refund</a><br>
+<!--                            <a href="<?php echo 'sku_quantity_it_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity in UK Warehouse</a><br>-->
+                            <a href="<?php echo 'sku_quantity_it_damaged_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Damaged in UK Warehouse </a><br>
+                            <a href="<?php echo 'sku_quantity_it_cust_damaged_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Customer Damaged in UK</a><br>
+                            <a href="<?php echo 'sku_quantity_it_defective_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU Quantity Defective in UK Warehouse </a><br>
+                            <a href="<?php echo 'sku_quantity_it_filter_main_page.php'; ?>" class="btn btn-lg btn-default">SKU Quantity Date Filter</a><br>
                             </p>
                             <button class="btn btn-success" type="button" data-dismiss="modal">
                                 <i class="fa fa-times"></i>

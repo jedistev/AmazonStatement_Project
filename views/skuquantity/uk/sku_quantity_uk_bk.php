@@ -15,7 +15,7 @@ echo '</tr>';
 
 while (($row = mysqli_fetch_array($AllTableSKUQTY, MYSQLI_ASSOC)) != NULL) {
     echo '<tr>';
-    echo '<td>' . $row['snapshot-date'] . '</td>';
+    echo '<td>' . $row['snapshot_date'] . '</td>';
     echo '<td>' . $row['fnsku'] . '</td>';
     echo '<td>' . $row['sku'] . '</td>';
     echo '<td>' . $row['product-name'] . '</td>';

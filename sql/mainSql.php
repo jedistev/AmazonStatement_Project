@@ -137,13 +137,15 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'order'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'FBAPerUnitFulfillmentFee',
-        'VariableClosingFee')
+        AND amount_description IN (
+            'Principal',
+            'Shipping',
+            'FBAPerUnitFulfillmentFee',
+            'Commission',
+            'ShippingChargeback',
+            'FBA transportation fee',
+            'FBAPerOrderFulfillmentFe',
+            'ShippingHB')
 
 GROUP BY transaction_type , sku
 ORDER BY sku_total DESC";
@@ -175,13 +177,15 @@ WHERE
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
         AND transaction_type = 'Refund'
-        AND amount_description IN ('Principal' , 'Commission',
-        'RefundCommission',
-        'FBAPerUnitFulfillmentFee',
-        'Goodwill',
-        'Shipping',
-        'ShippingChargeback',
-        'VariableClosingFee')
+        AND amount_description IN (
+            'Principal',
+            'Shipping',
+            'FBAPerUnitFulfillmentFee',
+            'Commission',
+            'ShippingChargeback',
+            'FBA transportation fee',
+            'FBAPerOrderFulfillmentFe',
+            'ShippingHB')
 GROUP BY transaction_type, sku 
 ORDER BY sku_total ASC";
 $allSkuRefund = mysqli_query($conn, $sqlskuRefund);

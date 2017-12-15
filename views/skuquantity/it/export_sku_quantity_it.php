@@ -4,7 +4,7 @@
 include ('../../../config/config.php');
 
 // filename for export
-$csv_filename = 'sku_Quantiy_in_UK_' . date('Y-m-d') . '.csv';
+$csv_filename = 'sku_Quantiy_in_it_' . date('Y-m-d') . '.csv';
 
 // get Users
 $query = "

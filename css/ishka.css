@@ -62,3 +62,34 @@ div.table-container-scrollbar {
     margin-top: -20px;
     background-color: pink;
 }
+
+.QTY-color-code-order{
+    background-color: #4ad46a;
+    border-style: solid;
+    padding: 1px;
+    padding-right: 2%;
+    padding-left: 2%;
+    text-align: center;
+}
+
+.QTY-color-code-reim{
+    background-color: #a10808;
+    border-style: solid;
+    border-color: #000000;
+    padding: 1px;
+    padding-right: 2%;
+    padding-left: 2%;
+    color: #ffffff;
+    text-align: center;
+
+}
+.QTY-color-code-TQTY{
+    background-color: #2480f0;
+    border-style: solid;
+    border-color: #000000;
+    padding: 1px;
+    padding-right: 2%;
+    padding-left: 2%;
+    color: #ffffff;
+    text-align: center;
+}
