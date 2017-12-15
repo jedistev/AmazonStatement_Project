@@ -1,5 +1,5 @@
 <?php
-require('config/config.php');
+require('../config/config.php');
 //
 $sqlDropDownSettlementID = "SELECT  *  FROM `settlements` GROUP BY settlement_id  DESC ORDER BY settlement_start_date ASC;";
 

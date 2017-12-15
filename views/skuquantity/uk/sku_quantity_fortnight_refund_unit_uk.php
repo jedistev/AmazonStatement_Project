@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12 mx-auto">
             <div class="modal-body">
-                <h2>SKU Quantity in Warehouse UK Defective </h2>
+                <h2>SKU Fortnight Quanitity Refund</h2>
                 <hr class="star-primary">
                 <p>
                     <!--                <div class="form-group">
@@ -11,7 +11,7 @@
                     <br>
                 <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                     <thead>  
-                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  SKU Quantity Defective
+                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  SKU QUANITITY  
                         </tr>  
                     </thead>
                 </table>
@@ -20,25 +20,20 @@
                     <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                         <thead>  
                             <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;"> 
-                                <th>Date</th>
                                 <th>sku</th>
-                                <th>Product name</th>
-                                <th>detailed disposition</th>
-                                <th>fulfillment-center-id</th>
-                             
+                                <th>Total QTY</th>
+                                <th>Total Reimbursement</th>
                             </tr>  
                         </thead>  
                         <tbody> 
                             <?php
                             // total all together
-                            while ($row = mysqli_fetch_array($allSkuDefective)) {
+                            while ($row = mysqli_fetch_array($alltableSkuQTYRefund)) {
                                 ?>  
                                 <tr class="table-smaller-text">  
-                                    <td><?php echo $row["snapshot_date"]; ?></td>
                                     <td><?php echo $row["sku"]; ?></td>
-                                    <td><?php echo $row["product-name"]; ?></td>
-                                    <td><?php echo $row["detailed-disposition"]; ?></td>
-                                    <td><?php echo $row["fulfillment-center-id"]; ?></td>
+                                    <td><?php echo $row["Total_QTY"]; ?></td>
+                                    <td><?php echo $row["Total_Reimbursement"]; ?></td>
                                     <?php
                                 };
                                 ?>
