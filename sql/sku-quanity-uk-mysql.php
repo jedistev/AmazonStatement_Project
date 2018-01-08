@@ -127,22 +127,53 @@ SELECT
     sku,
     SUM(IF(transaction_type = 'order'
             AND transaction_type = 'order'
-            AND amount_description IN (
-            'Principal',
-            'Shipping',
+            AND amount_description IN ('Principal' , 'Shipping',
             'FBAPerUnitFulfillmentFee',
             'Commission',
             'ShippingChargeback',
             'FBA transportation fee',
             'FBAPerOrderFulfillmentFe',
             'ShippingHB')
-            AND amount_type IN (
-            'ItemPrice', 
-            'ItemFees',
-            'Promotion'), amount, 0)) AS 'total_Order',
-    SUM(IF(transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) AS 'total_QTY_Order',
-    SUM(IF(amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', amount,0)) AS 'total_reimbursement',
-    SUM(IF(amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)) AS 'total_QTY_refund'
+            AND amount_type IN ('ItemPrice' , 'ItemFees', 'Promotion'),
+        amount,
+        0)) AS 'total_Order',
+    SUM(IF(transaction_type = 'order'
+            AND amount_description = 'Principal'
+            AND amount_type = 'ItemPrice',
+        quantity_purchased,
+        0)) AS 'total_QTY_Order',
+    SUM(IF(amount_type = 'FBA Inventory Reimbursement'
+            AND amount_description = 'REVERSAL_REIMBURSEMENT',
+        amount,
+        0)) AS 'total_reimbursement',
+    SUM(IF(amount_type = 'FBA Inventory Reimbursement'
+            AND amount_description = 'REVERSAL_REIMBURSEMENT',
+        quantity_purchased,
+        0)) AS 'total_QTY_Reimbursement',
+    SUM((IF(transaction_type = 'order'
+            AND amount_description = 'Principal'
+            AND amount_type = 'ItemPrice',
+        quantity_purchased,
+        0)) + (IF(amount_type = 'FBA Inventory Reimbursement'
+            AND amount_description = 'REVERSAL_REIMBURSEMENT',
+        quantity_purchased,
+        0))) AS 'TotaL_Quantity_Order_and_reimbursement',
+    SUM(IF(transaction_type = 'refund'
+            AND transaction_type = 'refund'
+            AND amount_description IN ('Principal' , 'Shipping',
+            'FBAPerUnitFulfillmentFee',
+            'Commission',
+            'RefundCommission',
+            'ShippingChargeback',
+            'FBA transportation fee',
+            'FBAPerOrderFulfillmentFe',
+            'ShippingHB')
+            AND amount_type IN ('ItemPrice' , 'ItemFees', 'Promotion'),
+        amount,
+        0)) AS 'total_refund_cost',
+    SUM((transaction_type = 'Refund'
+        AND amount_description = 'Principal'
+        AND amount_type = 'ItemPrice')) AS refund_QTY_Order
 FROM
     settlements
 WHERE
@@ -163,27 +194,22 @@ SELECT
     date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,
     total_amount,
     	
-
-/* BT01-Cream Half*/
     SUM(IF(sku= 'BT01- Cream Half'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) AS 'BT01-Cream Half',
     SUM(IF(sku= 'BT01- Cream Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)) AS 'BT01-Cream Half_R',
     SUM((IF(sku= 'BT01- Cream Half'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) 
     + (IF(sku= 'BT01- Cream Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0))) AS BT01_Cream_Half_QTY_TOTAL,
     
-
-    /* BT01-Black Half*/
     SUM(IF(sku= 'BT01-Black Half'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) AS 'BT01-Black Half',
     SUM(IF(sku= 'BT01-Black Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)) AS 'BT01-Black Half_R',
     SUM((IF(sku= 'BT01-Black Half'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) 
     + (IF(sku= 'BT01-Black Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0))) AS BT01_Black_Half_QTY_TOTAL,
 
-	/*BT01-Navy Half*/
     SUM(IF(sku= 'BT01-Navy Half' AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) AS 'BT01-Navy Half',
     SUM(IF(sku= 'BT01-Navy Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)) AS 'BT01-Navy Half_R',
     SUM((IF(sku= 'BT01-Navy Half'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0))
     + (IF(sku= 'BT01-Navy Half' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0))) AS BT01_Navy_Half_QTY_TOTAL,
     
-	/*BT02-Black Full*/
+
     SUM(IF(sku= 'BT02-Black Full' AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) AS 'BT02-Black Full',
     SUM(IF(sku= 'BT02-Black Full' AND amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)) AS 'BT02-Black Full_R',
     SUM((IF(sku= 'BT02-Black Full'AND transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0))  
@@ -194,4 +220,24 @@ FROM settlements
 GROUP BY settlement_id
 
 ORDER BY settlement_start_date DESC";
+
+
+
+/*dropdown */
+$allskudropdown ="
+SELECT 
+	settlement_id,
+    sku,
+    SUM(IF (transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)),
+	SUM(IF( amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)), 
+	SUM((IF( transaction_type = 'order'AND amount_description = 'Principal' AND amount_type = 'ItemPrice', quantity_purchased, 0)) 
+    + (IF( amount_type = 'FBA Inventory Reimbursement' AND amount_description = 'REVERSAL_REIMBURSEMENT', quantity_purchased, 0)))
+
+FROM settlements
+GROUP BY Sku 
+HAVING sku IS NOT NULL AND LENGTH(sku) > 0
+ORDER BY settlement_id DESC";
+
+
+
 ?>

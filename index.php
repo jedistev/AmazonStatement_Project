@@ -18,47 +18,39 @@ include('upload-functions.php');
     </head>
 
     <body id="page-top">
-
-        <?php include 'nav/home-nav.php'; ?>
-        <?php include 'nav/home-header.php'; ?>
-        <BR>
-        <div class="form">
-            <p class="text-center">Welcome <?php echo $_SESSION['username']; ?>!</p>
-            <p class="text-center">This is secure area.</p>
+        <div class="wrapper">
+            <?php include 'nav/sidebar.php'; ?>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <?php include 'nav/home-nav.php'; ?>
+                <?php include 'nav/home-header.php'; ?>
+                <?php include 'nav/gridsection.php'; ?>
+                <?php include 'nav/about.php'; ?>
+                <?php include 'nav/home-footer.php'; ?>
+                <?php include 'nav/modal.php'; ?>
+            </div>
         </div>
-        <?php include 'nav/gridsection.php'; ?>
-        <?php include 'nav/about.php'; ?>
-        <?php include 'nav/home-footer.php'; ?>
-        <?php include 'nav/modal.php'; ?>
+        <div class="overlay"></div>
         <?php include 'nav/script.php'; ?>
-        <script>
+        <script type="text/javascript">
             $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
 
-                load_data();
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
 
-                function load_data(query) {
-                    $.ajax({
-                        url: "config/searchdata.php",
-                        method: "POST",
-                        data: {
-                            query: query
-                        },
-                        success: function (data) {
-                            $('#result').html(data);
-                        }
-                    });
-                }
-                $('#search_text').keyup(function () {
-                    var search = $(this).val();
-                    if (search != '') {
-                        load_data(search);
-                    } else {
-                        load_data();
-                    }
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
                 });
             });
+  
         </script>
-
     </body>
-
 </html>

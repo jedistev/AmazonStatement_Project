@@ -32,9 +32,9 @@ order by formatdate DESC');
 $sqlCostAmount = "SELECT `currency`,SUM(COALESCE(total_amount, 0.00)) AS`total_amount_sum` FROM `settlements` WHERE `total_amount`";
 $allamountresult = mysqli_query($conn, $sqlCostAmount);
 
-//Principle on Promotion 
-$sqlPromotion = "SELECT  Settlement_ID,amount_description,amount_type,amount FROM amazon.settlements Where amount_type='Promotion' and amount_$sqlPromotiondescription='Principal'";
-$allPrincipal = mysqli_query($conn, $sqlPromotion);
+////Principle on Promotion 
+//$sqlPromotion = "SELECT Settlement_ID,amount_description,amount_type,amount FROM amazon.settlements Where amount_type='Promotion' and amount_$sqlPromotiondescription='Principal'";
+//$allPrincipal = mysqli_query($conn, $sqlPromotion);
 
 //total on Promoted cost
 $sqlPromotionAmount = "SELECT SUM(COALESCE(amount, 0.00)) AS`amount_sum` FROM `settlements` WHERE `amount` and amount_description='Principal' and amount_type='Promotion'";
