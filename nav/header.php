@@ -1,9 +1,9 @@
     
-    <!-- Header -->
-    <header class="masthead">
-      <div class="container">
-          <p class="name">Settlement<br>
-         </p>
+<!-- Header -->
+<header class="masthead">
+    <div class="container">
+        <p class="name">Settlement<br>
+        </p>
 
-      </div>
-    </header>
+    </div>
+</header>

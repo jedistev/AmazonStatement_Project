@@ -1,8 +1,9 @@
+<p class="text-center">UK Marketplace</p>
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto">
             <div class="modal-body">
-                <h2>SKU total Order OTY </h2>
+                <h2>SKU total Quanitity Order</h2>
                 <hr class="star-primary">
                 <p>
                     <!--                <div class="form-group">
@@ -11,7 +12,7 @@
                     <br>
                 <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                     <thead>  
-                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;"> Details of breakdown Order in QTY and cost  
+                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;"> Details of breakdown Order in QTY  
                         </tr>  
                     </thead>
                 </table>

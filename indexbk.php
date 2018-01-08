@@ -1,13 +1,13 @@
 <?php
 //include auth.php file on all secure pages
+require('config/config.php');
 include("auth.php");
 
-//sql database
+//sql files for calucated
 include ('sql/mainSql.php');
 
 //for upload CSV
 include('upload-functions.php');
-include("auth.php");
 ?>
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@ include("auth.php");
     </head>
 
     <body id="page-top">
-
+        
         <?php include 'nav/home-nav.php'; ?>
         <?php include 'nav/home-header.php'; ?>
         <?php include 'nav/gridsection.php'; ?>

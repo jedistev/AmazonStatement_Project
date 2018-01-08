@@ -1,7 +1,7 @@
 <!-- General Grid Section with SKU only -->
 <section id="portfolio">
     <div class="container">
-        <p class="text-center">Chart</p>
+        <p class="text-center" id="dashboard">Dashboard Chart</p>
         <div class="row">
             <!-- Uk Dashboard-->
             <div class="col-sm-3 portfolio-item">

@@ -1,7 +1,7 @@
 <!-- General Grid Section with SKU only -->
 <section id="portfolio">
     <div class="container">
-        <p class="text-center">SKU</p>
+        <p class="text-center" id="sku">SKU</p>
         <div class="row">
             <!-- SKU model-->
             <div class="col-sm-3 portfolio-item">
@@ -29,7 +29,7 @@
             </div>
 
             <!-- SKU model UK euro-->
-            <div class="col-sm-3 portfolio-item">
+<!--            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModalukeurosku" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -39,7 +39,7 @@
                     </div>
                     <img class="img-fluid" src="img/portfolio/sku-sold-euro-uk.png" alt="">
                 </a>
-            </div>
+            </div>-->
 
             <!-- SKU model Germany-->
             <div class="col-sm-3 portfolio-item">
@@ -93,8 +93,8 @@
                 </a>
             </div>
             
-            <!-- SKU model France-->
-            <div class="col-sm-3 portfolio-item">
+            <!-- SKU model Europe-->
+<!--            <div class="col-sm-3 portfolio-item">
                 <a class="portfolio-link" href="#portfolioModalSkuEuro" data-toggle="modal">
                     <div class="caption">
                         <div class="caption-content">
@@ -104,7 +104,7 @@
                     </div>
                     <img class="img-fluid" src="img/portfolio/sku-euro-flag.png" alt="">
                 </a>
-            </div>
+            </div>-->
             
         </div>
     </div>

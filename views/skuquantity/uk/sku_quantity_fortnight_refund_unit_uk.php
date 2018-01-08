@@ -1,3 +1,4 @@
+<p class="text-center">UK Marketplace</p>
 <div class="container">
     <div class="row">
         <div class="col-lg-12 mx-auto">
@@ -11,7 +12,7 @@
                     <br>
                 <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0" >  
                     <thead>  
-                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">  SKU QUANITITY  
+                        <tr style="font-size: 11px; font-weight: bold; text-transform: uppercase; text-align: center;">   Details of breakdown Reimbursement in QTY 
                         </tr>  
                     </thead>
                 </table>
