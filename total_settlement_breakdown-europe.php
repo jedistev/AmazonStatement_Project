@@ -13,85 +13,39 @@ include ('sql/mainSql.php');
     </head>
 
     <body id="page-top">
-        <?php include 'nav/nav.php'; ?>
-        <?php include 'nav/header.php'; ?>
-        <!--Each Settlement goes there -->
+        <div class="wrapper">
+            <?php include 'nav/sidebar.php'; ?>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <?php include 'nav/nav.php'; ?>
+                <?php include 'nav/header.php'; ?>
+                <!--Each Settlement goes there -->
+                <?php include './views/breakdown/eur/total_breakdown_europe.php'; ?>
 
-        <div class="container">
-            <br>
-            <label>Total Breakdown for Europe H-root (in Euro)</label>
-            <br><br>
-            <?php
-            echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
-            echo '<tr>';
-            echo '<th>Marketplace name</th>';
-            echo '<th>Date</th>';
-            echo '<th>Settlement id</th>';
-            echo '<th>Total amount</th>';
-
-
-            echo '</tr>';
-            while (($rowGBPDisplay = mysqli_fetch_array($europeDisplayList, MYSQLI_ASSOC)) != NULL) {
-                echo '<tr>';
-                echo '<td>' . $rowGBPDisplay['marketplace_name'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_start_date'] . ' - ' . $rowGBPDisplay['settlement_end_date'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_id'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['total_amount'] . '</td>';
-                echo '</tr>';
-            }
-            mysqli_free_result($europeDisplayList);
-            echo '</table>';
-            ?>
-            <Br><br>
-            <table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">
-                <thead>
-
-                    <tr>
-                        <th>Total Balance of Marketplace Europe Cost (in Euro)</th>
-                        <?php
-                        // total Order
-                        while ($row = mysqli_fetch_array($showeuropeamountcost)) {
-                            ?>
-                            <td><b><?php echo $row["total_europe_price"]; ?></b></td>
-                            <?php
-                        };
-                        ?>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <br><br>
-            <label>Total Breakdown for Europe H-root (in GBP)</label>
-            <br><br>
-            <?php
-            echo '<table class="table table-condensed table-bordered table-striped table-hover dt-responsove wrap" cellspacing="0">';
-            echo '<tr>';
-            echo '<th>Marketplace name</th>';
-            echo '<th>Date</th>';
-            echo '<th>Settlement id</th>';
-            echo '<th>Total amount</th>';
-
-
-            echo '</tr>';
-            while (($rowGBPDisplay = mysqli_fetch_array($totalGBPdisplayedlist, MYSQLI_ASSOC)) != NULL) {
-                echo '<tr>';
-                echo '<td>' . $rowGBPDisplay['marketplace_name'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_start_date'] . ' - ' . $rowGBPDisplay['settlement_end_date'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['settlement_id'] . '</td>';
-                echo '<td>' . $rowGBPDisplay['total_amount'] . '</td>';
-                echo '</tr>';
-            }
-            mysqli_free_result($totalGBPdisplayedlist);
-            echo '</table>';
-            ?>
-
-
-
+                <?php include 'nav/footer.php'; ?>
+            </div>
         </div>
-        <?php include 'nav/footer.php'; ?>
+        <div class="overlay"></div>
+
         <?php include 'nav/script.php'; ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
 
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
 
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
     </body>
 </html>
