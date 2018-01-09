@@ -14,14 +14,21 @@ include ('sql/sku-quanity-uk-mysql.php');
     </head>
 
     <body id="page-top">
-        <?php include 'nav/nav.php'; ?>
-        <?php include 'nav/header.php'; ?>
-        <!--Each Settlement goes there -->
-        <?php include 'views/skuquantity/uk/sku_quantity_model_code_uk_each_settlement.php'; ?>
-        <?php include 'nav/footer.php'; ?>
-        <?php include 'nav/script.php'; ?>
-        <script>
+        <div class="wrapper">
+            <?php include 'nav/sidebar.php'; ?>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <?php include 'nav/nav.php'; ?>
+                <?php include 'nav/header.php'; ?>
+                <!--Each Settlement goes there -->
+                <?php include 'views/skuquantity/uk/sku_quantity_model_code_uk_each_settlement.php'; ?>
+                <?php include 'nav/footer.php'; ?>
+            </div>
+        </div>
+        <div class="overlay"></div>
 
+        <?php include 'nav/script.php'; ?>
+        <script type="text/javascript">
             //dropdown list
             $(document).ready(function () {
                 $("#getSettlementbutton").click(function () {
@@ -32,16 +39,24 @@ include ('sql/sku-quanity-uk-mysql.php');
                 });
             });
 
+            //sidebar
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
 
-            function Export()
-            {
-                var conf = confirm("Export users to CSV?");
-                if (conf == true)
-                {
-                    window.open("export/each_settlement_uk_export_csv.php", '_blank');
-                }
-            }
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
         </script>
-
     </body>
 </html>

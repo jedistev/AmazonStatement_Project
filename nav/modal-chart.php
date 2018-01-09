@@ -181,7 +181,7 @@
 </div>
 <!-- End Dashboard UK EURO-->
 
-<!-- Dashboard UK EURO-->
+<!-- Dashboard EURO-->
 <div class="portfolio-modal modal fade" id="portfolioModalDashboardukEurope" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -210,5 +210,5 @@
         </div>
     </div>
 </div>
-<!-- End Dashboard UK EURO-->
+<!-- End Dashboard EURO-->
 
