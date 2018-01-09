@@ -63,7 +63,7 @@
         
         <!--France marketplace-->
         <li class="active">
-            <a href="#frSubmenu" data-toggle="collapse" aria-expanded="false">france</a>
+            <a href="#frSubmenu" data-toggle="collapse" aria-expanded="false">France</a>
             <ul class="collapse list-unstyled" id="frSubmenu">
                 <li><a href="<?php echo 'sku_list_fr_main_page.php'; ?>">SKU list</a></li>
                 <li><a href="<?php echo 'total_settlement_fr.php'; ?>">Date and Total</a></li>
@@ -112,11 +112,26 @@
             </ul>
         </li>
         <li class="active">
-            <a href="#eurSubmenu" data-toggle="collapse" aria-expanded="false">Euro</a>
+            <a href="#eurSubmenu" data-toggle="collapse" aria-expanded="false">Europe</a>
             <ul class="collapse list-unstyled" id="eurSubmenu">
-                <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 2</a></li>
-                <li><a href="#">Page 3</a></li>
+                <li><a href="<?php echo 'total_settlement_europe.php'; ?>">Total on each</a></li>
+                <li><a href="<?php echo 'total_settlement_breakdown-europe.php'; ?>">Breakdown on Europe</a></li>
+                <li><a href="<?php echo 'total_settlement_breakdown-europe-details.php'; ?>">Breakdown Details</a></li>
+            </ul>
+        </li>
+        <br>
+        <!--Spain marketplace-->
+        <li class="active">
+            <a href="#esSubmenu" data-toggle="collapse" aria-expanded="false">Dashboard</a>
+            <ul class="collapse list-unstyled" id="esSubmenu">
+                <li><a href="<?php echo 'Dashboard-uk-main.php'; ?>">UK</a></li>
+                <li><a href="<?php echo 'Dashboard-uk-euro-main.php'; ?>">UK Euro</a></li>
+                <li><a href="<?php echo 'Dashboard-de-main.php'; ?>">Germany</a></li>
+                <li><a href="<?php echo 'Dashboard-fr-main.php'; ?>">France</a></li>
+                <li><a href="<?php echo 'Dashboard-es-main.php'; ?>">Spain</a></li>  
+                <li><a href="<?php echo 'Dashboard-it-main.php'; ?>">Italy</a></li>
+                <li><a href="<?php echo 'Dashboard-europe-main.php'; ?>">Europe</a></li>
+   
             </ul>
         </li>
     </ul>

@@ -12,21 +12,48 @@ include ('sql/sku-quanity-de-mysql.php');
         <?php include 'nav/css.php'; ?>
     </head>
     <body id="page-top">
-        <?php include 'nav/nav.php'; ?>
-        <?php include 'nav/header.php'; ?>
-        <!--Each Settlement goes there -->
-        <?php include './views/skuquantity/de/sku_quantity_de_total_order_and_refund.php'; ?>
-        <script>
-            function Exportskuuk()
-            {
-                var conf = confirm("Export users to CSV?");
-                if (conf == true)
-                {
-                    window.open("views/skuquantity/de/export_sku_quantity_uk.php", '_blank');
-                }
-            }
-        </script> 
-        <?php include 'nav/footer.php'; ?>
+        <div class="wrapper">
+            <?php include 'nav/sidebar.php'; ?>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <?php include 'nav/nav.php'; ?>
+                <?php include 'nav/header.php'; ?>
+                <!--Each Settlement goes there -->
+                <?php include './views/skuquantity/de/sku_quantity_de_total_order_and_refund.php'; ?>
+                <script>
+                    function Exportskuuk()
+                    {
+                        var conf = confirm("Export users to CSV?");
+                        if (conf == true)
+                        {
+                            window.open("views/skuquantity/de/export_sku_quantity_uk.php", '_blank');
+                        }
+                    }
+                </script> 
+                <?php include 'nav/footer.php'; ?>
+            </div>
+        </div>
+        <div class="overlay"></div>
+
         <?php include 'nav/script.php'; ?>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
     </body>
 </html>

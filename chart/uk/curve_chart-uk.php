@@ -24,12 +24,10 @@ while ($row = mysqli_fetch_array($result)) {
         var options = {
             title: 'Fornight Total sales',
             curveType: 'function',
-            height: 400,
+            height: 200,
             legend: {position: 'bottom'},
             hAxis: {title: 'total amount', titleTextStyle: {color: '#333'}},
-            vAxis: {minValue: 0}
-            //is3D:true,  
-            //pieHole: 0.4  
+            vAxis: {minValue: 0} 
         };
         var chart = new google.visualization.AreaChart(document.getElementById('piechartTotalamountuk'));
         chart.draw(data, options);

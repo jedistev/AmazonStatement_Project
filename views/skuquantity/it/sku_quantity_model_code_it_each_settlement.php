@@ -8,7 +8,7 @@
 
     function fill_settlement($conn) {
         $outputData = '';
-        $sqlDropDownSettlementID = "SELECT  *  FROM `settlementsit` GROUP BY settlement_id DESC ORDER BY settlement_start_date ASC;";
+        $sqlDropDownSettlementID = "SELECT  *  FROM `settlementsit` GROUP BY settlement_id DESC ORDER BY settlement_start_date DESC;";
         $DropDownSettlementID = mysqli_query($conn, $sqlDropDownSettlementID);
         while ($row = mysqli_fetch_array($DropDownSettlementID)) {
             $outputData .= '<option value="' . $row["settlement_id"] . ' ' . $row["settlement_start_date"] . ' ' . $row["settlement_end_date"] . '">' . $row["settlement_id"] . '&nbsp &nbsp' . $row["settlement_start_date"] . '&nbsp-&nbsp' . $row["settlement_end_date"] . '</option>';
