@@ -120,10 +120,10 @@
             </ul>
         </li>
         <br>
-        <!--Spain marketplace-->
+        <!--Dashboard marketplace-->
         <li class="active">
-            <a href="#esSubmenu" data-toggle="collapse" aria-expanded="false">Dashboard</a>
-            <ul class="collapse list-unstyled" id="esSubmenu">
+            <a href="#dashSubmenu" data-toggle="collapse" aria-expanded="false">Dashboard</a>
+            <ul class="collapse list-unstyled" id="dashSubmenu">
                 <li><a href="<?php echo 'Dashboard-uk-main.php'; ?>">UK</a></li>
                 <li><a href="<?php echo 'Dashboard-uk-euro-main.php'; ?>">UK Euro</a></li>
                 <li><a href="<?php echo 'Dashboard-de-main.php'; ?>">Germany</a></li>

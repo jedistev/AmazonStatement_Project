@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_array($result)) {
         var options = {
             title: 'Fornight Total sales',
             curveType: 'function',
-            height: 400,
+            height: 600,
             legend: {position: 'bottom'},
             hAxis: {title: 'total amount', titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0}
