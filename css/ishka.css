@@ -106,12 +106,12 @@ div.table-container-scrollbar {
 
 .QTY-color-bg-TQTY{
     background-color: #2480f0;
-     color: #ffffff;
+    color: #ffffff;
 }
 
 .QTY-color-bg-refund{
     background-color: #bd2130;
-     color: #ffffff;
+    color: #ffffff;
 }
 
 /* ---------------------------------------------------
@@ -237,4 +237,9 @@ a.download {
 a.article, a.article:hover {
     background: #2C3E50 !important;
     color: #fff !important;
+}
+
+.chartreponsive {
+  width: 100%; 
+  min-height: 400px;
 }

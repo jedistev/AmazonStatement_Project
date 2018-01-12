@@ -22,11 +22,9 @@ while ($row = mysqli_fetch_array($result)) {
 ?>
         ]);
         var options = {
-            title: 'Fornight Total sales',
             curveType: 'function',
-            height: 200,
+            height: 400,
             legend: {position: 'bottom'},
-            hAxis: {title: 'total amount', titleTextStyle: {color: '#333'}},
             vAxis: {minValue: 0} 
         };
         var chart = new google.visualization.AreaChart(document.getElementById('piechartTotalamountuk'));

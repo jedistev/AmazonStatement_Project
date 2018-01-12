@@ -12,13 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/Dashboard-uk-main.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/css/ishka.css</file>
             <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/chart-script-uk.php</file>
             <file>file:/C:/xampp/htdocs/Amazon-Statement/views/Dashboard/uk/Dashboard_display_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/curve_chart-uk-bk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/basic_bar_chart-uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/nav/modal-chart.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/curve_chart-uk.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/table_chart_uk.php</file>
         </group>
     </open-files>
 </project-private>

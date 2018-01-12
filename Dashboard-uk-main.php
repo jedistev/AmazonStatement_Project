@@ -11,15 +11,18 @@ include ('sql/mainSql.php');
     <head>
         <?php include 'nav/meta.php'; ?>
         <?php include 'nav/css.php'; ?>
+        <!-- Dashboard CSS only-->
+        <link href="css/static.css" rel="stylesheet" type='text/css' />
+        <link href="css/dashboards.css" rel="stylesheet" type='text/css' />
     </head>
 
-    <body id="page-top">
+    <body id="page-top" class="keen-dashboard">
         <div class="wrapper">
             <?php include 'nav/sidebar.php'; ?>
             <!-- Page Content Holder -->
             <div id="content">
                 <?php include 'nav/nav.php'; ?>
-                <?php include 'nav/header.php'; ?>
+                
                 <!--Each Settlement goes there -->
                 <?php include './views/Dashboard/uk/Dashboard_display_uk.php'; ?>
                 <?php include 'nav/footer.php'; ?>
