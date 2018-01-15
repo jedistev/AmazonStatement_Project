@@ -34,7 +34,8 @@ while ($row = mysqli_fetch_array($resultCoreChartProductSold)) {
         ]);
 
         var options = {
-          hAxis: {title: 'sku', minValue: 0},
+          height: 450,
+          hAxis: {minValue: 0},
           vAxis: {title: 'SKU SOLD', minValue: 0},
           legend: 'none'
         };

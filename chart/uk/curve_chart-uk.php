@@ -2,7 +2,7 @@
 // Database Connection
 $queryPie = "SELECT  
     CONCAT(settlement_start_date,' - ', settlement_end_date) As Date,
-    total_amount
+    total_amount as 'Total Amount'
 FROM settlements
 GROUP BY settlement_id";
 $result = mysqli_query($conn, $queryPie);
@@ -14,20 +14,19 @@ $result = mysqli_query($conn, $queryPie);
     function drawChart()
     {
         var data = google.visualization.arrayToDataTable([
-            ['Date', 'total_amount'],
+            ['Date', 'Total Amount'],
 <?php
 while ($row = mysqli_fetch_array($result)) {
-    echo "['" . $row["Date"] . "', " . $row["total_amount"] . "],";
+    echo "['" . $row["Date"] . "', " . $row["Total Amount"] . "],";
 }
 ?>
         ]);
         var options = {
             curveType: 'function',
-            height: 400,
-            legend: {position: 'bottom'},
+            height: 600,
             vAxis: {minValue: 0} 
         };
-        var chart = new google.visualization.AreaChart(document.getElementById('piechartTotalamountuk'));
+        var chart = new google.visualization.LineChart(document.getElementById('piechartTotalamountuk'));
         chart.draw(data, options);
     }
 </script>

@@ -25,11 +25,11 @@ $resultrefund = mysqli_query($conn, $querybasicbarchartrefund);
 
         var data = google.visualization.arrayToDataTable([
             ['sku', 'SKU Refund'],
-<?php
-while ($row = mysqli_fetch_array($resultrefund)) {
-    echo "['" . $row["sku"] . "', " . $row["SKU Refund"] . "],";
-}
-?>
+    <?php
+    while ($row = mysqli_fetch_array($resultrefund)) {
+        echo "['" . $row["sku"] . "', " . $row["SKU Refund"] . "],";
+    }
+    ?>
         ]);
 
         var options = {
