@@ -21,13 +21,13 @@
         <div class="col-sm-4">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Dounut sale 
+                    Pie Chart of SKU sold
                 </div>
                 <div class="chart-stage">
                     <div id="donutchart"></div>
                 </div>
                 <div class="chart-notes">
-                    Donut json
+                    Total of 10 item are Sold
                 </div>
             </div>
         </div>
@@ -39,10 +39,10 @@
                     Fornight Total sales
                 </div>
                 <div class="chart-stage">
-                    <div id="piechartTotalamountuk" class="chartreponsive"></div>
+                    <div id="piechartTotalamountuk" ></div>
                 </div>
                 <div class="chart-notes">
-                    Total amount
+                    Total Amount
                 </div>
             </div>
         </div>
@@ -51,13 +51,13 @@
         <div class="col-sm-4">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Cell Title
+                    Total Settlement Amount
                 </div>
                 <div class="chart-stage">
-                    <div id="table_chart_div" class="chartreponsive"></div>
+                    <div id="table_chart_div" class="chartreponsive600 pre-scrollable"></div>
                 </div>
                 <div class="chart-notes">
-                    Notes about this chart
+                    Date and Total Amount
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="chart-stage">
                     <div id="grid-1-1">
-                        <div id="Core_product_sold_chart_div" class="chartreponsive"></div>
+                        <div id="Core_product_sold_chart_div" ></div>
                     </div>
                 </div>
                 <div class="chart-notes">
@@ -82,13 +82,13 @@
         <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Cell Title
+                    SKU Refund Chart 
                 </div>
                 <div class="chart-stage">
                     <div id="piechart" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
-                    Notes about this chart
+                     Total of 10 item are Refund
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                     Cell Title
                 </div>
                 <div class="chart-stage">
-                    <div id="curve_chart" class="chartreponsive"></div>
+                    <div id="barformat_div" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
                     Notes about this chart
@@ -207,10 +207,10 @@
         <div class="col-sm-6 col-md-4">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Cell Title
+                    Revenue Change
                 </div>
                 <div class="chart-stage">
-                    <img data-src="holder.js/100%x120/white">
+                    <div id="arrowformat_div" class="chartreponsive pre-scrollable"></div>
                 </div>
                 <div class="chart-notes">
                     Notes about this chart

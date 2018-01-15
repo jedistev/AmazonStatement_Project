@@ -240,6 +240,11 @@ a.article, a.article:hover {
 }
 
 .chartreponsive {
-  width: 100%; 
-  min-height: 400px;
+    width: 100%; 
+    min-height: 400px;
+}
+
+.chartreponsive600 {
+    width: 100%; 
+    min-height: 600px; 
 }
