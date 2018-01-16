@@ -2,19 +2,21 @@
 // Database Connection
 $querypiebasicbarchartrefund = "SELECT 
     sku, 
-    COUNT(sku) AS 'SKU Refund'
+    SUM((transaction_type = 'Refund'
+        AND amount_description = 'Principal'
+        AND amount_type = 'ItemPrice')) AS 'SKU Refund'
 FROM
     settlements
 WHERE
 	(sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
-	AND transaction_type ='other-transaction'
-        AND amount_description = 'REVERSAL_REIMBURSEMENT'
-        AND amount_type = 'FBA Inventory Reimbursement'
 GROUP BY sku
+HAVING sku IS NOT NULL AND LENGTH(sku) > 0
 ORDER BY `SKU Refund` DESC
 limit 10";
+
+
 $resultpierefund = mysqli_query($conn, $querypiebasicbarchartrefund);
 ?>
 
@@ -38,7 +40,7 @@ while ($row = mysqli_fetch_array($resultpierefund)) {
             is3D: true,
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_refund'));
 
         chart.draw(data, options);
     }

@@ -31,6 +31,7 @@ include ('sql/mainSql.php');
         <div class="overlay"></div>
 
         <?php include 'nav/script.php'; ?>
+        
         <!-- Chart/Loader.js Google -->
         <?php include 'chart/uk/chart-script-uk.php'; ?>
         <script type="text/javascript">

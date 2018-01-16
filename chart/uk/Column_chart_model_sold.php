@@ -25,7 +25,7 @@ $resultColumnModelSold = mysqli_query($conn, $queryColumnModelSold);
 
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-      var colorPallette = ['red','yellow','green'];
+      var colorPallette = ['green'];
       var data = google.visualization.arrayToDataTable([
         ['Model_code', 'SKU Sold', ],
 <?php
@@ -41,7 +41,7 @@ while ($row = mysqli_fetch_array($resultColumnModelSold)) {
 
       var options = {
         colors: colorPallette,
-        bar: {groupWidth: "95%"},
+        bar: {groupWidth: "90%"},
         legend: { position: "none" },
       };
       

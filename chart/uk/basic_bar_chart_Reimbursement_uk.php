@@ -1,21 +1,21 @@
 <?php
 // Database Connection
-$querybasicbarchartrefund = "SELECT 
+$querybasicbarchartReimbursement = "SELECT 
     sku, 
-    SUM((transaction_type = 'Refund'
-        AND amount_description = 'Principal'
-        AND amount_type = 'ItemPrice')) AS 'SKU Refund'
+    COUNT(sku) AS 'SKU Reimbursement'
 FROM
     settlements
 WHERE
 	(sku NOT LIKE '%loc%'
         AND sku NOT LIKE 'isc%'
         AND sku NOT LIKE 'trek%')
+	AND transaction_type ='other-transaction'
+        AND amount_description = 'REVERSAL_REIMBURSEMENT'
+        AND amount_type = 'FBA Inventory Reimbursement'
 GROUP BY sku
-HAVING sku IS NOT NULL AND LENGTH(sku) > 0
-ORDER BY `SKU Refund` DESC
+ORDER BY `SKU Reimbursement` DESC
 limit 10";
-$resultrefund = mysqli_query($conn, $querybasicbarchartrefund);
+$resultReimbursement = mysqli_query($conn, $querybasicbarchartReimbursement);
 ?>  
 <script type="text/javascript">
 
@@ -24,10 +24,10 @@ $resultrefund = mysqli_query($conn, $querybasicbarchartrefund);
     function drawBasic() {
 
         var data = google.visualization.arrayToDataTable([
-            ['sku', 'SKU Refund'],
+            ['sku', 'SKU Reimbursement'],
     <?php
-    while ($row = mysqli_fetch_array($resultrefund)) {
-        echo "['" . $row["sku"] . "', " . $row["SKU Refund"] . "],";
+    while ($row = mysqli_fetch_array($resultReimbursement)) {
+        echo "['" . $row["sku"] . "', " . $row["SKU Reimbursement"] . "],";
     }
     ?>
         ]);
@@ -57,7 +57,7 @@ $resultrefund = mysqli_query($conn, $querybasicbarchartrefund);
             options.series[i] = {color: getRandomColor()}
         }
 
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div_refund'));
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div_Reimbursement'));
 
         chart.draw(data, options);
     }
