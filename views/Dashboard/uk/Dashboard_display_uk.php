@@ -36,7 +36,7 @@
         <div class="col-sm-12">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Fornight Total sales
+                Fornight Total sales
                 </div>
                 <div class="chart-stage">
                     <div id="piechartTotalamountuk" ></div>
@@ -54,7 +54,7 @@
                     Total Settlement Amount
                 </div>
                 <div class="chart-stage">
-                    <div id="table_chart_div" class="chartreponsive600 pre-scrollable"></div>
+                    <div id="table_chart_div" class="chartreponsive450 pre-scrollable"></div>
                 </div>
                 <div class="chart-notes">
                     Date and Total Amount
@@ -79,42 +79,29 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    SKU Refund Chart 
+                    SKU Reimbursement Chart 
                 </div>
                 <div class="chart-stage">
                     <div id="piechart" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
-                     Total of 10 item are Refund
+                     Total of 10 item are Reimbursement
                 </div>
             </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
+        </div>  
+        <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Cell Title
+                    Most Reimbursement Product
                 </div>
                 <div class="chart-stage">
-                    <div id="barformat_div" class="chartreponsive"></div>
+                        <div id="chart_div_Reimbursement" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
-                    Notes about this chart
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="chart-wrapper">
-                <div class="chart-title">
-                    Cell Title
-                </div>
-                <div class="chart-stage">
-                    <div id="histogram-chart_div" class="chartreponsive"></div>
-                </div>
-                <div class="chart-notes">
-                    Notes about this chart
+                   Reimbursement Product
                 </div>
             </div>
         </div>
@@ -124,16 +111,17 @@
         <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Model Sold
+                    SKU Refund Pie Chart Chart 
                 </div>
                 <div class="chart-stage">
-                    <div id="columnchart_model_sold" class="chartreponsive"></div>
+                    <div id="piechart_refund" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
-                    Notes about this chart
+                     Refund product
                 </div>
             </div>
-        </div>
+        </div>  
+        
         <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
@@ -149,40 +137,27 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-6 col-md-4">
+    <div class="row">        
+        <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
                     Cell Title
                 </div>
                 <div class="chart-stage">
-                    <img data-src="holder.js/100%x120/white">
+                    <div id="histogram-chart_div" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
                     Notes about this chart
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-4">
+        <div class="col-sm-6">
             <div class="chart-wrapper">
                 <div class="chart-title">
                     Cell Title
                 </div>
                 <div class="chart-stage">
-                    <img data-src="holder.js/100%x120/white">
-                </div>
-                <div class="chart-notes">
-                    Notes about this chart
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-            <div class="chart-wrapper">
-                <div class="chart-title">
-                    Cell Title
-                </div>
-                <div class="chart-stage">
-                    <img data-src="holder.js/100%x120/white">
+                    <div id="bubble_series_chart_div" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
                     Notes about this chart
@@ -192,12 +167,12 @@
     </div>
     <div class="row">
         <div class="col-sm-6 col-md-4">
-            <div class="chart-wrapper">
+             <div class="chart-wrapper">
                 <div class="chart-title">
-                    Cell Title
+                    Model Sold
                 </div>
                 <div class="chart-stage">
-                    <div id="area_chart_div" class="chartreponsive"></div>
+                    <div id="columnchart_model_sold" class="chartreponsive"></div>
                 </div>
                 <div class="chart-notes">
                     Notes about this chart
@@ -231,5 +206,45 @@
             </div>
         </div>
     </div>
-
+ <div class="row">
+        <div class="col-sm-6 col-md-4">
+             <div class="chart-wrapper">
+                <div class="chart-title">
+                    Not sure 
+                </div>
+                <div class="chart-stage">
+                    <div  class="chartreponsive500"></div>
+                </div>
+                <div class="chart-notes">
+                    Notes about this chart
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Service Fee
+                </div>
+                <div class="chart-stage">
+                    <div id="Service_fee_chart_div" class="chartreponsive500"></div>
+                </div>
+                <div class="chart-notes">
+                    Amount of Service Fee
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="chart-wrapper">
+                <div class="chart-title">
+                    Warehouse Damage
+                </div>
+                <div class="chart-stage">
+                    <div id="warehouse_damage_chart_div" class="chartreponsive500"></div>
+                </div>
+                <div class="chart-notes">
+                    Amount of Warehouse Damage
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

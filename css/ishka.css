@@ -244,7 +244,12 @@ a.article, a.article:hover {
     min-height: 400px;
 }
 
-.chartreponsive600 {
+.chartreponsive450 {
     width: 100%; 
-    min-height: 600px; 
+    min-height: 450px; 
+}
+
+.chartreponsive500 {
+    width: 100%; 
+    min-height: 500px; 
 }
