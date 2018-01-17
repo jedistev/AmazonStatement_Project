@@ -15,7 +15,8 @@ ON settlements.sku=tbl_list_sku.sku
 WHERE settlement_id
 GROUP BY tbl_list_sku.model_code
 HAVING sku IS NOT NULL AND LENGTH(sku) > 0
-Order by SKU_Sold DESC";
+Order by SKU_Sold DESC
+limit 10";
 $resultColumnModelSold = mysqli_query($conn, $queryColumnModelSold);
 ?>  
 
