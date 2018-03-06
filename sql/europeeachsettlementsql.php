@@ -3,6 +3,8 @@ require('../config/config.php');
 //
 $sqlDropDownSettlementID = "SELECT  *  FROM `settlements` GROUP BY settlement_id  DESC ORDER BY settlement_start_date ASC;";
 
+$sqlDropDownVatID = "SELECT  *  FROM `tbl_vat` GROUP BY 'ACTIVITY_PERIOD' DESC ORDER by SALE_ARRIVAL_COUNTRY ASC;";
+
 $sql_dropdownlist = "select 
     settlement_start_date,
     marketplace_name,

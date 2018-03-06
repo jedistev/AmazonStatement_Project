@@ -12,12 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/chart-script-uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/Dashboard/uk/Dashboard_display_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/dount_chart_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/table_chart_uk.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/basic_bar_chart-uk_refund.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/chart/uk/Arrow_chart_fortnight_sale_uk.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/nav/sidebar.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/vat_queries_sql.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/VAT_Arrival_country_main.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/vat/arrival_country.php</file>
         </group>
     </open-files>
 </project-private>

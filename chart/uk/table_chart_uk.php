@@ -37,6 +37,9 @@ while ($row = mysqli_fetch_array($ResulttablechartAmount)) {
 
         table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
     }
+    $(window).resize(function () {
+        drawTable();
+    });
 </script>
 
 

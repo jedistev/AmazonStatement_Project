@@ -23,6 +23,7 @@
                 <li><a href="<?php echo 'sku_quantity_uk_total_order_and_refund_main_page.php'; ?>">SKU QTY Breakdown</a></li>
                 <li><a href="<?php echo 'sku_quantity_uk_total_order_main_page.php'; ?>">SKU Order</a></li>
                 <li><a href="<?php echo 'sku_quantity_uk_refund_main_pages.php'; ?>">SKU Reimbursement</a></li>
+                <li><a href="<?php echo 'sku_quantity_uk_Inventory_Reimbursement_main_pages.php'; ?>">SKU Inventory Reimbursement</a></li>
                 <li><a href="<?php echo 'sku_quantity_each_settlement-uk_main_page.php'; ?>">Product Select a date</a></li>
                 <li><a href="<?php echo 'sku_quantity_each_model_code_settlement-uk_main_page.php'; ?>">Model Select a date</a></li>             
             </ul>
@@ -131,6 +132,22 @@
                 <li><a href="<?php echo 'Dashboard-es-main.php'; ?>">Spain</a></li>  
                 <li><a href="<?php echo 'Dashboard-it-main.php'; ?>">Italy</a></li>
                 <li><a href="<?php echo 'Dashboard-europe-main.php'; ?>">Europe</a></li>
+   
+            </ul>
+        </li>
+        
+                <!--VAT marketplace-->
+        <li class="active">
+            <a href="#VATsubmenu" data-toggle="collapse" aria-expanded="false">VAT</a>
+            <ul class="collapse list-unstyled" id="VATsubmenu">
+                <li><a href="<?php echo 'VAT_Arrival_country_main.php'; ?>">Total Arrival Eur & GBP</a></li>
+                <li><a href="<?php echo 'VAT_Total_Arrival_country_main.php'; ?>">Total Country List</a></li>
+                <li><a href="<?php echo 'VAT_select_Arrival_country_main.php'; ?>">Select Date</a></li>
+                <li><a href="<?php echo 'VAT_arrival_each_country_list_main.php'; ?>">Select Country</a></li>
+
+                <!-- <li><a href="<?php echo 'Dashboard-es-main.php'; ?>">Spain</a></li>  
+                <li><a href="<?php echo 'Dashboard-it-main.php'; ?>">Italy</a></li>
+                <li><a href="<?php echo 'Dashboard-europe-main.php'; ?>">Europe</a></li>-->
    
             </ul>
         </li>

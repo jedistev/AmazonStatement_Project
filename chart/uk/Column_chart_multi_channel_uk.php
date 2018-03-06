@@ -37,6 +37,9 @@ while ($row = mysqli_fetch_array($resulColumnRemovalComplete)) {
         chart.draw(view, options);
 
     }
+    $(window).resize(function () {
+        drawChart();
+    });
 </script>
 
 

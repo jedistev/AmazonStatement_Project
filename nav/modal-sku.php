@@ -51,6 +51,7 @@
                             <a href="<?php echo 'sku_quantity_uk_total_order_and_refund_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Total Order and Reimbursement Breakdown</a><br>
                             <a href="<?php echo 'sku_quantity_uk_total_order_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Order </a><br>
                             <a href="<?php echo 'sku_quantity_uk_refund_main_pages.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Reimbursement</a><br>
+                            <li><a href="<?php echo 'sku_quantity_uk_Inventory_Reimbursement_main_pages.php'; ?>">SKU Inventory Reimbursement</a></li>
 <!--                        <a href="<?php echo 'sku_quantity_uk_fortnight_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU QTY Fortnight Reimbursement</a><br>-->
                             <a href="<?php echo 'sku_quantity_each_settlement-uk_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU Product Code Each date</a><br>
                             <a href="<?php echo 'sku_quantity_each_model_code_settlement-uk_main_page.php'; ?>" class="btn btn-lg btn-default">UK's SKU Model Code Each date</a><br>

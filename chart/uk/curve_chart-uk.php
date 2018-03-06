@@ -29,4 +29,8 @@ while ($row = mysqli_fetch_array($result)) {
         var chart = new google.visualization.LineChart(document.getElementById('piechartTotalamountuk'));
         chart.draw(data, options);
     }
+    
+$(window).resize(function(){
+  drawChart();
+});
 </script>

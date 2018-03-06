@@ -400,6 +400,7 @@ GROUP BY settlement_id ASC ,  transaction_type ASC
 
 $sqlbreakdowntransaction_column = "
 SELECT settlement_id, 
+    UNIX_TIMESTAMP (settlement_start_date) as Date,
     date_format(settlement_start_date, '%d/%m/%Y') as settlement_start_date, 
     date_format(settlement_end_date, '%d/%m/%Y') as settlement_end_date,
     total_amount,
@@ -420,7 +421,7 @@ SELECT settlement_id,
 
 FROM settlementsde
 GROUP BY settlement_id
-ORDER BY settlement_start_date DESC
+ORDER BY Date DESC
 ";
 
 

@@ -25,11 +25,11 @@ $resultReimbursement = mysqli_query($conn, $querybasicbarchartReimbursement);
 
         var data = google.visualization.arrayToDataTable([
             ['sku', 'SKU Reimbursement'],
-    <?php
-    while ($row = mysqli_fetch_array($resultReimbursement)) {
-        echo "['" . $row["sku"] . "', " . $row["SKU Reimbursement"] . "],";
-    }
-    ?>
+<?php
+while ($row = mysqli_fetch_array($resultReimbursement)) {
+    echo "['" . $row["sku"] . "', " . $row["SKU Reimbursement"] . "],";
+}
+?>
         ]);
 
         var options = {
@@ -61,4 +61,8 @@ $resultReimbursement = mysqli_query($conn, $querybasicbarchartReimbursement);
 
         chart.draw(data, options);
     }
+
+    $(window).resize(function () {
+        drawBasic();
+    });
 </script>

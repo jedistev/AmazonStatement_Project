@@ -19,13 +19,13 @@ Order by sku ASC";
 $resultCoreChartProductSold = mysqli_query($conn, $queryCoreChartProductSold);
 ?>
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
-      google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+    function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Product_code', 'SKU Sold'],
+            ['Product_code', 'SKU Sold'],
 <?php
 while ($row = mysqli_fetch_array($resultCoreChartProductSold)) {
     echo "['" . $row["Product_code"] . "', " . $row["SKU Sold"] . "],";
@@ -34,14 +34,18 @@ while ($row = mysqli_fetch_array($resultCoreChartProductSold)) {
         ]);
 
         var options = {
-          height: 450,
-          hAxis: {minValue: 0},
-          vAxis: {title: 'SKU SOLD', minValue: 0},
-          legend: 'none'
+            height: 450,
+            hAxis: {minValue: 0},
+            vAxis: {title: 'SKU SOLD', minValue: 0},
+            legend: 'none'
         };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('Core_product_sold_chart_div'));
 
         chart.draw(data, options);
-      }
-    </script>
+    }
+
+    $(window).resize(function () {
+        drawChart();
+    });
+</script>
