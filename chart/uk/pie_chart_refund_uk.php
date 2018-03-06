@@ -44,4 +44,8 @@ while ($row = mysqli_fetch_array($resultpierefund)) {
 
         chart.draw(data, options);
     }
+
+    $(window).resize(function () {
+        drawChart();
+    });
 </script>

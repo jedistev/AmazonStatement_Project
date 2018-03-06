@@ -39,6 +39,9 @@ while ($row = mysqli_fetch_array($resulColumnservicefee)) {
         chart.draw(view, options);
 
     }
+    $(window).resize(function () {
+        drawChart();
+    });
 </script>
 
 

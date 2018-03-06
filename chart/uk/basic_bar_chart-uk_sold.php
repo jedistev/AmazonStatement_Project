@@ -62,4 +62,8 @@ while ($row = mysqli_fetch_array($result)) {
 
         chart.draw(data, options);
     }
+
+    $(window).resize(function () {
+        drawBasic();
+    });
 </script>

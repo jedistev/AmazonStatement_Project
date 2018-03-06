@@ -240,4 +240,28 @@ ORDER BY settlement_id DESC";
 
 
 
+$sqlallInventory_Reimbursement="
+SELECT 
+	sku, 
+	sum(quantity_purchased) AS 'total_QTY_Reimbursement',  
+    SUM(IF(amount_description= 'MISSING_FROM_INBOUND',
+        quantity_purchased,
+        0)) AS 'Missing From Inbound',
+	SUM(IF(amount_description= 'REVERSAL_REIMBURSEMENT',
+        quantity_purchased,
+        0)) AS 'Reversal Reimbursement',
+	SUM(IF(amount_description= 'WAREHOUSE_DAMAGE',
+        quantity_purchased,
+        0)) AS 'Warehouse Damage'
+FROM settlements
+        WHERE amount_type = 'FBA Inventory Reimbursement'
+        AND    (sku NOT LIKE '%loc%'
+        AND sku NOT LIKE 'isc%'
+        AND sku NOT LIKE 'trek%')
+  	
+GROUP BY SKU 
+Order by SKU ASC";
+$allInventory_ReimbursementResult = mysqli_query($conn, $sqlallInventory_Reimbursement);
+
+
 ?>

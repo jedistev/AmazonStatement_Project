@@ -26,30 +26,33 @@ $resultColumnModelSold = mysqli_query($conn, $queryColumnModelSold);
 
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-      var colorPallette = ['green'];
-      var data = google.visualization.arrayToDataTable([
-        ['Model_code', 'SKU Sold', ],
+        var colorPallette = ['green'];
+        var data = google.visualization.arrayToDataTable([
+            ['Model_code', 'SKU Sold', ],
 <?php
 while ($row = mysqli_fetch_array($resultColumnModelSold)) {
     echo "['" . $row["Model_code"] . "', " . $row["SKU_Sold"] . "],";
 }
 ?>
-          
-      ]);
 
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1]);
+        ]);
 
-      var options = {
-        colors: colorPallette,
-        bar: {groupWidth: "90%"},
-        legend: { position: "none" },
-      };
-      
-      
-      
-      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_model_sold"));
-      chart.draw(view, options);
-      
-  }
-  </script>
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 1]);
+
+        var options = {
+            colors: colorPallette,
+            bar: {groupWidth: "90%"},
+            legend: {position: "none"},
+        };
+
+
+
+        var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_model_sold"));
+        chart.draw(view, options);
+
+    }
+    $(window).resize(function () {
+        drawChart();
+    });
+</script>

@@ -42,4 +42,8 @@ while ($row = mysqli_fetch_array($resultpierebur)) {
 
         chart.draw(data, options);
     }
+
+    $(window).resize(function () {
+        drawChart();
+    });
 </script>
