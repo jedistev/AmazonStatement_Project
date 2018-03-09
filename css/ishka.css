@@ -253,3 +253,18 @@ a.article, a.article:hover {
     width: 100%; 
     min-height: 500px; 
 }
+
+.listbox-height {
+  height: 30em;
+}
+
+.button-margin{
+    margin: 5px;
+}
+
+.button-area{
+    padding-top: 10%;
+}
+.button-area-final{
+    padding-top: 15%;
+}
