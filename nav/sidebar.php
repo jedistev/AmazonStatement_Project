@@ -144,12 +144,27 @@
                 <li><a href="<?php echo 'VAT_Total_Arrival_country_main.php'; ?>">Total Country List</a></li>
                 <li><a href="<?php echo 'VAT_select_Arrival_country_main.php'; ?>">Select Date</a></li>
                 <li><a href="<?php echo 'VAT_arrival_each_country_list_main.php'; ?>">Select Country</a></li>
-
-                <!-- <li><a href="<?php echo 'Dashboard-es-main.php'; ?>">Spain</a></li>  
+                <li><a href="<?php echo 'VAT_select_sale_marketplace_main.php'; ?>">Select month marketplace</a></li> 
+                <li><a href="<?php echo 'VAT_select_sale_each_marketplace_main.php'; ?>">Select markeptlace Sold</a></li> 
+                <!--<li><a href="<?php echo 'Dashboard-it-main.php'; ?>">Italy</a></li>
+                <li><a href="<?php echo 'Dashboard-europe-main.php'; ?>">Europe</a></li>-->
+            </ul>
+        </li>
+        
+                <li class="active">
+            <a href="#ListSubmenu" data-toggle="collapse" aria-expanded="false">Select List</a>
+            <ul class="collapse list-unstyled" id="ListSubmenu">
+                <li><a href="<?php echo 'Select_List_sku_marketplace_main.php'; ?>">Select List SKU</a></li>
+                <!--<li><a href="<?php echo 'Dashboard-uk-euro-main.php'; ?>">UK Euro</a></li>
+                <li><a href="<?php echo 'Dashboard-de-main.php'; ?>">Germany</a></li>
+                <li><a href="<?php echo 'Dashboard-fr-main.php'; ?>">France</a></li>
+                <li><a href="<?php echo 'Dashboard-es-main.php'; ?>">Spain</a></li>  
                 <li><a href="<?php echo 'Dashboard-it-main.php'; ?>">Italy</a></li>
                 <li><a href="<?php echo 'Dashboard-europe-main.php'; ?>">Europe</a></li>-->
    
             </ul>
         </li>
+        
+        
     </ul>
 </nav>

@@ -12,10 +12,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/select/select_each.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/getlist/getsinglevat_sell_each_date.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/Select_List_sku_marketplace_main.php</file>
             <file>file:/C:/xampp/htdocs/Amazon-Statement/nav/sidebar.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/sql/vat_queries_sql.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/VAT_Arrival_country_main.php</file>
-            <file>file:/C:/xampp/htdocs/Amazon-Statement/views/vat/arrival_country.php</file>
+            <file>file:/C:/xampp/htdocs/Amazon-Statement/getlist/gets_list_sku.php</file>
         </group>
     </open-files>
 </project-private>
